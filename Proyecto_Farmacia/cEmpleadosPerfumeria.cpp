@@ -5,8 +5,15 @@
 
 #include "cEmpleadosPerfumeria.h"
 
+cEmpleadosPerfumeria::cEmpleadosPerfumeria(string dni)
+    :cEmpleado::cEmpleado(dni)
+{
 
-cEmpleadosPerfumeria::cEmpleadosPerfumeria(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto) {
+}
+
+cEmpleadosPerfumeria::cEmpleadosPerfumeria(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
+    :cEmpleado(cliente, nombre, apellido, numeroEmpleado, dni, contacto)
+{
 
 }
 

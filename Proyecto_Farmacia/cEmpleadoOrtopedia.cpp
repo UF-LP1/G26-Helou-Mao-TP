@@ -5,17 +5,21 @@
 
 #include "cEmpleadoOrtopedia.h"
 
+cEmpleadoOrtopedia::cEmpleadoOrtopedia(string dni)
+    :cEmpleado::cEmpleado(dni)
+{
 
-cEmpleadoOrtopedia::cEmpleadoOrtopedia(string nombre, string apellido, int numerEmpleado, const string DNI, string contacto) {
+}
+    
+
+cEmpleadoOrtopedia::cEmpleadoOrtopedia(list <cCliente>cliente, string nombre, string apellido, int numerEmpleado, const string dni, string contacto)
+    :cEmpleado(cliente,nombre, apellido, numerEmpleado, dni, contacto)
+{
 
 }
 
 cEmpleadoOrtopedia::~cEmpleadoOrtopedia() {
 
-}
-
-sLesion cEmpleadoOrtopedia::GET_LESION() {
-    return;
 }
 
 void cEmpleadoOrtopedia::Asesorar(cCliente cliente) {

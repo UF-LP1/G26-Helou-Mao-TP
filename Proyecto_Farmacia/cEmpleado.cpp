@@ -5,8 +5,20 @@
 
 #include "cEmpleado.h"
 
-cEmpleado::cEmpleado(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto) {
+cEmpleado::cEmpleado(string dni):DNI(dni)
+{
+    this->nombre = "";
+    this->apellido = "";
+    this->numeroEmpleado = 0;
+    this->contacto = "";
 
+}
+cEmpleado::cEmpleado(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado,  string dni, string contacto) :DNI(dni) {
+    this->cliente = cliente;
+    this->nombre = nombre;
+    this->apellido = apellido;
+    this->numeroEmpleado = numeroEmpleado;
+    this->contacto = contacto;
 }
 
 cEmpleado::~cEmpleado() {
@@ -21,7 +33,9 @@ float cEmpleado::CalculaMontoACobrar(cProducto producto, int cantidad, float pre
 }
 
 cTicketdecompra cEmpleado::EmitirTicket(float precio, cProducto producto, cCliente cliente, int cantidad) {
-    return;
+    string aux = cliente.GET_DNI();
+    cTicketdecompra  miTicket(precio, aux);
+    return miTicket;
 }
 
 void cEmpleado::AgregarProductoCarrito(cProducto producto, cCarrito carrito) {

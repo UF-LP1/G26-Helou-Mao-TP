@@ -13,12 +13,13 @@
 #include "cFactura.h"
 
 struct sLesion {
-    string zona;
-    unsigned int gravedad;
-}; typedef struct sLesion slesion;
+    string zona="";
+    unsigned int gravedad=0;
+};  struct sLesion slesion;
 
 class cCliente {
 private:
+    cCarrito miCarrito;
     string nombre;
     string apellido;
     string contacto;
@@ -27,11 +28,12 @@ private:
     eNecesidad necesidad;
     const string DNI;
 public:
-    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string dni);
+    cCliente(cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string dni);
     ~cCliente();
     cCarrito GET_CARRITO();
     void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);
     void AgregarGolosinas(cProducto golosinas, int cantidad);
+    string GET_DNI();
 
 };
 

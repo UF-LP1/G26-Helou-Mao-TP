@@ -110,7 +110,7 @@
     <ClInclude Include="cFarmaceutico.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="cGlosinas.h">
+    <ClInclude Include="cGolosinas.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="cLocal.h">

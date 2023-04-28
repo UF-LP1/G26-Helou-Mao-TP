@@ -9,7 +9,7 @@
 class cEmpleado {
 
 protected:
-
+    list <cCliente>cliente;
     string nombre;
     string apellido;
     int numeroEmpleado;
@@ -17,8 +17,8 @@ protected:
     string contacto;
 
 public:
-
-    cEmpleado(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto);
+    cEmpleado(string dni);
+    cEmpleado(list <cCliente>cliente,string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cEmpleado();
     void AtenderCliente(cCliente cliente);
     float CalculaMontoACobrar(cProducto producto, int cantidad, float precio);

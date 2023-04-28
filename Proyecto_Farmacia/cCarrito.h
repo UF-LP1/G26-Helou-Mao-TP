@@ -6,12 +6,15 @@
 class cCarrito {
 
 private:
+    list<cProducto>listaProductos;
     float precioCarrito;
     int cantidad;
 
 public:
-    cCarrito(float _precioTotal, int _cantidad);
+    cCarrito();
+    cCarrito(list<cProducto> listaProductos, float _precioTotal, int _cantidad);
     ~cCarrito();
+    float GET_PRECIO();
     cProducto GET_LISTAPRODUCTOS();
     void SET_PRECIOCARRITO(float _precioNuevo);
     void AgregarProductos(cProducto _product, int _cant);

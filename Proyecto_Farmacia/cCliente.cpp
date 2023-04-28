@@ -6,8 +6,10 @@
 #include "cCliente.h"
 
 
-cCliente::cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string dni) :DNI(dni)
+
+cCliente::cCliente(cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, string dni) :DNI(dni)
 {
+    this->miCarrito = miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
     this->contacto = contacto;
@@ -20,9 +22,13 @@ cCliente::cCliente(string nombre, string apellido, string contacto, eMetodo meto
 cCliente::~cCliente() {
 
 }
+string cCliente::GET_DNI() {
+    return this->DNI;
+}
 
 cCarrito cCliente::GET_CARRITO() {
-    return;
+    
+    return this->miCarrito;
 }
 
 void cCliente::AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad) {

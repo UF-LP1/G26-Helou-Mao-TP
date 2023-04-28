@@ -5,30 +5,28 @@
 
 #include "cEmpleadoCaja.h"
 
-
-cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto) {
+cEmpleadoCaja::cEmpleadoCaja(string dni)
+    :cEmpleado::cEmpleado(dni)
+{
 
 }
+
+cEmpleadoCaja::cEmpleadoCaja(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
+:cEmpleado(cliente,nombre, apellido, numeroEmpleado, dni, contacto)
+    {
+    }
+
 cEmpleadoCaja::~cEmpleadoCaja() {
 
 }
 
-eMetodo cEmpleadoCaja::GET_METODOPAGO() {
-    return;
-}
 
-bool cEmpleadoCaja::GET_FORMATO() {
-    return;
-}
-
-cCarrito cEmpleadoCaja::GET_CARRITO() {
-    return;
-}
 
 void cEmpleadoCaja::Cobrar(float precioTotal) {
     return;
 }
 
 cTicketdecompra cEmpleadoCaja::AgregarTicketCaja(cCarrito carrito, cCliente cliente) {
-    return;
+    cTicketdecompra nuevoTicket(carrito.GET_PRECIO(), cliente.GET_DNI());
+    return nuevoTicket;
 }
