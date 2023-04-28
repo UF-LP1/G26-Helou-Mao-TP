@@ -5,30 +5,21 @@
 
 #ifndef _CRECETA_H
 #define _CRECETA_H
+#include"Headers.h"
 
 class cReceta {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param string
- * @param int
- */
-void cReceta(void string, void string, void string, void int);
-    
-int GET_DOSIS();
-    
-string GET_MEDICAMENTO();
-    
-string GET_OBRASOCIAL();
-protected: 
-    
-void cReceta();
-private: 
+private:
     string ObraSocial;
     string Medicamento;
     int Dosis;
+
+public:
+    cReceta(string _obraSoc, string _medicamento, int _dosis);
+    ~cReceta();
+    int GET_DOSIS();
+    string GET_MEDICAMENTO();
+    string GET_OBRASOCIAL();
+
 };
 
 #endif //_CRECETA_H

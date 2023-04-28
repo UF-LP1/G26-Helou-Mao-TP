@@ -5,29 +5,14 @@
 
 #include "cOrtopedia.h"
 
-/**
- * cOrtopedia implementation
- */
+cOrtopedia::cOrtopedia(float _precio, string _nombre, int _cantidad, string _marca, eOrtopedia _tipoProduct) {
 
+}
 
-/**
- * @return eOrtopedia
- */
+cOrtopedia::~cOrtopedia() {
+
+}
+
 eOrtopedia cOrtopedia::GET_TIPO() {
-    return null;
-}
-
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param eOrtopedia
- */
-void cOrtopedia::cOrtopedia(void float, void string, void int, void string, void eOrtopedia) {
-
-}
-
-void cOrtopedia::cOrtopedia() {
-
+    return this->tipoProducto;
 }

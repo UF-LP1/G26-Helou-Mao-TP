@@ -5,29 +5,14 @@
 
 #include "cPerfumeria.h"
 
-/**
- * cPerfumeria implementation
- */
+cPerfumeria::cPerfumeria(float _precio, string _nombre, int _cantidad, string _marca, ePerfumeria _tipoProduct) {
 
+}
 
-/**
- * @return ePerfumeria
- */
+cPerfumeria::~cPerfumeria() {
+
+}
+
 ePerfumeria cPerfumeria::GET_TIPO() {
-    return null;
-}
-
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param ePerfumeria
- */
-void cPerfumeria::cPerfumeria(void float, void string, void int, void string, void ePerfumeria) {
-
-}
-
-void cPerfumeria::cPerfumeria() {
-
+    return this->tipoProducto;
 }

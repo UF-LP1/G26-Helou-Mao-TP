@@ -6,27 +6,22 @@
 #ifndef _CPRODUCTO_H
 #define _CPRODUCTO_H
 
+#include"Headers.h"
+
 class cProducto {
-public: 
-    
-float Get_PRECIO();
-    
-string Get_NOMBRE();
-    
-/**
- * @param float
- * @param string 
- * @param int
- * @param string
- */
-void cProducto(void float, void string , void int, void string);
-protected: 
+
+protected:
     float precio;
     string nombre;
     int cantidad;
     string marca;
-    
-void cProducto();
+
+public:
+    cProducto(float _precio, string _nombre, int _cantidad, string marca);
+    ~cProducto();
+    float Get_PRECIO();
+    string Get_NOMBRE();
+
 };
 
 #endif //_CPRODUCTO_H

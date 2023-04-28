@@ -1,39 +1,21 @@
 /**
  * Project Untitled
  */
-
-
 #include "cProducto.h"
 
-/**
- * cProducto implementation
- */
+cProducto::cProducto(float _precio, string _nombre, int _cantidad, string marca) {
 
+}
 
-/**
- * @return float
- */
+cProducto::~cProducto() {
+
+}
+
 float cProducto::Get_PRECIO() {
-    return 0.0;
+    return this->precio;
 }
 
-/**
- * @return string
- */
 string cProducto::Get_NOMBRE() {
-    return "";
+    return this->nombre;
 }
 
-/**
- * @param float
- * @param string 
- * @param int
- * @param string
- */
-void cProducto::cProducto(void float, void string , void int, void string) {
-
-}
-
-void cProducto::cProducto() {
-
-}

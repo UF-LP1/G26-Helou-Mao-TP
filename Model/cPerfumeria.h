@@ -7,26 +7,19 @@
 #define _CPERFUMERIA_H
 
 #include "cProducto.h"
+#include "ePerfumeria.h"
 
 
-class cPerfumeria: public cProducto {
-public: 
-    
-ePerfumeria GET_TIPO();
-    
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param ePerfumeria
- */
-void cPerfumeria(void float, void string, void int, void string, void ePerfumeria);
-protected: 
-    
-void cPerfumeria();
-private: 
+class cPerfumeria : public cProducto {
+
+private:
     ePerfumeria tipoProducto;
+
+public:
+    cPerfumeria(float _precio, string _nombre, int _cantidad, string _marca, ePerfumeria _tipoProduct);
+    ~cPerfumeria();
+    ePerfumeria GET_TIPO();
+
 };
 
 #endif //_CPERFUMERIA_H

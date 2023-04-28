@@ -6,27 +6,20 @@
 #ifndef _CLOCAL_H
 #define _CLOCAL_H
 
+#include "cProducto.h"
+#include "cEmpleado.h"
+
 class cLocal {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param string
- */
-void cLocal(void string, void string, void string);
-    
-/**
- * @param cTicketdecompra
- */
-void AgregarTicketCompra(void cTicketdecompra);
-protected: 
-    
-void cLocal();
-private: 
+private:
     string nombre;
     string direccion;
     string contacto;
+
+public:
+    cLocal(string _nombre, string _direccion, string _contacto);
+    ~cLocal();
+    void AgregarTicketCompra(cTicketdecompra _ticketNuevo);
+
 };
 
 #endif //_CLOCAL_H

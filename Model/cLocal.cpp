@@ -5,28 +5,15 @@
 
 #include "cLocal.h"
 
-/**
- * cLocal implementation
- */
-
-
-/**
- * @param string
- * @param string
- * @param string
- */
-void cLocal::cLocal(void string, void string, void string) {
+cLocal::cLocal(string _nombre, string _direccion, string _contacto) {
 
 }
 
-/**
- * @param cTicketdecompra
- * @return void
- */
-void cLocal::AgregarTicketCompra(void cTicketdecompra) {
+cLocal::~cLocal() {
+
+}
+
+void cLocal::AgregarTicketCompra(cTicketdecompra _ticketNuevo) {
     return;
 }
 
-void cLocal::cLocal() {
-
-}

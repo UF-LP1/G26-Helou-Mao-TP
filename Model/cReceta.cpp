@@ -5,42 +5,24 @@
 
 #include "cReceta.h"
 
-/**
- * cReceta implementation
- */
 
-
-/**
- * @param string
- * @param string
- * @param string
- * @param int
- */
-void cReceta::cReceta(void string, void string, void string, void int) {
+cReceta::cReceta(string _obraSoc, string _medicamento, int _dosis) {
 
 }
 
-/**
- * @return int
- */
+cReceta::~cReceta() {
+
+}
+
 int cReceta::GET_DOSIS() {
-    return 0;
+    return this->dosis;
 }
 
-/**
- * @return string
- */
 string cReceta::GET_MEDICAMENTO() {
-    return "";
+    return this->Medicamento;
 }
 
-/**
- * @return string
- */
 string cReceta::GET_OBRASOCIAL() {
-    return "";
+    return this->ObraSocial;
 }
 
-void cReceta::cReceta() {
-
-}

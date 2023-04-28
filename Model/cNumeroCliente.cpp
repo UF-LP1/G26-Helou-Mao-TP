@@ -5,33 +5,21 @@
 
 #include "cNumeroCliente.h"
 
-/**
- * cNumeroCliente implementation
- */
 
-
-/**
- * @param int
- */
-void cNumeroCliente::cNumeroCliente(void int) {
+cNumeroCliente::cNumeroCliente(int _numeroActual) {
 
 }
 
-/**
- * @return int
- */
+cNumeroCliente::~cNumeroCliente() {
+
+}
+
 int cNumeroCliente::GET_NUMERO() {
-    return 0;
+    return this->numero;
 }
 
-/**
- * @param int
- * @return void
- */
-void cNumeroCliente::SET_NUMERO(void int) {
+void cNumeroCliente::SET_NUMERO(int _numeroNuevo) {
+    this->numero = _numeroNuevo;
     return;
 }
 
-void cNumeroCliente::cNumeroCliente() {
-
-}

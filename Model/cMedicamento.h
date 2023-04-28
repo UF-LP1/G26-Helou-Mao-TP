@@ -9,24 +9,18 @@
 #include "cProducto.h"
 
 
-class cMedicamento: public cProducto {
-public: 
-    
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param int
- * @param bool
- */
-void cMedicamento(void float, void string, void int, void string, void int, void bool);
-protected: 
-    
-void cMedicamento();
-private: 
+
+class cMedicamento : public cProducto {
+
+private:
     int dosis;
     bool ventaLibre;
+
+public:
+    cMedicamento(float _precio, string _nombre, int _cantidad, string _marca, int _dosis, bool _ventaLibre);
+    ~cMedicamento();
+
+
 };
 
 #endif //_CMEDICAMENTO_H

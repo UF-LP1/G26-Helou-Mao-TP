@@ -5,34 +5,22 @@
 
 #include "cTicketdecompra.h"
 
-/**
- * cTicketdecompra implementation
- */
+cTicketdecompra::cTicketdecompra(float _precioTotal, string _dni) {
 
+}
 
-/**
- * @return float
- */
+cTicketdecompra::~cTicketdecompra() {
+
+}
+
 float cTicketdecompra::GET_TOTAL() {
     return 0.0;
 }
 
-/**
- * @param float
- * @return void
- */
-void cTicketdecompra::SET_TOTAL(void float) {
+void cTicketdecompra::SET_TOTAL(float _nuevoTotal) {
     return;
 }
 
-/**
- * @param float
- * @param string
- */
-void cTicketdecompra::cTicketdecompra(void float, void string) {
 
-}
 
-void cTicketdecompra::cTicketdecompra() {
 
-}

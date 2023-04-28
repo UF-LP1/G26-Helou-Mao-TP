@@ -7,26 +7,16 @@
 #define _CORTOPEDIA_H
 
 #include "cProducto.h"
+#include "eOrtopedia.h"
 
-
-class cOrtopedia: public cProducto {
-public: 
-    
-eOrtopedia GET_TIPO();
-    
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param eOrtopedia
- */
-void cOrtopedia(void float, void string, void int, void string, void eOrtopedia);
-protected: 
-    
-void cOrtopedia();
-private: 
+class cOrtopedia : public cProducto {
+private:
     eOrtopedia tipoProducto;
+
+public:
+    cOrtopedia(float _precio, string _nombre, int _cantidad, string _marca, eOrtopedia _tipoProduct);
+    ~cOrtopedia();
+    eOrtopedia GET_TIPO();
 };
 
 #endif //_CORTOPEDIA_H

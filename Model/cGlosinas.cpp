@@ -3,24 +3,12 @@
  */
 
 
-#include "cGlosinas.h"
+#include "cGolosinas.h"
 
-/**
- * cGlosinas implementation
- */
-
-
-/**
- * @param float
- * @param string
- * @param int
- * @param string
- * @param eGolosinas
- */
-void cGlosinas::cGolosinas(void float, void string, void int, void string, void eGolosinas) {
+cGolosinas::cGolosinas(float _precio, string _nombre, int _cantidad, string _marca, eGolosinas _tipoGolosinas) {
 
 }
 
-void cGlosinas::cGolosinas() {
+cGolosinas::~cGolosinas() {
 
 }
