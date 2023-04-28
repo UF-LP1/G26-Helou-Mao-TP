@@ -9,25 +9,12 @@
 #include "cEmpleado.h"
 
 
-class cEmpleadosPerfumeria: public cEmpleado {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- */
-void cEmpleadoPerfumeria(void string, void string, void int, void const string, void string);
-    
-/**
- * @param cCliente
- */
-void Asesorar(void cCliente);
-protected: 
-    
-void cEmpleadoPerfumeria();
+class cEmpleadosPerfumeria : public cEmpleado {
+public:
+	cEmpleadosPerfumeria(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto);
+	~cEmpleadosPerfumeria();
+	void Asesorar(cCliente cliente);
+
 };
 
 #endif //_CEMPLEADOSPERFUMERIA_H

@@ -2,48 +2,37 @@
  * Project Untitled
  */
 
-
 #ifndef _CCLIENTE_H
 #define _CCLIENTE_H
 
+#include "eNecesidad.h"
+#include "eMetodo.h"
+#include "cReceta.h"
+#include "cCarrito.h"
+#include "cNumeroCliente.h"
+#include "cFactura.h"
+
+struct sLesion {
+    string zona;
+    unsigned int gravedad;
+}; typedef struct sLesion slesion;
+
 class cCliente {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param string
- * @param eMetodo
- * @param struct
- * @param eNecesidad
- * @param const string
- */
-void cCliente(void string, void string, void string, void eMetodo, void struct, void eNecesidad, void const string);
-    
-cCarrito GET_CARRITO();
-    
-/**
- * @param cProducto
- * @param int
- */
-void AgregarProductosPerfumeria(void cProducto, void int );
-    
-/**
- * @param cProducto
- * @param int
- */
-void AgregarGolosinas(void cProducto, void int);
-protected: 
-    
-void cCliente();
-private: 
+private:
     string nombre;
     string apellido;
     string contacto;
     eMetodo metodoPago;
-    structLesion lesion;
+    sLesion lesion;
     eNecesidad necesidad;
     const stirng DNI;
+public:
+    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string DNI);
+    ~cCliente();
+    cCarrito GET_CARRITO();
+    void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);
+    void AgregarGolosinas(cProducto golosinas, int cantidad);
+
 };
 
 #endif //_CCLIENTE_H

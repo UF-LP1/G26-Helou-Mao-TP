@@ -5,33 +5,19 @@
 
 #include "cDescuento.h"
 
-/**
- * cDescuento implementation
- */
-
-
-/**
- * @return float
- */
-float cDescuento::GET_PORCENTAJE() {
-    return 0.0;
-}
-
-/**
- * @param float
- * @param string
- */
-void cDescuento::cDescuento(void float, void string) {
+cDescuento::cDescuento(float porcentaje, string obraSocial) {
 
 }
 
-/**
- * @return string
- */
+cDescuento::~cDescuento() {
+
+}
+
 string cDescuento::GET_OBRASOCIAL() {
-    return "";
-}
+    return this->obraSocial
+};
 
-void cDescuento::cDescuento() {
+float cDescuento::GET_PORCENTAJE() {
+    return this->porcentaje;
 
 }

@@ -1,56 +1,28 @@
-/**
- * Project Untitled
- */
-
-
 #include "cCarrito.h"
 
-/**
- * cCarrito implementation
- */
+cCarrito::cCarrito(float _precioTotal, int _cantidad)
+{
 
+}
 
-/**
- * @return cProducto
- */
+cCarrito::~cCarrito() {
+
+}
+
 cProducto cCarrito::GET_LISTAPRODUCTOS() {
-    return null;
-}
 
-/**
- * @param float
- * @return void
- */
-void cCarrito::SET_PRECIOCARRITO(void float) {
     return;
 }
 
-/**
- * @param float
- * @param int
- */
-void cCarrito::cCarrito(void float, void int) {
-
-}
-
-/**
- * @param cProductos
- * @param int
- * @return void
- */
-void cCarrito::AgregarProductos(void cProductos, void int) {
+void cCarrito::SET_PRECIOCARRITO(float _precioNuevo) {
     return;
 }
 
-/**
- * @param cProductos
- * @param int 
- * @return void
- */
-void cCarrito::EliminarProductos(void cProductos, void int ) {
+void cCarrito::AgregarProductos(cProducto _product, int _cant) {
     return;
 }
 
-void cCarrito::cCarrito() {
 
+void cCarrito::EliminarProductos(cProducto _product, int _cant) {
+    return;
 }
