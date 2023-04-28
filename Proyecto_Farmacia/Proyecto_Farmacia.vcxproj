@@ -160,7 +160,7 @@
     <ClInclude Include="cEmpleadosPerfumeria.h" />
     <ClInclude Include="cFactura.h" />
     <ClInclude Include="cFarmaceutico.h" />
-    <ClInclude Include="cGlosinas.h" />
+    <ClInclude Include="cGolosinas.h" />
     <ClInclude Include="cLocal.h" />
     <ClInclude Include="cMedicamento.h" />
     <ClInclude Include="cNumeroCliente.h" />
