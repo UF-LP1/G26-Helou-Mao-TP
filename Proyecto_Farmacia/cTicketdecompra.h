@@ -14,6 +14,7 @@ private:
     string DNI;
 
 public:
+    cTicketdecompra();
     cTicketdecompra(float _precioTotal, string _dni);
     ~cTicketdecompra();
     float GET_TOTAL();

@@ -6,7 +6,15 @@
 #include "cTicketdecompra.h"
 
 cTicketdecompra::cTicketdecompra(float _precioTotal, string _dni) {
+    this->precioTotal=_precioTotal;
+    this->DNI = _dni;
 
+}
+
+cTicketdecompra::cTicketdecompra()
+{
+    this->precioTotal = 0.0;
+    this->DNI = "";
 }
 
 cTicketdecompra::~cTicketdecompra() {

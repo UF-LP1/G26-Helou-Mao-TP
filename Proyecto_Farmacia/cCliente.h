@@ -25,9 +25,9 @@ private:
     eMetodo metodoPago;
     sLesion lesion;
     eNecesidad necesidad;
-    const stirng DNI;
+    const string DNI;
 public:
-    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string DNI);
+    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, const string dni);
     ~cCliente();
     cCarrito GET_CARRITO();
     void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);

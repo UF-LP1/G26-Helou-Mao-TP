@@ -17,6 +17,7 @@ protected:
     string marca;
 
 public:
+    cProducto();
     cProducto(float _precio, string _nombre, int _cantidad, string marca);
     ~cProducto();
     float Get_PRECIO();

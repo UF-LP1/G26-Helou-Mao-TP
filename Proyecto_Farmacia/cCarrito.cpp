@@ -10,8 +10,8 @@ cCarrito::~cCarrito() {
 }
 
 cProducto cCarrito::GET_LISTAPRODUCTOS() {
-
-    return;
+    cProducto miProducto;
+    return miProducto;
 }
 
 void cCarrito::SET_PRECIOCARRITO(float _precioNuevo) {

@@ -6,7 +6,7 @@
 #include "cEmpleadoCaja.h"
 
 
-cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto) {
+cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto) {
 
 }
 cEmpleadoCaja::~cEmpleadoCaja() {

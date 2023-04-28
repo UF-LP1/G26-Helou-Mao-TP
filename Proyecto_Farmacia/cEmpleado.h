@@ -9,6 +9,7 @@
 class cEmpleado {
 
 protected:
+
     string nombre;
     string apellido;
     int numeroEmpleado;
