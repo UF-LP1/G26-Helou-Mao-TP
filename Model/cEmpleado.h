@@ -1,61 +1,30 @@
-/**
- * Project Untitled
- */
-
 
 #ifndef _CEMPLEADO_H
 #define _CEMPLEADO_H
+#include "cTicketdecompra.h"
+#include "cDescuento.h"
+#include "cCliente.h"
+#include "Headers.h"
 
 class cEmpleado {
-public: 
-    
-/**
- * @param cCliente
- */
-void AtenderCliente(void cCliente);
-    
-/**
- * @param cProducto
- * @param int
- * @param float
- */
-float CalculaMontoACobrar(void cProducto, void int, void float);
-    
-/**
- * @param float
- * @param cProducto
- * @param cCliente
- * @param int
- */
-cTicketdecompra EmitirTicket(void float, void cProducto, void cCliente, void int);
-    
-/**
- * @param ccProducto
- * @param cCarrito
- */
-void AgregarProductoCarrito(void ccProducto, void cCarrito);
-    
-/**
- * @param cCliente
- */
-void PasarClienteaCaja(void cCliente);
-    
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- */
-void cEmpleado(void string, void string, void int, void const string, void string);
-protected: 
+
+protected:
     string nombre;
     string apellido;
     int numeroEmpleado;
     const string DNI;
     string contacto;
-    
-void cEmpleado();
+
+public:
+
+    cEmpleado(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto);
+    ~cEmpleado();
+    void AtenderCliente(cCliente cliente);
+    float CalculaMontoACobrar(cProducto producto, int cantidad, float precio);
+    cTicketdecompra EmitirTicket(float precio, cProducto producto, cCliente cliente, int cantidad);
+    void AgregarProductoCarrito(cProducto producto, cCarrito carrito);
+    void PasarClienteaCaja(cCliente cliente);
+
 };
 
 #endif //_CEMPLEADO_H

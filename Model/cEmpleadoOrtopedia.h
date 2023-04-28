@@ -9,32 +9,15 @@
 #include "cEmpleado.h"
 
 
-class cEmpleadoOrtopedia: public cEmpleado {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- */
-void cEmpleadoOrtopedia(void string, void string, void int, void const string, void string);
-    
-structLesion GET_LESION();
-    
-/**
- * @param cCliente
- */
-void Asesorar(void cCliente);
-    
-/**
- * @param cCliente
- */
-void RecomendarProductos(void cCliente);
-protected: 
-    
-void cEmpleadoOrtopedia();
+class cEmpleadoOrtopedia : public cEmpleado {
+
+public:
+
+    cEmpleadoOrtopedia(string nombre, string apellido, int numerEmpleado, const string DNI, string contacto);
+    ~cEmpleadoOrtopedia();
+    sLesion GET_LESION();
+    void Asesorar(cCliente cliente);
+    void RecomendarProductos(cCliente cliente);
 };
 
 #endif //_CEMPLEADOORTOPEDIA_H

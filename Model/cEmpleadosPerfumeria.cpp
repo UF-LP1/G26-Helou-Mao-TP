@@ -5,30 +5,16 @@
 
 #include "cEmpleadosPerfumeria.h"
 
-/**
- * cEmpleadosPerfumeria implementation
- */
 
-
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- */
-void cEmpleadosPerfumeria::cEmpleadoPerfumeria(void string, void string, void int, void const string, void string) {
+cEmpleadosPerfumeria::cEmpleadosPerfumeria(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto) {
 
 }
 
-/**
- * @param cCliente
- * @return void
- */
-void cEmpleadosPerfumeria::Asesorar(void cCliente) {
+cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
+
+}
+
+void cEmpleadosPerfumeria::Asesorar(cCliente cliente) {
     return;
 }
 
-void cEmpleadosPerfumeria::cEmpleadoPerfumeria() {
-
-}

@@ -5,38 +5,18 @@
 
 #include "cEmpleadoLimpieza.h"
 
-/**
- * cEmpleadoLimpieza implementation
- */
+cEmpleadoLimpieza::cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto, int turno) {
 
+}
 
-/**
- * @param int 
- * @return void
- */
-void cEmpleadoLimpieza::SET_TURNO(void int ) {
+cEmpleadoLimpieza::~cEmpleadoLimpieza() {
+
+}
+void cEmpleadoLimpieza::SET_TURNO(int _turnoNuevo) {
+    this->turno = _turnoNuevo;
     return;
 }
 
-/**
- * @return int
- */
 int cEmpleadoLimpieza::GET_TURNO() {
-    return 0;
-}
-
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- * @param int
- */
-void cEmpleadoLimpieza::cEmpleadoLimpieza(void string, void string, void int, void const string, void string, void int) {
-
-}
-
-void cEmpleadoLimpieza::cEmpleadoLimpieza() {
-
+    return this->turno;
 }

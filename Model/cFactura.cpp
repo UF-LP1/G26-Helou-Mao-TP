@@ -3,38 +3,29 @@
  */
 
 
+ /**
+  * Project Untitled
+  */
+
+
 #include "cFactura.h"
 
-/**
- * cFactura implementation
- */
 
+cFactura::cFactura(float _monto, string _nombreCliente, string _fecha, bool _formato) {
 
-/**
- * @return bool
- */
-bool cFactura::GET_FORMATO() {
-    return false;
 }
 
-/**
- * @param bool 
- * @return void
- */
-void cFactura::SET_FORMATO(void bool ) {
+cFactura::~cFactura() {
+}
+
+bool cFactura::GET_FORMATO() {
+    return this->formato;
+}
+
+void cFactura::SET_FORMATO(bool _nuevoFormato) {
+    this->formato = _nuevoFormato;
     return;
 }
 
-/**
- * @param float
- * @param string
- * @param string
- * @param bool
- */
-void cFactura::cFactura(void float, void string, void string, void bool) {
 
-}
 
-void cFactura::cFactura() {
-
-}

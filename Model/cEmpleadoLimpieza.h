@@ -9,30 +9,15 @@
 #include "cEmpleado.h"
 
 
-class cEmpleadoLimpieza: public cEmpleado {
-public: 
-    
-/**
- * @param int
- */
-void SET_TURNO(void int );
-    
-int GET_TURNO();
-    
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- * @param int
- */
-void cEmpleadoLimpieza(void string, void string, void int, void const string, void string, void int);
-protected: 
-    
-void cEmpleadoLimpieza();
-private: 
-    int truno;
+class cEmpleadoLimpieza : public cEmpleado {
+private:
+    int turno;
+
+public:
+    cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto, int turno);
+    ~cEmpleadoLimpieza();
+    void SET_TURNO(int _turnoNuevo);
+    int GET_TURNO();
 };
 
 #endif //_CEMPLEADOLIMPIEZA_H

@@ -7,39 +7,19 @@
 #define _CEMPLEADOCAJA_H
 
 #include "cEmpleado.h"
+#include "eMetodo.h"
 
 
-class cEmpleadoCaja: public cEmpleado {
-public: 
-    
-/**
- * @param string
- * @param string
- * @param int
- * @param const string
- * @param string
- */
-void cEmpleadoCaja(void string, void string, void int, void const string, void string);
-    
-eMetodo GET_METODOPAGO();
-    
-eFormato GET_FORMATO();
-    
-cCarrito GET_CARRITO();
-    
-/**
- * @param float
- */
-void Cobrar(void float );
-    
-/**
- * @param cCarritoExtras
- * @param cCliente
- */
-cTicketdecompra AgregarTicketCaja(void cCarritoExtras, void cCliente);
-protected: 
-    
-void cEmpleadoCaja();
+class cEmpleadoCaja : public cEmpleado {
+public:
+    cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto);
+    ~cEmpleadoCaja();
+    eMetodo GET_METODOPAGO();
+    bool GET_FORMATO();
+    cCarrito GET_CARRITO();
+    void Cobrar(float precioTotal);
+    cTicketdecompra AgregarTicketCaja(cCarrito carrito, cCliente cliente);
+
 };
 
 #endif //_CEMPLEADOCAJA_H

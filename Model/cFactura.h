@@ -5,32 +5,21 @@
 
 #ifndef _CFACTURA_H
 #define _CFACTURA_H
+#include"Headers.h"
 
 class cFactura {
-public: 
-    
-bool GET_FORMATO();
-    
-/**
- * @param bool
- */
-void SET_FORMATO(void bool );
-    
-/**
- * @param float
- * @param string
- * @param string
- * @param bool
- */
-void cFactura(void float, void string, void string, void bool);
-protected: 
-    
-void cFactura();
-private: 
+private:
     float monto;
     string nombreCliente;
     string fecha;
     bool formato;
+
+public:
+    cFactura(float _monto, string _nombreCliente, string _fecha, bool _formato);
+    ~cFactura();
+    bool GET_FORMATO();
+    void SET_FORMATO(bool _nuevoFormato);
+
 };
 
 #endif //_CFACTURA_H
