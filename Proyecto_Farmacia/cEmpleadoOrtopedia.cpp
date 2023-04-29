@@ -12,8 +12,8 @@ cEmpleadoOrtopedia::cEmpleadoOrtopedia(string dni)
 }
     
 
-cEmpleadoOrtopedia::cEmpleadoOrtopedia(list <cCliente>cliente, string nombre, string apellido, int numerEmpleado, const string dni, string contacto)
-    :cEmpleado(cliente,nombre, apellido, numerEmpleado, dni, contacto)
+cEmpleadoOrtopedia::cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto)
+    :cEmpleado(nombre, apellido, numerEmpleado, dni, contacto)
 {
 
 }

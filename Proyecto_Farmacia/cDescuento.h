@@ -9,6 +9,7 @@
 
 class cDescuento {
 private:
+
     float porcentaje;
     string obraSocial;
 

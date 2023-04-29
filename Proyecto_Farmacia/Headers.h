@@ -5,5 +5,7 @@
 #include <vector>
 #include <algorithm>
 #include <iterator>
+#include <list>
+#include <forward_list>
 
 using namespace std;

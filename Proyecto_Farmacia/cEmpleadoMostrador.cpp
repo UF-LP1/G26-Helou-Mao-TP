@@ -5,14 +5,10 @@ using namespace std;
 
 
 #include "cEmpleadoMostrador.h"
-cEmpleadoMostrador::cEmpleadoMostrador(string dni)
-    :cEmpleado::cEmpleado(dni)
-{
-    this->numeroEmpleado = 0;
-}
 
-cEmpleadoMostrador::cEmpleadoMostrador(list <cCliente>cliente, string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual)
-    :cEmpleado(cliente,nombre, apellido, numeroEmpleado, dni, contacto)
+
+cEmpleadoMostrador::cEmpleadoMostrador(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual)
+    :cEmpleado(nombre, apellido, numeroEmpleado, dni, contacto)
 {
     this->numActual = numActual;
 }

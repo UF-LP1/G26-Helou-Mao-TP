@@ -11,8 +11,8 @@ cEmpleadosPerfumeria::cEmpleadosPerfumeria(string dni)
 
 }
 
-cEmpleadosPerfumeria::cEmpleadosPerfumeria(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
-    :cEmpleado(cliente, nombre, apellido, numeroEmpleado, dni, contacto)
+cEmpleadosPerfumeria::cEmpleadosPerfumeria(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
+    :cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
 {
 
 }

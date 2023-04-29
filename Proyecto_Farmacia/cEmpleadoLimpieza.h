@@ -14,7 +14,7 @@ private:
     int turno;
 
 public:
-    cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto, int turno);
+    cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado,  string dni, string contacto, int turno);
     ~cEmpleadoLimpieza();
     void SET_TURNO(int _turnoNuevo);
     int GET_TURNO();

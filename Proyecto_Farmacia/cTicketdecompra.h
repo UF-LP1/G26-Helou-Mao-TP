@@ -12,10 +12,15 @@ class cTicketdecompra {
 private:
     float precioTotal;
     string DNI;
+    string nombreEmpleado;
+    string apellidoEmpleado;
+    int numeroEmpleado;
+    string nombreCliente;
+    string apellidoCliente;
+    vector<cProducto> productosComprados;
 
 public:
-    cTicketdecompra();
-    cTicketdecompra(float _precioTotal, string _dni);
+    cTicketdecompra(float _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados);
     ~cTicketdecompra();
     float GET_TOTAL();
     void SET_TOTAL(float _nuevoTotal);

@@ -10,11 +10,16 @@
 
 
 class cFarmaceutico : public cEmpleado {
+ 
+private:
+    vector<cDescuento> descuento;
+   
 public:
-    cFarmaceutico(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto);
+
+    cFarmaceutico(string dni);
+    cFarmaceutico(vector<cDescuento> descuento,string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cFarmaceutico();
-    cDescuento GET_LISTADESCUENTOS();
-    cReceta GET_RECETA();
+    vector<cDescuento> GET_DESCUENTO();
     cProducto GET_MEDICAMENTO();
     void ExplicarDosificacion(cReceta _objetoReceta, cProducto _objetoProducto);
     void RecomendarRemedios(cCliente _miCliente);

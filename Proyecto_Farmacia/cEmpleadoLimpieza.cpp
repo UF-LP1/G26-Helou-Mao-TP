@@ -5,8 +5,8 @@
 
 #include "cEmpleadoLimpieza.h"
 
-cEmpleadoLimpieza::cEmpleadoLimpieza(list <cCliente>cliente,string nombre, string apellido, int numeroEmpleado, string dni, string contacto, int turno)
-    :cEmpleado(cliente, nombre, apellido, numeroEmpleado, dni, contacto)
+cEmpleadoLimpieza::cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado, string dni, string contacto, int turno)
+    :cEmpleado(nombre, apellido, numeroEmpleado, dni, contacto)
     {
         this -> turno = turno;
     }

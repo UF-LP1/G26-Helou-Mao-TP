@@ -15,6 +15,7 @@ class cMedicamento : public cProducto {
 private:
     int dosis;
     bool ventaLibre;
+    
 
 public:
     cMedicamento(float _precio, string _nombre, int _cantidad, string _marca, int _dosis, bool _ventaLibre);

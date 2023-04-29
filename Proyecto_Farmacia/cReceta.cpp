@@ -15,7 +15,7 @@ cReceta::~cReceta() {
 }
 
 int cReceta::GET_DOSIS() {
-    return this->dosis;
+    return this->Dosis;
 }
 
 string cReceta::GET_MEDICAMENTO() {

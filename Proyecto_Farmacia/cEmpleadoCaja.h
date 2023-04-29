@@ -13,12 +13,12 @@
 class cEmpleadoCaja : public cEmpleado {
 public:
     cEmpleadoCaja(string dni);
-    cEmpleadoCaja(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cEmpleadoCaja( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cEmpleadoCaja();
    
-    void Cobrar(float precioTotal);
-    cTicketdecompra AgregarTicketCaja(cCarrito carrito, cCliente cliente);
-
+    void Cobrar(float precioTotal, cCliente cliente);
+    void emitirFactura(float precio, cProducto producto, cCliente cliente, int cantidad);
 };
 
 #endif //_CEMPLEADOCAJA_H
+

@@ -5,8 +5,15 @@
 
 #include "cFarmaceutico.h"
 
+cFarmaceutico::cFarmaceutico(string dni)
+    :cEmpleado::cEmpleado(dni)
+{
 
-cFarmaceutico::cFarmaceutico(string nombre, string apellido, int numeroEmpleado, const string DNI, string contacto) {
+}
+
+cFarmaceutico::cFarmaceutico( vector<cDescuento>descuent,string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
+    :cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
+{
 
 }
 
@@ -14,17 +21,12 @@ cFarmaceutico::~cFarmaceutico() {
 
 }
 
-cDescuento cFarmaceutico::GET_LISTADESCUENTOS() {
-    return null;
+vector<cDescuento> cFarmaceutico::GET_DESCUENTO() {
+    return this->descuento;
 }
 
-cReceta cFarmaceutico::GET_RECETA() {
-    return null;
-}
 
-cProducto cFarmaceutico::GET_MEDICAMENTO() {
-    return null;
-}
+
 
 void cFarmaceutico::ExplicarDosificacion(cReceta _objetoRec, cProducto _objProducto) {
     return;

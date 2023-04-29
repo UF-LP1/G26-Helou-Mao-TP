@@ -5,17 +5,18 @@
 
 #include "cTicketdecompra.h"
 
-cTicketdecompra::cTicketdecompra(float _precioTotal, string _dni) {
+cTicketdecompra::cTicketdecompra(float _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados)
+{
     this->precioTotal=_precioTotal;
     this->DNI = _dni;
-
+    this->nombreEmpleado = nombreEmpleado;
+    this->apellidoEmpleado = apellidoEmpleado;
+    this->numeroEmpleado = numeroEmpleado;
+    this->nombreCliente = nombreCliente;
+    this->apellidoCliente = apellidoCliente;
+    this->productosComprados = productosComprados;
 }
 
-cTicketdecompra::cTicketdecompra()
-{
-    this->precioTotal = 0.0;
-    this->DNI = "";
-}
 
 cTicketdecompra::~cTicketdecompra() {
 

@@ -13,8 +13,9 @@ cEmpleado::cEmpleado(string dni):DNI(dni)
     this->contacto = "";
 
 }
-cEmpleado::cEmpleado(list <cCliente>cliente, string nombre, string apellido, int numeroEmpleado,  string dni, string contacto) :DNI(dni) {
-    this->cliente = cliente;
+cEmpleado::cEmpleado(string nombre, string apellido, int numeroEmpleado,  string dni, string contacto) :DNI(dni) {
+    
+   
     this->nombre = nombre;
     this->apellido = apellido;
     this->numeroEmpleado = numeroEmpleado;
@@ -30,12 +31,6 @@ void cEmpleado::AtenderCliente(cCliente cliente) {
 
 float cEmpleado::CalculaMontoACobrar(cProducto producto, int cantidad, float precio) {
     return 0.0;
-}
-
-cTicketdecompra cEmpleado::EmitirTicket(float precio, cProducto producto, cCliente cliente, int cantidad) {
-    string aux = cliente.GET_DNI();
-    cTicketdecompra  miTicket(precio, aux);
-    return miTicket;
 }
 
 void cEmpleado::AgregarProductoCarrito(cProducto producto, cCarrito carrito) {

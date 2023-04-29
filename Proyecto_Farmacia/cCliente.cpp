@@ -7,7 +7,7 @@
 
 
 
-cCliente::cCliente(cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, string dni) :DNI(dni)
+cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
 {
     this->miCarrito = miCarrito;
     this->nombre = nombre;
@@ -16,11 +16,16 @@ cCliente::cCliente(cCarrito miCarrito, string nombre, string apellido, string co
     this->metodoPago = metodoPago;
     this->lesion = lesion;
     this->necesidad = necesidad;
+    this->facturaFisica = facturaFisica;
 
 }
 
 cCliente::~cCliente() {
 
+}
+bool cCliente:: GET_FORMATO()
+{
+    return this->facturaFisica;
 }
 string cCliente::GET_DNI() {
     return this->DNI;
