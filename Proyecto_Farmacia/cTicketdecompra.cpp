@@ -5,8 +5,9 @@
 
 #include "cTicketdecompra.h"
 
-cTicketdecompra::cTicketdecompra(float _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados)
+cTicketdecompra::cTicketdecompra(bool _compraExitosa, float _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados)
 {
+    this->compraExitosa = _compraExitosa;
     this->precioTotal=_precioTotal;
     this->DNI = _dni;
     this->nombreEmpleado = nombreEmpleado;

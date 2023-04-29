@@ -15,11 +15,13 @@ private:
     double plataCaja;
 public:
     cEmpleadoCaja(string dni);
-    cEmpleadoCaja(cCliente** lCliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
+    cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
     ~cEmpleadoCaja();
     float CalculaMontoACobrar(cCarrito oCarrito);
     cTicketdecompra Cobrar(cCliente cliente);
-    void emitirFactura(float precio, cProducto producto, cCliente cliente, int cantidad);
+    bool chequearSaldoDisponible(cCliente cliente, float montoAPagar);
+    void emitirFactura(float precio, cCliente cliente);
+    
 };
 
 #endif //_CEMPLEADOCAJA_H
