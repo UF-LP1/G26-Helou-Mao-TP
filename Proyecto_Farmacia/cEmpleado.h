@@ -9,7 +9,7 @@
 class cEmpleado {
 
 protected:
-    cCliente** lClientes;
+    //tendriamos un listado de clientes, en funcioon cobrar no es relevante pero a futuro habria que agregarlo
     string nombre;
     string apellido;
     int numeroEmpleado;
@@ -18,7 +18,7 @@ protected:
 
 public:
     cEmpleado(string dni);
-    cEmpleado(cCliente **lClientes, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cEmpleado( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cEmpleado();
     void AtenderCliente(cCliente cliente);
     void AgregarProductoCarrito(cProducto producto, cCarrito carrito);

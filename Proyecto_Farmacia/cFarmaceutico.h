@@ -17,7 +17,7 @@ private:
 public:
 
     cFarmaceutico(string dni);
-    cFarmaceutico(vector<cDescuento> descuento,cCliente** lCliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cFarmaceutico(vector<cDescuento> descuento, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cFarmaceutico();
     vector<cDescuento> GET_DESCUENTO();
     cProducto GET_MEDICAMENTO();

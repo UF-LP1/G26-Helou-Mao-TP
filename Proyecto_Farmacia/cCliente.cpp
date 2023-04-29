@@ -57,23 +57,16 @@ string cCliente::GET_APELLIDO()
 {
     return this->apellido;
 }
-string cCliente::GET_APELLIDO()
-{
 
-}
-string cCliente::GET_NOMBRE()
-{
-
-}
 float cCliente::GET_SALDO_DISPONIBLE()
 {
-
+    return this->saldoDisponible;
 }
 float cCliente::GET_EFECTIVO_DISPONIBLE()
 {
-
+    return this->efectivodisponible;
 }
 float cCliente::GET_SALDO_MP()
 {
-
+    return this->saldoMPago;
 }

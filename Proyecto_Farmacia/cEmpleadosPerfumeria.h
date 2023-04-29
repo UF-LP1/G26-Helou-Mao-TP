@@ -12,7 +12,7 @@
 class cEmpleadosPerfumeria : public cEmpleado {
 public:
 	cEmpleadosPerfumeria(string dni);
-	cEmpleadosPerfumeria(cCliente** lCliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
 	~cEmpleadosPerfumeria();
 	void Asesorar(cCliente cliente);
 
