@@ -10,7 +10,7 @@ cProducto::cProducto()
     this->marca = "";
 }
 
-cProducto::cProducto(float _precio, string _nombre, string marca) 
+cProducto::cProducto(double _precio, string _nombre, string marca) 
 {
     this->precio= _precio;
     this->nombre= _nombre;
@@ -21,7 +21,7 @@ cProducto::~cProducto() {
 
 }
 
-float cProducto::Get_PRECIO() {
+double cProducto::Get_PRECIO() {
     return this->precio;
 }
 

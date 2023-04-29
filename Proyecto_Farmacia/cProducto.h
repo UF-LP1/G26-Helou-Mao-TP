@@ -11,13 +11,13 @@
 class cProducto {
 
 protected:
-    float precio;
+    double precio;
     string nombre;
     string marca;
 
 public:
     cProducto();
-    cProducto(float _precio, string _nombre,  string marca);
+    cProducto(double _precio, string _nombre,  string marca);
     ~cProducto();
     float Get_PRECIO();
     string Get_NOMBRE();

@@ -1,11 +1,11 @@
 #include "cCarrito.h"
 
-cCarrito::cCarrito(vector<cProducto> listaProductos, float descuentomed)
+cCarrito::cCarrito(vector<cProducto> listaProductos, double descuentomed)
 {
     this->listaProductos = listaProductos;
     this->descuentoMed = descuentomed;
 }
-float cCarrito::GET_DESCUENTOMED()
+double cCarrito::GET_DESCUENTOMED()
 {
     return this->descuentoMed;
 }
@@ -13,7 +13,7 @@ void cCarrito::SET_LISTAPROD(vector<cProducto> listaProductosNuev)
 {
     this->listaProductos = listaProductosNuev;
 }
-void cCarrito::SET_DESCUENTO(float nuevoDes)
+void cCarrito::SET_DESCUENTO(double nuevoDes)
 {
 
 }

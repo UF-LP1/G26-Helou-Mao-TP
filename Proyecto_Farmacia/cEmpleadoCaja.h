@@ -17,10 +17,10 @@ public:
     cEmpleadoCaja(string dni);
     cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
     ~cEmpleadoCaja();
-    float CalculaMontoACobrar(cCarrito oCarrito);
+    double CalculaMontoACobrar(cCarrito oCarrito);
     cTicketdecompra Cobrar(cCliente cliente);
-    bool chequearSaldoDisponible(cCliente cliente, float montoAPagar);
-    void emitirFactura(float precio, cCliente cliente);
+    bool chequearSaldoDisponible(cCliente cliente, double montoAPagar);
+    void emitirFactura(double precio, cCliente cliente);
     
 };
 

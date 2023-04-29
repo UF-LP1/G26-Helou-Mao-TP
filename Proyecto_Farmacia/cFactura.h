@@ -10,15 +10,15 @@
 
 class cFactura {
 private:
-    float monto;
+    double monto;
     string nombreCliente;
     string apellidoCliente;
-    string fecha;
     bool formato;
     vector<cProducto> productosComprados;
 
 public:
-    cFactura(float _monto, string nombreCliente, string apellidoCliente,string _fecha, bool _formato, vector<cProducto> _productosComprados);
+    cFactura();
+    cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados);
     ~cFactura();
     bool GET_FORMATO();
     void SET_FORMATO(bool _nuevoFormato);

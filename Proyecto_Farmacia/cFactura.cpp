@@ -9,13 +9,19 @@
 
 
 #include "cFactura.h"
+cFactura::cFactura()
+{
+    this->monto = 0;
+    this->nombreCliente = "";
+    this->apellidoCliente = "";
+    this->formato = false;
+    this->productosComprados;
+}
 
-
-cFactura::cFactura(float _monto, string nombreCliente, string apellidoCliente, string _fecha, bool _formato, vector<cProducto> _productosComprados)
+cFactura::cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados)
 {   this->monto = _monto;
     this->nombreCliente = nombreCliente;
     this->apellidoCliente = apellidoCliente;
-    this->fecha = _fecha;
     this->formato = _formato;
     this->productosComprados = _productosComprados;
 

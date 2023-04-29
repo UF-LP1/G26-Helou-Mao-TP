@@ -25,9 +25,6 @@ vector<cDescuento> cFarmaceutico::GET_DESCUENTO() {
     return this->descuento;
 }
 
-
-
-
 void cFarmaceutico::ExplicarDosificacion(cReceta _objetoRec, cProducto _objProducto) {
     return;
 }
@@ -40,7 +37,7 @@ void cFarmaceutico::ExpenderReceta(cReceta miReceta) {
     return;
 }
 
-float cFarmaceutico::ChequearDescuentos(cReceta _objetoReceta, cDescuento _objetoDescuento) {
+double cFarmaceutico::ChequearDescuentos(cReceta _objetoReceta, cDescuento _objetoDescuento) {
     return 0.0;
 }
 

@@ -5,7 +5,7 @@
 
 #include "cPerfumeria.h"
 
-cPerfumeria::cPerfumeria(float _precio, string _nombre, int _cantidad, string _marca, ePerfumeria _tipoProduct) {
+cPerfumeria::cPerfumeria(double _precio, string _nombre, int _cantidad, string _marca, ePerfumeria _tipoProduct) {
 
 }
 

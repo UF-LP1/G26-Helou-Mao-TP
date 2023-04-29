@@ -7,9 +7,9 @@
 
 
 
-cCliente::cCliente( cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
+cCliente::cCliente( cFactura _miFactura, cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
 {
-  
+    this->miFactura = _miFactura;
     this->miCarrito = _miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
@@ -57,7 +57,10 @@ string cCliente::GET_APELLIDO()
 {
     return this->apellido;
 }
-
+void cCliente::SET_FACTURA(cFactura nuevaFactura)
+{
+    this->miFactura= nuevaFactura;
+}
 float cCliente::GET_SALDO_DISPONIBLE()
 {
     return this->saldoDisponible;

@@ -11,13 +11,12 @@ private:
     float descuentoMed;
 
 public:
-    cCarrito();
-    cCarrito(vector<cProducto> listaProductos, float descuentoMed);
+    cCarrito(vector<cProducto> listaProductos, double descuentoMed);
     ~cCarrito();
     void SET_LISTAPROD(vector<cProducto> listaProductosNuev);
-    void SET_DESCUENTO(float descuento);
+    void SET_DESCUENTO(double descuento);
     vector<cProducto> GET_LISTAPRODUCTOS();
-    float GET_DESCUENTOMED();
+    double GET_DESCUENTOMED();
     void AgregarProductos(cProducto _product);
     void EliminarProductos(cProducto _product);
 

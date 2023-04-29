@@ -10,13 +10,13 @@
 class cDescuento {
 private:
 
-    float porcentaje;
+    double porcentaje;
     string obraSocial;
 
 public:
-    cDescuento(float porcentaje, string obraSocial);
+    cDescuento(double porcentaje, string obraSocial);
     ~cDescuento();
-    float GET_PORCENTAJE();
+    double GET_PORCENTAJE();
     string GET_OBRASOCIAL();
 };
 

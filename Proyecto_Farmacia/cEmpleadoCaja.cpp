@@ -1,6 +1,4 @@
-/**
- * Project Untitled
- */
+//empeado caja cpp
 
 
 #include "cEmpleadoCaja.h"
@@ -22,11 +20,11 @@ cEmpleadoCaja::~cEmpleadoCaja() {
 }
 
 
-float cEmpleadoCaja::CalculaMontoACobrar(cCarrito oCarrito) {   //calculo el monto a cobrar para usar la funcion cobrar
+double cEmpleadoCaja::CalculaMontoACobrar(cCarrito oCarrito) {   //calculo el monto a cobrar para usar la funcion cobrar
     vector<cProducto> auxProds; //la memoria se libera automaticamente
     auxProds = oCarrito.GET_LISTAPRODUCTOS();
     int i;
-    float total = 0.0;  //valor  devolver para cobrar
+    double total = 0.0;  //valor  devolver para cobrar
     for (i = 0; i < auxProds.size(); i++)
     {
         total = total + auxProds[i].Get_PRECIO();   //voy sumando precio de cada unidad que tengo 
@@ -35,13 +33,13 @@ float cEmpleadoCaja::CalculaMontoACobrar(cCarrito oCarrito) {   //calculo el mon
     return total;   //devuelvo el total
 }
 
-bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, float montoAPagar)  //para poder cobrarle al cliente voy  atener que chequear si tiene suficiente saldo 
+bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, double montoAPagar)  //para poder cobrarle al cliente voy  atener que chequear si tiene suficiente saldo 
 {
     int metodoAux = cliente.GET_METODO();   //obtengo el metodo de pago del cliente
     
     if (metodoAux == 0) //paga en efectivo
     {
-        float efectivoDisponible = cliente.GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
+        double efectivoDisponible = cliente.GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
         if (montoAPagar > efectivoDisponible )
             return false;   //saldo insuficiente
         else
@@ -49,7 +47,7 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, float montoAPagar)
     }
     else if (metodoAux==1)  //paga con tarjeta
     {
-        float saldoDisponible = cliente.GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
+        double saldoDisponible = cliente.GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
         if (montoAPagar > saldoDisponible) //si el monto a pagar supera el saldo disponible en tarjeta
             return false;   //saldo insuficiente
         else
@@ -57,7 +55,7 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, float montoAPagar)
     }
     else //paga con mercado pago
     {
-        float saldoMP = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
+        double saldoMP = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
         if (montoAPagar > saldoMP)
             return false;   //saldo insuficiente
         else
@@ -69,7 +67,7 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, float montoAPagar)
 cTicketdecompra cEmpleadoCaja::Cobrar(cCliente cliente)
 {
     cCarrito carritoAux = cliente.GET_CARRITO();
-    float precioTotal = CalculaMontoACobrar(carritoAux);   //obtengo el monto total a pagar
+    double precioTotal = CalculaMontoACobrar(carritoAux);   //obtengo el monto total a pagar
 
     bool chequearSaldoAux = chequearSaldoDisponible(cliente, precioTotal); //chequeo que el cliente tenga saldo suficiente
     
@@ -83,18 +81,20 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente cliente)
     {
         cTicketdecompra ticketAux(true,precioTotal, cliente.GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO().GET_LISTAPRODUCTOS()); //construyoelticket de compra
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
-
-        return ticketAux;   //devuelvo el ticket para poder emitir la factura
+        emitirFactura(precioTotal, cliente);    //le seteo la factur al cliente
+        return ticketAux;   //devuelvo el ticket
     }
          
     
 }
 
-void cEmpleadoCaja::emitirFactura(float precio, cCliente cliente) {
+void cEmpleadoCaja::emitirFactura(double precio, cCliente cliente) { //le agrego la factura al cliente
     string apeAux = cliente.GET_APELLIDO();
     string nomAux = cliente.GET_NOMBRE();
     bool formatoAux = cliente.GET_FORMATO();
     vector <cProducto> listaProds = cliente.GET_CARRITO().GET_LISTAPRODUCTOS();
-
+    cFactura facturaAux(precio,nomAux, apeAux,formatoAux, listaProds);
+    cliente.SET_FACTURA(facturaAux);
     return;
 }
+
