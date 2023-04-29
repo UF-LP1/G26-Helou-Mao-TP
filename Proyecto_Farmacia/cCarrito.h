@@ -7,17 +7,19 @@ class cCarrito {
 
 private:
     vector<cProducto>listaProductos;
-    int cantidad;
+
     float descuentoMed;
 
 public:
     cCarrito();
-    cCarrito(vector<cProducto> listaProductos, int _cantidad, float descuentoMed);
+    cCarrito(vector<cProducto> listaProductos, float descuentoMed);
     ~cCarrito();
+    void SET_LISTAPROD(vector<cProducto> listaProductosNuev);
+    void SET_DESCUENTO(float descuento);
     vector<cProducto> GET_LISTAPRODUCTOS();
     float GET_DESCUENTOMED();
-    void AgregarProductos(cProducto _product, int _cant);
-    void EliminarProductos(cProducto _product, int _cant);
+    void AgregarProductos(cProducto _product);
+    void EliminarProductos(cProducto _product);
 
 };
 

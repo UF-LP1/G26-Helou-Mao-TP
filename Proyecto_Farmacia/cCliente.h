@@ -26,15 +26,21 @@ private:
     eNecesidad necesidad;
     const string DNI;
     bool facturaFisica;
-
+    float saldoMPago;
 public:
-    cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica);
     ~cCliente();
     cCarrito GET_CARRITO();
     bool GET_FORMATO();
+    eMetodo GET_METODO();
     void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);
     void AgregarGolosinas(cProducto golosinas, int cantidad);
     string GET_DNI();
+    string GET_APELLIDO();
+    string GET_NOMBRE();
+    float GET_SALDO_DISPONIBLE();
+    float GET_EFECTIVO_DISPONIBLE();
+    float GET_SALDO_MP();
 
 };
 

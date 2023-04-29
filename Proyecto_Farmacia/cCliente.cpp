@@ -6,17 +6,11 @@
 #include "cCliente.h"
 
 
-cCarrito::cCarrito()
-{
-    this->listaProductos;
-    this->precioCarrito = 0.0;
-    this->cantidad = 0;
-    this->descuentoMed = 0.0;
 
-}
-cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
+cCliente::cCliente( cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
 {
-    this->miCarrito = miCarrito;
+  
+    this->miCarrito = _miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
     this->contacto = contacto;
@@ -38,6 +32,10 @@ bool cCliente:: GET_FORMATO()
 string cCliente::GET_DNI() {
     return this->DNI;
 }
+eMetodo cCliente::GET_METODO()
+{
+    return this->metodoPago;
+}
 
 cCarrito cCliente::GET_CARRITO() {
     
@@ -51,4 +49,31 @@ void cCliente::AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad
 void cCliente::AgregarGolosinas(cProducto golosinas, int cantidad) {
     return;
 }
+string cCliente::GET_NOMBRE()
+{
+    return this->nombre;
+}
+string cCliente::GET_APELLIDO()
+{
+    return this->apellido;
+}
+string cCliente::GET_APELLIDO()
+{
 
+}
+string cCliente::GET_NOMBRE()
+{
+
+}
+float cCliente::GET_SALDO_DISPONIBLE()
+{
+
+}
+float cCliente::GET_EFECTIVO_DISPONIBLE()
+{
+
+}
+float cCliente::GET_SALDO_MP()
+{
+
+}
