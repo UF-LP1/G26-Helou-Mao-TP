@@ -17,7 +17,20 @@ cTicketdecompra::cTicketdecompra(bool _compraExitosa, double _precioTotal, strin
     this->apellidoCliente = apellidoCliente;
     this->productosComprados = productosComprados;
 }
+bool cTicketdecompra::GET_COMPRA()
+{
+    return this->compraExitosa;
 
+}
+double cTicketdecompra::GET_COMPRATOTAL()
+{
+    return this->precioTotal;
+
+}
+vector<cProducto> cTicketdecompra::GET_LISTAPRO()
+{
+    return this->productosComprados
+}
 
 cTicketdecompra::~cTicketdecompra() {
 

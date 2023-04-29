@@ -24,7 +24,12 @@ public:
     
     cTicketdecompra(bool compraExitosa,double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados);
     ~cTicketdecompra();
-    float GET_TOTAL();
+
+    bool GET_COMPRA();
+  
+    double GET_COMPRATOTAL();
+   
+    vector<cProducto> GET_LISTAPRO();
     void SET_TOTAL(double _nuevoTotal);
 };
 

@@ -1,5 +1,6 @@
 #include "Headers.h"
 #include "cEmpleadoCaja.h"
+#include "cTicketdecompra.h"
 
 
 int main()
@@ -17,12 +18,41 @@ int main()
 	productosCarrito.push_back(Nuevo3);
 
 
-
+	//creo carrito, cliente y empleado caja con los datos que tengo
 	cCarrito carritoCliente(productosCarrito, 300);
-	cCliente pruebaFinal(carritoCliente, "Guadalupe", "Helou", "200564", 2, 1000.0, 3000.0, 2, "46353626", true);
+	string nombreCliente = "guadalupe";
+	string apellidoCliente = "guadalupe";
+	string ndniCliente = "guadalupe";
+	string contactoCliente = "guadalupe";
+	double saldoDisp = 1000.0;
+	double efectDisp = 3000.0;
+	eNecesidad necesidad = farmacia;
+	eMetodo metodo = mercadoPago;
+	double saldoMp = 4000.0;
 
-	cEmpleadoCaja miEmpleado("Roberto", "Gomez", 4789, "2198652", "telefono");
-	miEmpleado.Cobrar(pruebaFinal);
+	//no sabemos que problema hay con el constructor de cliente, no llegamos
+	cCliente pruebaFinal(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp);
+	string nombreEmp = "Roberto";
+	string apellidoEmp = "gGomez";
+	string ndniEmp = "356527";
+	string contactoEmp = "telefono";
+	double plataMiCaja = 15000;
+	cEmpleadoCaja miEmpleado(nombreEmp, apellidoEmp, 72728, ndniEmp, contactoEmp, plataMiCaja);
+
+
+	//implemento funcion cobrar
+	cTicketdecompra ticketPrueba = miEmpleado.Cobrar(pruebaFinal);
+
+	//para chequear que funciona imprimo el ticket
+	cout << "Compra exitosa:" << ticketPrueba.GET_COMPRA();
+	cout << "\n Precio final: " << ticketPrueba.GET_COMPRATOTAL();
+
+	vector<cProducto>productosTicket;
+	productosTicket = ticketPrueba.GET_LISTAPRO();
+	for (int i = 0; i < productosTicket.size(); i++)
+	{
+		cout << i << "-" << productosTicket[i].Get_PRECIO();
+	}
 
 	
 }

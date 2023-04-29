@@ -28,7 +28,7 @@ private:
     bool facturaFisica;
     double saldoMPago;
 public:
-    cCliente(cFactura miFactura, cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica);
+    cCliente(cFactura miFactura, cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
     ~cCliente();
     cCarrito GET_CARRITO();
     bool GET_FORMATO();
