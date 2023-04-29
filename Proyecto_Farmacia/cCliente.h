@@ -21,11 +21,14 @@ private:
     string apellido;
     string contacto;
     eMetodo metodoPago;
+    float saldoDisponible;
+    float efectivodisponible;
     eNecesidad necesidad;
     const string DNI;
     bool facturaFisica;
+
 public:
-    cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, eNecesidad necesidad, const string dni, bool facturaFisica);
+    cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica);
     ~cCliente();
     cCarrito GET_CARRITO();
     bool GET_FORMATO();

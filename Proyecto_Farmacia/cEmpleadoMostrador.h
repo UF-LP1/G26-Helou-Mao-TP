@@ -16,7 +16,7 @@ private:
 
 public:
    
-    cEmpleadoMostrador(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual);
+    cEmpleadoMostrador(cCliente** lCliente, string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual);
     ~cEmpleadoMostrador();
    
     void SET_NUMACTUAL(unsigned int numero);

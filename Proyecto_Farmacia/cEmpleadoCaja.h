@@ -11,12 +11,14 @@
 
 
 class cEmpleadoCaja : public cEmpleado {
+private:
+    double plataCaja;
 public:
     cEmpleadoCaja(string dni);
-    cEmpleadoCaja( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cEmpleadoCaja(cCliente** lCliente, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
     ~cEmpleadoCaja();
-   
-    void Cobrar(float precioTotal, cCliente cliente);
+    float CalculaMontoACobrar(cCarrito oCarrito);
+    cTicketdecompra Cobrar(cCliente cliente);
     void emitirFactura(float precio, cProducto producto, cCliente cliente, int cantidad);
 };
 

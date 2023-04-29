@@ -11,10 +11,10 @@ cFarmaceutico::cFarmaceutico(string dni)
 
 }
 
-cFarmaceutico::cFarmaceutico( vector<cDescuento>descuent,string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
-    :cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
+cFarmaceutico::cFarmaceutico( vector<cDescuento>descuent,cCliente** lCliente,string nombre, string apellido, int numeroEmpleado, string dni, string contacto)
+    :cEmpleado( lCliente, nombre, apellido, numeroEmpleado, dni, contacto)
 {
-
+    this->descuento = descuent;
 }
 
 cFarmaceutico::~cFarmaceutico() {

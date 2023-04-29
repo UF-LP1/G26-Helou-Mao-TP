@@ -147,6 +147,7 @@
     <ClCompile Include="cProducto.cpp" />
     <ClCompile Include="cReceta.cpp" />
     <ClCompile Include="cTicketdecompra.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cCarrito.h" />

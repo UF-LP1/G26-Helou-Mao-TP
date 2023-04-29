@@ -7,15 +7,13 @@ cProducto::cProducto()
 {   
     this->precio = 0.0;
     this->nombre = "";
-    this->cantidad = 0;
     this->marca = "";
 }
 
-cProducto::cProducto(float _precio, string _nombre, int _cantidad, string marca) 
+cProducto::cProducto(float _precio, string _nombre, string marca) 
 {
     this->precio= _precio;
     this->nombre= _nombre;
-    this->cantidad= _cantidad;
     this->marca = marca;
 }
 

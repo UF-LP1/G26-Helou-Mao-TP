@@ -7,8 +7,8 @@ using namespace std;
 #include "cEmpleadoMostrador.h"
 
 
-cEmpleadoMostrador::cEmpleadoMostrador(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual)
-    :cEmpleado(nombre, apellido, numeroEmpleado, dni, contacto)
+cEmpleadoMostrador::cEmpleadoMostrador(cCliente** lCliente, string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual)
+    :cEmpleado(lCliente,nombre, apellido, numeroEmpleado, dni, contacto)
 {
     this->numActual = numActual;
 }

@@ -9,7 +9,7 @@
 class cEmpleado {
 
 protected:
-    
+    cCliente** lClientes;
     string nombre;
     string apellido;
     int numeroEmpleado;
@@ -18,10 +18,9 @@ protected:
 
 public:
     cEmpleado(string dni);
-    cEmpleado(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cEmpleado(cCliente **lClientes, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cEmpleado();
     void AtenderCliente(cCliente cliente);
-    float CalculaMontoACobrar(cProducto producto, int cantidad, float precio);
     void AgregarProductoCarrito(cProducto producto, cCarrito carrito);
     void PasarClienteaCaja(cCliente cliente);
 

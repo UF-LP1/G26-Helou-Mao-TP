@@ -5,8 +5,8 @@
 
 #include "cEmpleadoLimpieza.h"
 
-cEmpleadoLimpieza::cEmpleadoLimpieza(string nombre, string apellido, int numeroEmpleado, string dni, string contacto, int turno)
-    :cEmpleado(nombre, apellido, numeroEmpleado, dni, contacto)
+cEmpleadoLimpieza::cEmpleadoLimpieza(cCliente** lCliente,string nombre, string apellido, int numeroEmpleado, string dni, string contacto, int turno)
+    :cEmpleado(lCliente,nombre, apellido, numeroEmpleado, dni, contacto)
     {
         this -> turno = turno;
     }

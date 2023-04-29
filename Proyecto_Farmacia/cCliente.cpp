@@ -6,14 +6,23 @@
 #include "cCliente.h"
 
 
+cCarrito::cCarrito()
+{
+    this->listaProductos;
+    this->precioCarrito = 0.0;
+    this->cantidad = 0;
+    this->descuentoMed = 0.0;
 
-cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
+}
+cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,float saldoDisponible, float efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
 {
     this->miCarrito = miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
     this->contacto = contacto;
     this->metodoPago = metodoPago;
+    this->saldoDisponible = saldoDisponible;
+    this->efectivodisponible = efectivoDisponible;
     this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
 
