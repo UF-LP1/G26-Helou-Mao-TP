@@ -7,14 +7,13 @@
 
 
 
-cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, sLesion lesion, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
+cCliente::cCliente(vector<cFactura>miFactura,cCarrito miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, eNecesidad necesidad, string dni, bool facturaFisica) :DNI(dni)
 {
     this->miCarrito = miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
     this->contacto = contacto;
     this->metodoPago = metodoPago;
-    this->lesion = lesion;
     this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
 
