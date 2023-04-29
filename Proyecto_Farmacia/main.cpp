@@ -16,7 +16,13 @@ int main()
 	productosCarrito.push_back(Nuevo3);
 	productosCarrito.push_back(Nuevo3);
 
+
+
 	cCarrito carritoCliente(productosCarrito, 300);
 	cCliente pruebaFinal(carritoCliente, "Guadalupe", "Helou", "200564", 2, 1000.0, 3000.0, 2, "46353626", true);
 
+	cEmpleadoCaja miEmpleado("Roberto", "Gomez", 4789, "2198652", "telefono");
+	miEmpleado.Cobrar(pruebaFinal);
+
+	
 }

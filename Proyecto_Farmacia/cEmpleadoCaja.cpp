@@ -11,8 +11,8 @@ cEmpleadoCaja::cEmpleadoCaja(string dni)
     this->plataCaja = 0.0;
 }
 
-cEmpleadoCaja::cEmpleadoCaja(cCliente** lCliente,string nombre, string apellido, int numeroEmpleado, string dni, string contacto, double plataCaja)
-:cEmpleado(lCliente, nombre, apellido, numeroEmpleado, dni, contacto)
+cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, string dni, string contacto, double plataCaja)
+:cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
     {
     this->plataCaja = plataCaja;
     }
