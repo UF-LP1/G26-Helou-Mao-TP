@@ -7,9 +7,8 @@
 
 
 
-cCliente::cCliente( cFactura _miFactura, cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica,double MP) :DNI(dni)
+cCliente::cCliente( cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica,double MP) :DNI(dni)
 {
-    this->miFactura = _miFactura;
     this->miCarrito = _miCarrito;
     this->nombre = nombre;
     this->apellido = apellido;
@@ -22,7 +21,8 @@ cCliente::cCliente( cFactura _miFactura, cCarrito _miCarrito, string nombre, str
     this->saldoMPago = MP;
 }
 
-cCliente::~cCliente() {
+cCliente::~cCliente() 
+{
 
 }
 bool cCliente:: GET_FORMATO()
@@ -59,17 +59,17 @@ string cCliente::GET_APELLIDO()
 }
 void cCliente::SET_FACTURA(cFactura nuevaFactura)
 {
-    this->miFactura= nuevaFactura;
+    this->miFactura=nuevaFactura;
 }
-float cCliente::GET_SALDO_DISPONIBLE()
+double cCliente::GET_SALDO_DISPONIBLE()
 {
     return this->saldoDisponible;
 }
-float cCliente::GET_EFECTIVO_DISPONIBLE()
+double cCliente::GET_EFECTIVO_DISPONIBLE()
 {
     return this->efectivodisponible;
 }
-float cCliente::GET_SALDO_MP()
+double cCliente::GET_SALDO_MP()
 {
     return this->saldoMPago;
 }

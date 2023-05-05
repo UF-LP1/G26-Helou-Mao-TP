@@ -5,8 +5,11 @@
 
 #include "cMedicamento.h"
 
-cMedicamento::cMedicamento(float _precio, string _nombre, int _cantidad, string _marca, int _dosis, bool _ventaLibre) {
-
+cMedicamento::cMedicamento(double _precio, string _nombre, string _marca, int _dosis, bool _ventaLibre)
+	:cProducto(_precio,_nombre,_marca)
+{
+	this->dosis = _dosis;
+	this->ventaLibre = _ventaLibre;
 }
 cMedicamento::~cMedicamento() {
 

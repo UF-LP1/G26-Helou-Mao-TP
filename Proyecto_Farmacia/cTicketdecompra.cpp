@@ -22,22 +22,19 @@ bool cTicketdecompra::GET_COMPRA()
     return this->compraExitosa;
 
 }
-double cTicketdecompra::GET_COMPRATOTAL()
-{
-    return this->precioTotal;
 
-}
 vector<cProducto> cTicketdecompra::GET_LISTAPRO()
 {
-    return this->productosComprados
+    return this->productosComprados;
 }
 
 cTicketdecompra::~cTicketdecompra() {
 
 }
 
-float cTicketdecompra::GET_TOTAL() {
-    return 0.0;
+double cTicketdecompra::GET_COMPRATOTAL()
+{
+    return this->precioTotal;
 }
 
 void cTicketdecompra::SET_TOTAL(double _nuevoTotal) {

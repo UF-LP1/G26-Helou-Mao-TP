@@ -6,11 +6,12 @@
 class cCarrito {
 
 private:
-    vector<cProducto>listaProductos;
+    vector<cProducto>miListaProductos;
+    double descuentoMed;
 
-    float descuentoMed;
 
 public:
+    cCarrito();
     cCarrito(vector<cProducto> listaProductos, double descuentoMed);
     ~cCarrito();
     void SET_LISTAPROD(vector<cProducto> listaProductosNuev);

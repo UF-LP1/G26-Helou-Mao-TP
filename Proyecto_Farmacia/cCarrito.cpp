@@ -2,8 +2,15 @@
 
 cCarrito::cCarrito(vector<cProducto> listaProductos, double descuentomed)
 {
-    this->listaProductos = listaProductos;
+    for (int i = 0; i < listaProductos.size(); i++)
+    {
+        this->miListaProductos.push_back(listaProductos[i]);
+    }
     this->descuentoMed = descuentomed;
+}
+cCarrito::cCarrito()
+{
+    this->descuentoMed = 0;
 }
 double cCarrito::GET_DESCUENTOMED()
 {
@@ -11,11 +18,14 @@ double cCarrito::GET_DESCUENTOMED()
 }
 void cCarrito::SET_LISTAPROD(vector<cProducto> listaProductosNuev)
 {
-    this->listaProductos = listaProductosNuev;
+    for (int i = 0; i < listaProductosNuev.size(); i++)
+    {
+        miListaProductos.push_back(listaProductosNuev[i]);
+    }
 }
 void cCarrito::SET_DESCUENTO(double nuevoDes)
 {
-
+    this->descuentoMed = nuevoDes;
 }
 
 cCarrito::~cCarrito() {
@@ -24,7 +34,7 @@ cCarrito::~cCarrito() {
 
 vector<cProducto> cCarrito::GET_LISTAPRODUCTOS() {
     
-    return this->listaProductos;
+    return this->miListaProductos;
 }
 
  

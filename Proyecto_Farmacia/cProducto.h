@@ -19,7 +19,8 @@ public:
     cProducto();
     cProducto(double _precio, string _nombre,  string marca);
     ~cProducto();
-    float Get_PRECIO();
+    double Get_PRECIO();
+    string GET_MARCA();
     string Get_NOMBRE();
 
 };

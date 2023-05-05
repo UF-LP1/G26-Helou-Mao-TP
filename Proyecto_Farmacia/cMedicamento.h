@@ -18,7 +18,7 @@ private:
     
 
 public:
-    cMedicamento(double _precio, string _nombre, int _cantidad, string _marca, int _dosis, bool _ventaLibre);
+    cMedicamento(double _precio, string _nombre, string _marca, int _dosis, bool _ventaLibre);
     ~cMedicamento();
 
 

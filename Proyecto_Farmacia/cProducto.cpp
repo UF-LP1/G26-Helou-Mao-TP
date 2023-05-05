@@ -20,7 +20,10 @@ cProducto::cProducto(double _precio, string _nombre, string marca)
 cProducto::~cProducto() {
 
 }
-
+string cProducto::GET_MARCA()
+{
+    return this->marca;
+}
 double cProducto::Get_PRECIO() {
     return this->precio;
 }

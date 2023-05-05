@@ -19,7 +19,7 @@ int main()
 
 
 	//creo carrito, cliente y empleado caja con los datos que tengo
-	cCarrito carritoCliente(productosCarrito, 300);
+	cCarrito carritoCliente(productosCarrito, 300.0);
 	string nombreCliente = "guadalupe";
 	string apellidoCliente = "guadalupe";
 	string ndniCliente = "guadalupe";
@@ -31,6 +31,7 @@ int main()
 	double saldoMp = 4000.0;
 
 	//no sabemos que problema hay con el constructor de cliente, no llegamos
+	
 	cCliente pruebaFinal(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp);
 	string nombreEmp = "Roberto";
 	string apellidoEmp = "gGomez";
@@ -45,13 +46,13 @@ int main()
 
 	//para chequear que funciona imprimo el ticket
 	cout << "Compra exitosa:" << ticketPrueba.GET_COMPRA();
-	cout << "\n Precio final: " << ticketPrueba.GET_COMPRATOTAL();
+	cout << "\n Precio final: " << ticketPrueba.GET_COMPRATOTAL()<<endl;
 
 	vector<cProducto>productosTicket;
 	productosTicket = ticketPrueba.GET_LISTAPRO();
 	for (int i = 0; i < productosTicket.size(); i++)
 	{
-		cout << i << "-" << productosTicket[i].Get_PRECIO();
+		cout << i+1 << "-" << productosTicket[i].Get_PRECIO()<<endl;
 	}
 
 	

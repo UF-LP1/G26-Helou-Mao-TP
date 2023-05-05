@@ -28,7 +28,7 @@ private:
     bool facturaFisica;
     double saldoMPago;
 public:
-    cCliente(cFactura miFactura, cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
     ~cCliente();
     cCarrito GET_CARRITO();
     bool GET_FORMATO();
@@ -39,9 +39,9 @@ public:
     string GET_DNI();
     string GET_APELLIDO();
     string GET_NOMBRE();
-    float GET_SALDO_DISPONIBLE();
-    float GET_EFECTIVO_DISPONIBLE();
-    float GET_SALDO_MP();
+    double GET_SALDO_DISPONIBLE();
+    double GET_EFECTIVO_DISPONIBLE();
+    double GET_SALDO_MP();
 
 };
 
