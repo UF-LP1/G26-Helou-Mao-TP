@@ -64,7 +64,7 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, double montoAPagar
     }
 }
 
-cTicketdecompra cEmpleadoCaja::Cobrar(cCliente cliente)
+cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
 {
     cCarrito carritoAux = cliente.GET_CARRITO();
     double precioTotal = CalculaMontoACobrar(carritoAux);   //obtengo el monto total a pagar
@@ -88,7 +88,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente cliente)
     
 }
 
-void cEmpleadoCaja::emitirFactura(double precio, cCliente cliente) { //le agrego la factura al cliente
+void cEmpleadoCaja::emitirFactura(double precio, cCliente &cliente) { //le agrego la factura al cliente
     string apeAux = cliente.GET_APELLIDO();
     string nomAux = cliente.GET_NOMBRE();
     bool formatoAux = cliente.GET_FORMATO();

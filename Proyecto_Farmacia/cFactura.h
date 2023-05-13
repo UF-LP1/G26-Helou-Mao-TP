@@ -20,6 +20,8 @@ public:
     cFactura();
     cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados);
     ~cFactura();
+    double GET_MONTO();
+    string GET_NOMBRE();
     bool GET_FORMATO();
     void SET_FORMATO(bool _nuevoFormato);
 

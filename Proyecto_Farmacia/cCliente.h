@@ -37,6 +37,7 @@ public:
     void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);
     void AgregarGolosinas(cProducto golosinas, int cantidad);
     string GET_DNI();
+    cFactura GET_FACTURA();
     string GET_APELLIDO();
     string GET_NOMBRE();
     double GET_SALDO_DISPONIBLE();

@@ -54,6 +54,8 @@ int main()
 	{
 		cout << i+1 << "-" << productosTicket[i].Get_PRECIO()<<endl;
 	}
-
+	cFactura checkeo = pruebaFinal.GET_FACTURA();
+	cout << checkeo.GET_MONTO()<<endl;
+	cout << checkeo.GET_NOMBRE() << endl;
 	
 }

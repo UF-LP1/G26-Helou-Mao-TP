@@ -18,9 +18,9 @@ public:
     cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
     ~cEmpleadoCaja();
     double CalculaMontoACobrar(cCarrito oCarrito);
-    cTicketdecompra Cobrar(cCliente cliente);
+    cTicketdecompra Cobrar(cCliente &cliente);
     bool chequearSaldoDisponible(cCliente cliente, double montoAPagar);
-    void emitirFactura(double precio, cCliente cliente);
+    void emitirFactura(double precio, cCliente &cliente);
     
 };
 

@@ -73,3 +73,7 @@ double cCliente::GET_SALDO_MP()
 {
     return this->saldoMPago;
 }
+cFactura cCliente ::GET_FACTURA()
+{
+    return this->miFactura;
+}

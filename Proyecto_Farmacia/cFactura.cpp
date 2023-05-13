@@ -39,5 +39,12 @@ void cFactura::SET_FORMATO(bool _nuevoFormato) {
     return;
 }
 
-
+string cFactura::GET_NOMBRE()
+{
+    return this->nombreCliente;
+}
+double cFactura::GET_MONTO()
+{
+    return this->monto;
+}
 
