@@ -14,7 +14,7 @@ class cGolosinas : public cProducto {
 private:
     eGolosinas tipoGolosina;
 public:
-    cGolosinas(double _precio, string _nombre, int _cantidad, string _marca, eGolosinas _tipoGolosinas);
+    cGolosinas(double _precio, string _nombre, string _marca, eGolosinas _tipoGolosinas);
     ~cGolosinas();
 };
 

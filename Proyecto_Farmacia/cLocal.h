@@ -11,6 +11,7 @@
 
 class cLocal {
 private:
+    //hay que agregarle algun contenedor en el que esten los tickets de compra de toodos los clientes(preferentemente en algun orden tippo abc)
     string nombre;
     string direccion;
     string contacto;

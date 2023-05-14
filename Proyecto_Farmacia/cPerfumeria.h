@@ -16,7 +16,7 @@ private:
     ePerfumeria tipoProducto;
 
 public:
-    cPerfumeria(double _precio, string _nombre, int _cantidad, string _marca, ePerfumeria _tipoProduct);
+    cPerfumeria(double _precio, string _nombre, string _marca, ePerfumeria _tipoProduct);
     ~cPerfumeria();
     ePerfumeria GET_TIPO();
 

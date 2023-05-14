@@ -14,7 +14,7 @@ private:
     eOrtopedia tipoProducto;
 
 public:
-    cOrtopedia(double _precio, string _nombre, int _cantidad, string _marca, eOrtopedia _tipoProduct);
+    cOrtopedia(double _precio, string _nombre, string _marca, eOrtopedia _tipoProduct);
     ~cOrtopedia();
     eOrtopedia GET_TIPO();
 };

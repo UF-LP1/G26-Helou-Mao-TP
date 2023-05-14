@@ -18,6 +18,8 @@ cEmpleadoMostrador::~cEmpleadoMostrador() {
 }
 
 void cEmpleadoMostrador::LlamarNumSiguiente(unsigned int numero) {
+    //agregaria el proximo cliente a su lista de clientes (creo que el nuevo cliente lo tendria que buscar en lo cal, que local tenga una lista de los clientes que van "entrando"
+    this->numActual = numActual+1;
     return;
 }
 
