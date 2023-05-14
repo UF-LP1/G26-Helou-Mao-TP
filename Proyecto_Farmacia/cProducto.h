@@ -19,9 +19,9 @@ public:
     cProducto();
     cProducto(double _precio, string _nombre,  string marca);
     ~cProducto();
-    double Get_PRECIO();
-    string GET_MARCA();
-    string Get_NOMBRE();
+    virtual double Get_PRECIO();
+    virtual string GET_MARCA();
+    virtual string Get_NOMBRE();
 
 };
 

@@ -29,7 +29,7 @@ double cEmpleadoCaja::CalculaMontoACobrar(cCarrito oCarrito) {   //calculo el mo
     {
         total = total + auxProds[i].Get_PRECIO();   //voy sumando precio de cada unidad que tengo 
     }
-    total = total - oCarrito.GET_DESCUENTOMED();    //e reseto el descuento
+    total = total - oCarrito.GET_DESCUENTOMED();    //le resto el descuento
     return total;   //devuelvo el total
 }
 
