@@ -77,3 +77,7 @@ cFactura cCliente ::GET_FACTURA()
 {
     return this->miFactura;
 }
+int cCliente:: GET_NUMEROCLIENTE()
+{
+    return numeroCliente;
+}

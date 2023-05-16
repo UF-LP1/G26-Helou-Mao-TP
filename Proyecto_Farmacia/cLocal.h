@@ -16,11 +16,14 @@ private:
     string direccion;
     string contacto;
     double fondos;
+    queue<cCliente>clientesEspera; 
+
 
 public:
     cLocal(string _nombre, string _direccion, string _contacto, double _fondos);
     ~cLocal();
     void AgregarTicketCompra(cTicketdecompra _ticketNuevo);
+    void agregarCliente(cCliente nuevoCliente);
 
 };
 

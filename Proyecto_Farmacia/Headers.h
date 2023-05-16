@@ -7,5 +7,6 @@
 #include <iterator>
 #include <list>
 #include <forward_list>
+#include <queue>
 
 using namespace std;

@@ -19,4 +19,9 @@ cLocal::~cLocal() {
 void cLocal::AgregarTicketCompra(cTicketdecompra _ticketNuevo) {
     return;
 }
+void cLocal::agregarCliente(cCliente nuevoCliente)
+{
+    this->clientesEspera.push(nuevoCliente);//lo agrego al final de mi cola
+
+}
 
