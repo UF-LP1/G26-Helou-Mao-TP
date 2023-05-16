@@ -7,7 +7,7 @@
 
 
 
-cCliente::cCliente( cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica,double MP) :DNI(dni)
+cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
 {
     this->miCarrito = _miCarrito;
     this->nombre = nombre;

@@ -4,13 +4,13 @@
 #include "cEmpleadoCaja.h"
 
 cEmpleadoCaja::cEmpleadoCaja(string dni)
-    :cVendedor::cVendedor(dni)
+    :cEmpleado::cEmpleado(dni)
 {
     this->plataCaja = 0.0;
 }
 
 cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, string dni, string contacto, double plataCaja)
-:cVendedor( nombre, apellido, numeroEmpleado, dni, contacto)
+:cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
     {
     this->plataCaja = plataCaja;
     }
@@ -97,16 +97,3 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
     
 }
 
-void AtenderCliente(cCliente cliente)
-{
-    return;
-}
-void AgregarProductoCarrito(cProducto producto, cCarrito carrito)
-{
-    return;
-}
-
-void PasarClienteaCaja(cCliente cliente)
-{
-    return;
-}

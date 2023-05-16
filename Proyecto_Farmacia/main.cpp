@@ -1,6 +1,7 @@
 #include "Headers.h"
 #include "cEmpleadoCaja.h"
 #include "cTicketdecompra.h"
+int cCliente::numeroCliente = 1;
 
 
 int main()
@@ -8,7 +9,7 @@ int main()
 	vector<cFactura> facturaPrueba;
 	vector<cProducto>productosCarrito;
 
-	cProducto Nuevo(70.0, "champu", "garnier");
+	cProducto Nuevo(70.0, "shampoo", "garnier");
 	cProducto Nuevo2(250.0, "ibuprofeno", "actron");
 	cProducto Nuevo3(120.0, "esmalte", "pirulo");
 
@@ -31,7 +32,6 @@ int main()
 	double saldoMp = 4000.0;
 
 	//no sabemos que problema hay con el constructor de cliente, no llegamos
-	
 	cCliente pruebaFinal(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp);
 	string nombreEmp = "Roberto";
 	string apellidoEmp = "gGomez";

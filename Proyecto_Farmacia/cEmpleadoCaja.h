@@ -6,11 +6,11 @@
 #ifndef _CEMPLEADOCAJA_H
 #define _CEMPLEADOCAJA_H
 
-#include "cVendedor.h"
+#include "cEmpleado.h"
 #include "eMetodo.h"
 
 
-class cEmpleadoCaja : public cVendedor {
+class cEmpleadoCaja : public cEmpleado {
 private:
     double plataCaja;
 public:

@@ -9,7 +9,6 @@
 #include "eMetodo.h"
 #include "cReceta.h"
 #include "cCarrito.h"
-#include "cNumeroCliente.h"
 #include "cFactura.h"
 
 
