@@ -2,6 +2,7 @@
 
 
 #include "cEmpleadoCaja.h"
+#include <exception>
 
 cEmpleadoCaja::cEmpleadoCaja(string dni)
     :cEmpleado::cEmpleado(dni)
@@ -36,32 +37,21 @@ double cEmpleadoCaja::CalculaMontoACobrar(cCarrito oCarrito) {   //calculo el mo
 bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, double montoAPagar)  //para poder cobrarle al cliente voy  atener que chequear si tiene suficiente saldo 
 {
     int metodoAux = cliente.GET_METODO();   //obtengo el metodo de pago del cliente
-    
+    double saldoDisponible = 0.0;
+   
     if (metodoAux == 0) //paga en efectivo
-    {
-        double efectivoDisponible = cliente.GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
-        if (montoAPagar > efectivoDisponible )
-            return false;   //saldo insuficiente
-        else
-            return true;    //todo ok, voy a pagar
-    }
+        saldoDisponible = cliente.GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
     else if (metodoAux==1)  //paga con tarjeta
-    {
         double saldoDisponible = cliente.GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
-        if (montoAPagar > saldoDisponible) //si el monto a pagar supera el saldo disponible en tarjeta
-            return false;   //saldo insuficiente
-        else
-            return true;    //todo ok, puedo ir a cobrar
-    }
     else //paga con mercado pago
-    {
-        double saldoMP = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
-        if (montoAPagar > saldoMP)
-            return false;   //saldo insuficiente
-        else
-            return true;    //todo ok, voy a pagar
-
-    }
+        double saldoDisponible = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
+    
+    //chequeo si alcanza para pagar
+    if (montoAPagar <= saldoDisponible)
+        return true;
+    else
+        return false;
+        
 }
 
 void cEmpleadoCaja::emitirFactura(double precio, cCliente& cliente) { //le agrego la factura al cliente
@@ -83,8 +73,9 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
 
     if (chequearSaldoAux == false)
     {
-        cTicketdecompra ticketERROR(false, precioTotal, cliente.GET_DNI(), this->nombre, this->apellido, this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO().GET_LISTAPRODUCTOS()); //aca tirariamos un THROW SALDO INSUFICIENTE pero no lo podes usar para este tp
-        return ticketERROR; //el false incial determina que la compra no se pudo realizar
+        throw new exception("Saldo insuficiente");
+        //cTicketdecompra ticketERROR(false, precioTotal, cliente.GET_DNI(), this->nombre, this->apellido, this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO().GET_LISTAPRODUCTOS()); //aca tirariamos un THROW SALDO INSUFICIENTE pero no lo podes usar para este tp
+        //return ticketERROR; //el false incial determina que la compra no se pudo realizar
     }
     else
     {
