@@ -6,10 +6,10 @@
 #ifndef _CEMPLEADOORTOPEDIA_H
 #define _CEMPLEADOORTOPEDIA_H
 
-#include "cEmpleado.h"
+#include "cVendedor.h"
 
 
-class cEmpleadoOrtopedia : public cEmpleado {
+class cEmpleadoOrtopedia : public cVendedor {
 
 public:
     cEmpleadoOrtopedia(string dni);

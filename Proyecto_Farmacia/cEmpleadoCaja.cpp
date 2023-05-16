@@ -4,13 +4,13 @@
 #include "cEmpleadoCaja.h"
 
 cEmpleadoCaja::cEmpleadoCaja(string dni)
-    :cEmpleado::cEmpleado(dni)
+    :cVendedor::cVendedor(dni)
 {
     this->plataCaja = 0.0;
 }
 
 cEmpleadoCaja::cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, string dni, string contacto, double plataCaja)
-:cEmpleado( nombre, apellido, numeroEmpleado, dni, contacto)
+:cVendedor( nombre, apellido, numeroEmpleado, dni, contacto)
     {
     this->plataCaja = plataCaja;
     }
@@ -64,6 +64,15 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, double montoAPagar
     }
 }
 
+void cEmpleadoCaja::emitirFactura(double precio, cCliente& cliente) { //le agrego la factura al cliente
+    string apeAux = cliente.GET_APELLIDO();
+    string nomAux = cliente.GET_NOMBRE();
+    bool formatoAux = cliente.GET_FORMATO();
+    vector <cProducto> listaProds = cliente.GET_CARRITO().GET_LISTAPRODUCTOS();
+    cFactura facturaAux(precio, nomAux, apeAux, formatoAux, listaProds);
+    cliente.SET_FACTURA(facturaAux);
+    return;
+}
 cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
 {
     cCarrito carritoAux = cliente.GET_CARRITO();
@@ -88,13 +97,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
     
 }
 
-void cEmpleadoCaja::emitirFactura(double precio, cCliente &cliente) { //le agrego la factura al cliente
-    string apeAux = cliente.GET_APELLIDO();
-    string nomAux = cliente.GET_NOMBRE();
-    bool formatoAux = cliente.GET_FORMATO();
-    vector <cProducto> listaProds = cliente.GET_CARRITO().GET_LISTAPRODUCTOS();
-    cFactura facturaAux(precio,nomAux, apeAux,formatoAux, listaProds);
-    cliente.SET_FACTURA(facturaAux);
+void AtenderCliente(cCliente cliente)
+{
     return;
 }
-

@@ -26,14 +26,3 @@ cEmpleado::cEmpleado( string nombre, string apellido, int numeroEmpleado,  strin
 cEmpleado::~cEmpleado() {
 
 }
-void cEmpleado::AtenderCliente(cCliente cliente) {
-    return;
-}
-
-void cEmpleado::AgregarProductoCarrito(cProducto producto, cCarrito carrito) {
-    return;
-}
-
-void cEmpleado::PasarClienteaCaja(cCliente cliente) {
-    return;
-}

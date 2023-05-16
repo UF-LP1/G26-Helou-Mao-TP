@@ -20,10 +20,6 @@ public:
     cEmpleado(string dni);
     cEmpleado( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cEmpleado();
-    void AtenderCliente(cCliente cliente);
-    void AgregarProductoCarrito(cProducto producto, cCarrito carrito);
-    void PasarClienteaCaja(cCliente cliente);
-
 };
 
 #endif //_CEMPLEADO_H
