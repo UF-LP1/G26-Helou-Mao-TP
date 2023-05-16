@@ -31,12 +31,12 @@ public:
     cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
     ~cCliente();
     static int GET_NUMEROCLIENTE();
-    cCarrito GET_CARRITO();
+    cCarrito *GET_CARRITO();
     bool GET_FORMATO();
     eMetodo GET_METODO();
     void SET_FACTURA(cFactura nuevaFactura);
-    void AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad);
-    void AgregarGolosinas(cProducto golosinas, int cantidad);
+    void AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad);
+    void AgregarGolosinas(cGolosinas golosinas, int cantidad);
     string GET_DNI();
     cFactura GET_FACTURA();
     string GET_APELLIDO();

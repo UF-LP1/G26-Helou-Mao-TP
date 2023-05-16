@@ -13,8 +13,14 @@ cVendedor::cVendedor(string nombre, string apellido, int numeroEmpleado, string 
 cVendedor::~cVendedor() {
 
 }
-void cVendedor::AtenderCliente(cCliente cliente) { return; }
-void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito carrito) { return; }
-void cVendedor::PasarClienteaCaja(cCliente cliente) {
+void cVendedor::AtenderCliente(cCliente &cliente) { 
+    this->misClientes.push_back(&cliente);
+    return; 
+}
+void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito &carrito) { 
+    carrito.SET_PRODUCTO(producto);
+    return;
+}
+void cVendedor::PasarClienteaCaja(cCliente &cliente) {
     return;
 }

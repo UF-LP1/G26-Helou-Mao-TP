@@ -37,13 +37,11 @@ vector<cProducto> cCarrito::GET_LISTAPRODUCTOS() {
     return this->miListaProductos;
 }
 
- 
-
-void cCarrito::AgregarProductos(cProducto _product) {
+void cCarrito::EliminarProductos(cProducto _product) {
     return;
 }
-
-
-void cCarrito::EliminarProductos(cProducto _product) {
+void cCarrito::SET_PRODUCTO(cProducto nuevoProducto)    //agrego productos al carrito 
+{
+    this->miListaProductos.push_back(nuevoProducto);
     return;
 }

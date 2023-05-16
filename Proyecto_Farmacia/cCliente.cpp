@@ -37,16 +37,25 @@ eMetodo cCliente::GET_METODO()
     return this->metodoPago;
 }
 
-cCarrito cCliente::GET_CARRITO() {
+cCarrito* cCliente::GET_CARRITO() {
     
-    return this->miCarrito;
+    return &miCarrito;
 }
 
-void cCliente::AgregarProductosPerfumeria(cProducto prodPerfumeria, int cantidad) {
+void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad) {
+    for (int i = 0; i < cantidad; i++)
+    {
+        miCarrito.SET_PRODUCTO(prodPerfumeria);
+    }
     return;
 }
 
-void cCliente::AgregarGolosinas(cProducto golosinas, int cantidad) {
+void cCliente::AgregarGolosinas(cGolosinas golosinas, int cantidad) {    //voy agregando golosinas al carrito
+   
+    for (int i = 0; i < cantidad; i++)
+    {
+        miCarrito.SET_PRODUCTO(golosinas);
+    }
     return;
 }
 string cCliente::GET_NOMBRE()

@@ -1,8 +1,9 @@
 #ifndef _CCARRITO_H
 #define _CCARRITO_H
-#include "cProducto.h"
-
-
+#include "cPerfumeria.h"
+#include "cGolosinas.h" //ojo, estamos incluyendo 4 veces producto
+#include "cOrtopedia.h"
+#include "cMedicamento.h"
 class cCarrito {
 
 private:
@@ -18,8 +19,8 @@ public:
     void SET_DESCUENTO(double descuento);
     vector<cProducto> GET_LISTAPRODUCTOS();
     double GET_DESCUENTOMED();
-    void AgregarProductos(cProducto _product);
     void EliminarProductos(cProducto _product);
+    void SET_PRODUCTO(cProducto nuevoProducto);
 
 };
 

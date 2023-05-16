@@ -58,15 +58,15 @@ void cEmpleadoCaja::emitirFactura(double precio, cCliente& cliente) { //le agreg
     string apeAux = cliente.GET_APELLIDO();
     string nomAux = cliente.GET_NOMBRE();
     bool formatoAux = cliente.GET_FORMATO();
-    vector <cProducto> listaProds = cliente.GET_CARRITO().GET_LISTAPRODUCTOS();
+    vector <cProducto> listaProds = cliente.GET_CARRITO()->GET_LISTAPRODUCTOS();
     cFactura facturaAux(precio, nomAux, apeAux, formatoAux, listaProds);
     cliente.SET_FACTURA(facturaAux);
     return;
 }
 cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
 {
-    cCarrito carritoAux = cliente.GET_CARRITO();
-    double precioTotal = CalculaMontoACobrar(carritoAux);   //obtengo el monto total a pagar
+    cCarrito *carritoAux = cliente.GET_CARRITO();
+    double precioTotal = CalculaMontoACobrar(*carritoAux);   //obtengo el monto total a pagar
 
     bool chequearSaldoAux = chequearSaldoDisponible(cliente, precioTotal); //chequeo que el cliente tenga saldo suficiente
     
@@ -79,7 +79,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
     }
     else
     {
-        cTicketdecompra ticketAux(true,precioTotal, cliente.GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO().GET_LISTAPRODUCTOS()); //construyoelticket de compra
+        cTicketdecompra ticketAux(true,precioTotal, cliente.GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO()->GET_LISTAPRODUCTOS()); //construyoelticket de compra
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
         emitirFactura(precioTotal, cliente);    //le seteo la factur al cliente
         return ticketAux;   //devuelvo el ticket
