@@ -17,6 +17,7 @@ public:
     ~cEmpleadoOrtopedia();
     void Asesorar(cCliente cliente);
     void RecomendarProductos(cCliente cliente);
+    void AgregarProductoCarrito(cProducto producto, cCarrito& carrito);
 };
 
 #endif //_CEMPLEADOORTOPEDIA_H

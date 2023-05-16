@@ -42,9 +42,9 @@ bool cEmpleadoCaja::chequearSaldoDisponible(cCliente cliente, double montoAPagar
     if (metodoAux == 0) //paga en efectivo
         saldoDisponible = cliente.GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
     else if (metodoAux==1)  //paga con tarjeta
-        double saldoDisponible = cliente.GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
+        saldoDisponible = cliente.GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
     else //paga con mercado pago
-        double saldoDisponible = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
+         saldoDisponible = cliente.GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
     
     //chequeo si alcanza para pagar
     if (montoAPagar <= saldoDisponible)
@@ -67,10 +67,8 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
 {
     cCarrito *carritoAux = cliente.GET_CARRITO();
     double precioTotal = CalculaMontoACobrar(*carritoAux);   //obtengo el monto total a pagar
-
     bool chequearSaldoAux = chequearSaldoDisponible(cliente, precioTotal); //chequeo que el cliente tenga saldo suficiente
     
-
     if (chequearSaldoAux == false)
     {
         throw new exception("Saldo insuficiente");

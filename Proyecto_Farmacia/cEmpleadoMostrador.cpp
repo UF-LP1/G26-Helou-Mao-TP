@@ -30,3 +30,8 @@ void cEmpleadoMostrador::SET_NUMACTUAL(unsigned int numero)
     this->numActual = numero;
     return;
 }
+
+void cEmpleadoMostrador::agregarCliente(cCliente nuevoCliente)//nuevo cliente va a ser el cliente que pase el local (primero enla queue, se conecta po main)
+{
+    this->misClientes.push_back(&nuevoCliente);
+}

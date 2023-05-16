@@ -44,7 +44,6 @@ public:
     double GET_SALDO_DISPONIBLE();
     double GET_EFECTIVO_DISPONIBLE();
     double GET_SALDO_MP();
-
 };
 
 #endif //_CCLIENTE_H

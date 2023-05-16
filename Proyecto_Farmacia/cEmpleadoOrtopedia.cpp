@@ -22,7 +22,14 @@ cEmpleadoOrtopedia::~cEmpleadoOrtopedia() {
 
 }
 
+void cEmpleadoOrtopedia::AgregarProductoCarrito(cProducto producto, cCarrito &carrito)
+{
+    carrito.SET_PRODUCTO(producto);
+    return;
+}
+
 void cEmpleadoOrtopedia::Asesorar(cCliente cliente) {
+
     return;
 }
 

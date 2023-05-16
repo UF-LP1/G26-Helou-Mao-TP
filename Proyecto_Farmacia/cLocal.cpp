@@ -24,4 +24,15 @@ void cLocal::agregarCliente(cCliente nuevoCliente)
     this->clientesEspera.push(nuevoCliente);//lo agrego al final de mi cola
 
 }
+cCliente cLocal::PasarClienteMostrador()
+{
+  
+    cCliente siguiente = this->clientesEspera.front();//copio el primer cliente de la cola
+      clientesEspera.pop();
+      return siguiente;
+}
+void cLocal::agregarTicket(cTicketdecompra ticketNuevo)
+{
+    misTickets.push_back(ticketNuevo);
+}
 

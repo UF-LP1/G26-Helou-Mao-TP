@@ -16,7 +16,8 @@ private:
     string direccion;
     string contacto;
     double fondos;
-    queue<cCliente>clientesEspera; 
+    queue<cCliente> clientesEspera; 
+    vector<cTicketdecompra> misTickets;
 
 
 public:
@@ -24,6 +25,8 @@ public:
     ~cLocal();
     void AgregarTicketCompra(cTicketdecompra _ticketNuevo);
     void agregarCliente(cCliente nuevoCliente);
+    cCliente PasarClienteMostrador();
+    void agregarTicket(cTicketdecompra ticketNuevo);
 
 };
 

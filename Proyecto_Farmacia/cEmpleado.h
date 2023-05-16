@@ -15,7 +15,7 @@ protected:
     int numeroEmpleado;
     const string DNI;
     string contacto;
-
+ 
 public:
     cEmpleado(string dni);
     cEmpleado( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);

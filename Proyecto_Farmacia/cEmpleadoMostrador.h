@@ -13,6 +13,7 @@ class cEmpleadoMostrador : public cVendedor {
 
 private:
     unsigned int numActual;
+    vector<cCliente*> misClientes;
 
 public:
    
@@ -22,6 +23,7 @@ public:
     void SET_NUMACTUAL(unsigned int numero);
     void LlamarNumSiguiente(unsigned int numero);
     void EnviarClienteOtroEmp(cCliente _cliente);
+    void agregarCliente(cCliente nuevoCliente);
 
 };
 

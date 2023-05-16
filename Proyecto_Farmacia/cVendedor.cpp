@@ -17,10 +17,10 @@ void cVendedor::AtenderCliente(cCliente &cliente) {
     this->misClientes.push_back(&cliente);
     return; 
 }
-void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito &carrito) { 
-    carrito.SET_PRODUCTO(producto);
-    return;
-}
+//void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito &carrito) { 
+//    carrito.SET_PRODUCTO(producto);
+//    return;
+//}
 void cVendedor::PasarClienteaCaja(cCliente &cliente) {
     return;
 }

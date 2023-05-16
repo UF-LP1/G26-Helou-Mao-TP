@@ -13,6 +13,7 @@ private:
 
 public:
     cCarrito();
+
     cCarrito(vector<cProducto> listaProductos, double descuentoMed);
     ~cCarrito();
     void SET_LISTAPROD(vector<cProducto> listaProductosNuev);
