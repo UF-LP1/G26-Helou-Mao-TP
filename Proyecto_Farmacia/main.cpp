@@ -11,7 +11,7 @@ int main()
 
 	cProducto Nuevo(70.0, "shampoo", "garnier");
 	cProducto Nuevo2(250.0, "ibuprofeno", "actron");
-	cProducto Nuevo3(120.0, "esmalte", "pirulo");
+	cProducto Nuevo3(120.0, "esmalte", "Sally Hansen");
 
 	productosCarrito.push_back(Nuevo);
 	productosCarrito.push_back(Nuevo2);
@@ -21,10 +21,10 @@ int main()
 
 	//creo carrito, cliente y empleado caja con los datos que tengo
 	cCarrito carritoCliente(productosCarrito, 300.0);
-	string nombreCliente = "guadalupe";
-	string apellidoCliente = "guadalupe";
-	string ndniCliente = "guadalupe";
-	string contactoCliente = "guadalupe";
+	string nombreCliente = "Guadalupe";
+	string apellidoCliente = "Helou";
+	string ndniCliente = "45671572";
+	string contactoCliente = "11 2283-2778";
 	double saldoDisp = 1000.0;
 	double efectDisp = 3000.0;
 	eNecesidad necesidad = farmacia;
@@ -34,9 +34,9 @@ int main()
 	//no sabemos que problema hay con el constructor de cliente, no llegamos
 	cCliente pruebaFinal(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp);
 	string nombreEmp = "Roberto";
-	string apellidoEmp = "gGomez";
+	string apellidoEmp = "Gomez";
 	string ndniEmp = "356527";
-	string contactoEmp = "telefono";
+	string contactoEmp = "11 2556-2998";
 	double plataMiCaja = 15000;
 	cEmpleadoCaja miEmpleado(nombreEmp, apellidoEmp, 72728, ndniEmp, contactoEmp, plataMiCaja);
 

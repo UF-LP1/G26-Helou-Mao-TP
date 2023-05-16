@@ -21,16 +21,3 @@ cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
 
 }
 
-void cEmpleadosPerfumeria::Asesorar(cCliente cliente) {
-    return;
-}
-
-void AgregarProductoCarrito(cProducto producto, cCarrito carrito)
-{
-    return;
-}
-
-void PasarClienteaCaja(cCliente cliente)
-{
-    return;
-}
