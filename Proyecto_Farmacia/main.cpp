@@ -1,7 +1,7 @@
 #include "Headers.h"
 #include "cEmpleadoCaja.h"
 #include "cTicketdecompra.h"
-int cCliente::numeroCliente = 1;
+int cCliente::cantClientes = 1;
 
 
 int main()

@@ -19,6 +19,8 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
+    this->numeroClientes = cantClientes;
+    cantClientes++;
 }
 
 cCliente::~cCliente() 
@@ -88,5 +90,5 @@ cFactura cCliente ::GET_FACTURA()
 }
 int cCliente:: GET_NUMEROCLIENTE()
 {
-    return numeroCliente;
+    return numeroClientes;
 }

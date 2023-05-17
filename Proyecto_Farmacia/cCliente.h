@@ -14,7 +14,8 @@
 
 class cCliente {
 private:
-    static int numeroCliente;
+    static int cantClientes;
+    int numeroClientes;
     cFactura miFactura;
     cCarrito miCarrito;
     string nombre;
@@ -30,7 +31,7 @@ private:
 public:
     cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
     ~cCliente();
-    static int GET_NUMEROCLIENTE();
+    int GET_NUMEROCLIENTE();
     cCarrito *GET_CARRITO();
     bool GET_FORMATO();
     eMetodo GET_METODO();
