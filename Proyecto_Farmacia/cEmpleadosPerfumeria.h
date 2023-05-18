@@ -10,13 +10,12 @@
 
 
 class cEmpleadosPerfumeria : public cVendedor {
-	vector<cPerfumeria> productoPerfumeria;
 public:
 	cEmpleadosPerfumeria(string dni);
 	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
 	~cEmpleadosPerfumeria();
-	void Asesorar(cCliente cliente);
-
+	//void Asesorar(cCliente cliente);
+	void AgregarProductoCarrito(cPerfumeria producto);
 };
 
 #endif //_CEMPLEADOSPERFUMERIA_H

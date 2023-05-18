@@ -13,7 +13,7 @@ class cEmpleadoMostrador : public cEmpleado {
 
 private:
     unsigned int numActual;
-    vector<cCliente> misClientes;
+    queue<cCliente> misClientes;
 
 public:
    
@@ -22,7 +22,7 @@ public:
   
     void SET_NUMACTUAL(unsigned int numero);
     void LlamarNumSiguiente(unsigned int numero);
-    void EnviarClienteOtroEmp(cCliente _cliente);
+    cCliente EnviarClienteOtroEmp();
     void agregarCliente(cCliente nuevoCliente);
 
 };

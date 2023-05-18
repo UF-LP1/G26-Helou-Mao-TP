@@ -21,8 +21,12 @@ void cEmpleadoMostrador::LlamarNumSiguiente(unsigned int numero) {
     return;
 }
 
-void cEmpleadoMostrador::EnviarClienteOtroEmp(cCliente _cliente) {
-    return;
+cCliente cEmpleadoMostrador::EnviarClienteOtroEmp() {
+    
+    cCliente siguiente = this->misClientes.front();//copio el primer cliente de la cola
+    misClientes.pop();
+    return siguiente;
+    
 }
 
 void cEmpleadoMostrador::SET_NUMACTUAL(unsigned int numero)
@@ -33,5 +37,5 @@ void cEmpleadoMostrador::SET_NUMACTUAL(unsigned int numero)
 
 void cEmpleadoMostrador::agregarCliente(cCliente nuevoCliente)//nuevo cliente va a ser el cliente que pase el local (primero enla queue, se conecta po main)
 {
-    this->misClientes.push_back(&nuevoCliente);
+    this->misClientes.push(nuevoCliente);
 }

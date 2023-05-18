@@ -28,8 +28,9 @@ private:
     const string DNI;
     bool facturaFisica;
     double saldoMPago;
+    cReceta miReceta;
 public:
-    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP, cReceta receta);
     ~cCliente();
     int GET_NUMEROCLIENTE();
     cCarrito *GET_CARRITO();
@@ -49,6 +50,7 @@ public:
     void SET_MP(double saldoMP);
     void SET_SALDO(double saldoDisponible);
     void SET_EFECTIVO(double efectivoDisponible);
+    cReceta GET_RECETA();
 };
 
 #endif //_CCLIENTE_H

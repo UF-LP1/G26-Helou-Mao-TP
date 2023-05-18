@@ -33,20 +33,22 @@ cDescuento cFarmaceutico::GET_DESCUENTO(string obraSocial) {
    
 }
 
-void cFarmaceutico::ExplicarDosificacion(cReceta _objetoRec, cProducto _objProducto) {
+void cFarmaceutico::ExplicarDosificacion( cProducto _objProducto) {
     return;
 }
 
-void cFarmaceutico::RecomendarRemedios(cCliente miCliente) {
+void cFarmaceutico::RecomendarRemedios() {
     return;
 }
 
-void cFarmaceutico::ExpenderReceta(cReceta miReceta) {
+void cFarmaceutico::ExpenderReceta() {
     return;
 }
 
-double cFarmaceutico::ChequearDescuentos(cReceta _objetoReceta, cDescuento _objetoDescuento) {
+double cFarmaceutico::ChequearDescuentos( cDescuento _objetoDescuento) {
 
+    int aux = misClientes.size();
+    cReceta _objetoReceta = misClientes[aux].GET_RECETA();
     double porcentajeAux = 0.0;
     for (int i = 0; i < this->descuento.size(); i++)
     {
@@ -59,23 +61,40 @@ double cFarmaceutico::ChequearDescuentos(cReceta _objetoReceta, cDescuento _obje
 
 }
 
-double cFarmaceutico::calcularDescuento(double porcentaje, cReceta oReceta)
+double cFarmaceutico::calcularDescuento(double porcentaje)
 {
+    int aux = misClientes.size();
+    cReceta _objetoReceta = misClientes[aux].GET_RECETA();
     double aDescontar = 0.0;
     for (int i = 0; i < this->medicamentos.size(); i++)
     {
-        if (medicamentos[i].Get_NOMBRE() == oReceta.GET_MEDICAMENTO())
+        if (medicamentos[i].Get_NOMBRE() == _objetoReceta.GET_MEDICAMENTO())
         {
             aDescontar = (medicamentos[i].Get_PRECIO()*porcentaje)/100;  //descuento el porcentaje
             return aDescontar;
         }
     }
 }
-void cFarmaceutico:: settearDescuento(cReceta oReceta, cDescuento oDescuento)
+void cFarmaceutico:: settearDescuento (cDescuento oDescuento)
 {
-    double porcentaje = ChequearDescuentos(oReceta, oDescuento);//llamo a las otras funciones porque esta es la unica que se ejecut en el main
-    double aDescontar = calcularDescuento(porcentaje, oReceta);
-    int ultPos = clientes.size();   //obtengo el tamaño de mi vector para poder trabajar co nel ultimo cliente
-    cCarrito* carritoAux = clientes[ultPos].GET_CARRITO();
+   
+    double porcentaje = ChequearDescuentos(oDescuento);//llamo a las otras funciones porque esta es la unica que se ejecut en el main
+    double aDescontar = calcularDescuento(porcentaje);
+    int ultPos = misClientes.size();   //obtengo el tamaño de mi vector para poder trabajar co nel ultimo cliente
+    
+    cCarrito* carritoAux = misClientes[ultPos].GET_CARRITO();
     carritoAux->SET_DESCUENTO(aDescontar);  //aplico descuento al carrito de mi cliente
 }
+void cFarmaceutico::AgregarProductoReceta()
+{
+    int aux = misClientes.size();
+    cReceta auxReceta = misClientes[aux].GET_RECETA();
+    for (int i = 0; i < this->medicamentos.size(); i++)
+    {
+        if (medicamentos[i].Get_NOMBRE() == auxReceta.GET_MEDICAMENTO())
+        {
+            misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(medicamentos[i]);
+        }
+    }
+}
+ 

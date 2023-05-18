@@ -20,4 +20,9 @@ cEmpleadosPerfumeria::cEmpleadosPerfumeria( string nombre, string apellido, int 
 cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
 
 }
+void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)
+{
+    int aux = misClientes.size();
+    misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);
+}
 

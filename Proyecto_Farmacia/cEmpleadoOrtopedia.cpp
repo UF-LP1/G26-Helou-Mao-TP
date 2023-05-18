@@ -22,14 +22,18 @@ cEmpleadoOrtopedia::~cEmpleadoOrtopedia() {
 
 }
 
-void cEmpleadoOrtopedia::AgregarProductoCarrito(cProducto producto, cCarrito &carrito)
+void cEmpleadoOrtopedia::Asesorar() {
+
+    return;
+}
+
+void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)
 {
-    carrito.SET_PRODUCTO(producto);
+    int aux = misClientes.size();
+    misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
+     
+}
+void cEmpleadoOrtopedia::RecomendarProductos()
+{
     return;
 }
-
-void cEmpleadoOrtopedia::Asesorar(cCliente cliente) {
-
-    return;
-}
-

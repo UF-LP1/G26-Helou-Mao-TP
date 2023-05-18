@@ -21,7 +21,8 @@ int main()
 
 	//creo carrito
 	cCarrito carritoCliente(productosCarrito, 300.0);
-	
+	cReceta receta;
+
 	//creo cliente 0
 	string nombreCliente = "Guadalupe";
 	string apellidoCliente = "Helou";
@@ -32,7 +33,7 @@ int main()
 	eNecesidad necesidad = farmacia;
 	eMetodo metodo = mercadoPago;
 	double saldoMp = 4000.0;
-	cCliente miCliente(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp);
+	cCliente miCliente(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp, receta);
 
 	//creo cliente 1
 	string nombreCliente1 = "Guadalupe";
@@ -44,7 +45,8 @@ int main()
 	eNecesidad necesidad1 = farmacia;
 	eMetodo metodo1 = mercadoPago;
 	double saldoMp1 = 3.0;
-	cCliente miCliente1(carritoCliente, nombreCliente1, apellidoCliente1, contactoCliente1, metodo1, saldoDisp1, efectDisp1, necesidad1, ndniCliente1, true, saldoMp1);
+
+	cCliente miCliente1(carritoCliente, nombreCliente1, apellidoCliente1, contactoCliente1, metodo1, saldoDisp1, efectDisp1, necesidad1, ndniCliente1, true, saldoMp1, receta);
 
 	//creo empleado de caja
 	string nombreEmp = "Roberto";
@@ -58,10 +60,10 @@ int main()
 	//implemento funcion cobrar
 	
 	
-	cTicketdecompra ticketPrueba = miEmpleado.Cobrar(miCliente);
+	cTicketdecompra ticketPrueba = miEmpleado.Cobrar();
 	try {
-		cTicketdecompra ticket= miEmpleado.Cobrar(miCliente);
-		cTicketdecompra ticket1=miEmpleado.Cobrar(miCliente1);
+		cTicketdecompra ticket= miEmpleado.Cobrar();
+		cTicketdecompra ticket1=miEmpleado.Cobrar();
 	}
 	catch (exception *e)
 	{

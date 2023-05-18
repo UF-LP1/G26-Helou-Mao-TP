@@ -14,7 +14,7 @@ cVendedor::~cVendedor() {
 
 }
 void cVendedor::AtenderCliente(cCliente &cliente) { 
-    this->misClientes.push_back(&cliente);
+    this->misClientes.push_back(cliente);
     return; 
 }
 //void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito &carrito) { 
@@ -22,6 +22,6 @@ void cVendedor::AtenderCliente(cCliente &cliente) {
 //    return;
 //}
 void cVendedor::PasarClienteaCaja(cCliente &cliente) {
-    int necesidadAux = GET_NECESIDAD();
+    int necesidadAux = cliente.GET_NECESIDAD();
     return;
 }

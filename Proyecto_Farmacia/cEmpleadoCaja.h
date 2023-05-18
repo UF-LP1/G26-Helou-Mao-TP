@@ -18,13 +18,13 @@ public:
     cEmpleadoCaja(string dni);
     cEmpleadoCaja(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, double plataCaja);
     ~cEmpleadoCaja();
-    cTicketdecompra Cobrar(cCliente &cliente);
-    void emitirFactura(double precio, cCliente& cliente);
+    cTicketdecompra Cobrar();
+    void emitirFactura(double precio);
     
-    bool chequearSaldoDisponible(cCliente cliente, double montoAPagar);
+    bool chequearSaldoDisponible(double montoAPagar);
 
-    double CalculaMontoACobrar(cCarrito oCarrito);
-    void pagar(cCliente& cliente, double total);
+    double CalculaMontoACobrar();
+    void pagar( double total);
 };
 
 #endif //_CEMPLEADOCAJA_H

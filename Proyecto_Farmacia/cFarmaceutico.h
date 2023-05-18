@@ -21,13 +21,13 @@ public:
     cFarmaceutico(vector<cDescuento> descuento,vector <cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cFarmaceutico();
     cDescuento GET_DESCUENTO(string obraSocial);
-    void ExplicarDosificacion(cReceta _objetoReceta, cProducto _objetoProducto);
-    void RecomendarRemedios(cCliente _miCliente);
-    void ExpenderReceta(cReceta _objetoReceta);
-    double ChequearDescuentos(cReceta _objetoReceta, cDescuento _objeto);
-    double calcularDescuento(double porcentaje, cReceta oReceta);
-    void  settearDescuento(cReceta oReceta, cDescuento oDescuento);
-
+    void ExplicarDosificacion( cProducto _objetoProducto);
+    void RecomendarRemedios();
+    void ExpenderReceta();
+    double ChequearDescuentos( cDescuento _objeto);
+    double calcularDescuento(double porcentaje);
+    void  settearDescuento( cDescuento oDescuento);
+    void AgregarProductoReceta();
 };
 
 #endif //_CFARMACEUTICO_H

@@ -14,6 +14,7 @@ private:
     int Dosis;
 
 public:
+    cReceta();
     cReceta(string _obraSoc, string _medicamento, int _dosis);
     ~cReceta();
     int GET_DOSIS();

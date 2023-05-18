@@ -10,14 +10,15 @@
 
 
 class cEmpleadoOrtopedia : public cVendedor {
-    vector<cOrtopedia> productosOrtopedia;
-public:
+   public:
     cEmpleadoOrtopedia(string dni);
     cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto);
     ~cEmpleadoOrtopedia();
-    void Asesorar(cCliente cliente);
-    void RecomendarProductos(cCliente cliente);
-    void AgregarProductoCarrito(cProducto producto, cCarrito& carrito);
+    void Asesorar();
+    void RecomendarProductos();
+    void AgregarProductoCarrito(cOrtopedia producto);
+    
+
 };
 
 #endif //_CEMPLEADOORTOPEDIA_H

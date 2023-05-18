@@ -7,7 +7,7 @@
 
 
 
-cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
+cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP,cReceta receta) :DNI(dni)
 {
     this->miCarrito = _miCarrito;
     this->nombre = nombre;
@@ -20,6 +20,7 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
     this->numeroClientes = cantClientes;
+    this->miReceta = receta;
     cantClientes++; 
 }
 int cCliente::GET_NECESIDAD() {
@@ -107,4 +108,8 @@ void cCliente::SET_SALDO(double saldoDisponible)
 void cCliente:: SET_EFECTIVO(double efectivoDisponible)
 {
     this->efectivodisponible = efectivoDisponible;
+}
+cReceta cCliente::GET_RECETA()
+{
+    return this->miReceta;
 }
