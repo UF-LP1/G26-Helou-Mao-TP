@@ -20,7 +20,7 @@ public:
     double GET_DESCUENTOMED();
     void EliminarProductos(cProducto _product);
     void SET_PRODUCTO(cProducto nuevoProducto);
-
+    void EliminarProducto(cProducto _product)
 };
 
 #endif //_CCARRITO_H

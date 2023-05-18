@@ -20,7 +20,25 @@ cEmpleadosPerfumeria::cEmpleadosPerfumeria( string nombre, string apellido, int 
 cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
 
 }
-void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)
+void cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
+{
+    int random;
+    random = rand() % 3;
+    switch (random)
+    {
+    case 0:
+        cout << "Este shampoo es bueno para cuero cabelludo graso" << endl;
+        break;
+    case 1:
+        cout << "El secadoor de pelo conviene utilizarlo diez minutos luego del lavado" << endl;
+        break;
+    case 2:
+        cout << "Dentro de los desodorantes el mas recomendado es de la marca Rexona" << endl;
+    default:
+        cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
+    }
+}
+void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)     //agregamos productos al carrito de a uno
 {
     int aux = misClientes.size();
     misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);

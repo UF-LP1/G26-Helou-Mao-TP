@@ -23,6 +23,39 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->miReceta = receta;
     cantClientes++; 
 }
+
+//constructor cuando mi cliente no tiene receta
+cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
+{
+    this->miCarrito = _miCarrito;
+    this->nombre = nombre;
+    this->apellido = apellido;
+    this->contacto = contacto;
+    this->metodoPago = metodoPago;
+    this->saldoDisponible = saldoDisponible;
+    this->efectivodisponible = efectivoDisponible;
+    this->necesidad = necesidad;
+    this->facturaFisica = facturaFisica;
+    this->saldoMPago = MP;
+    this->numeroClientes = cantClientes;
+    cantClientes++;
+}
+//constructor cuando mi cliente no tiene carrito ni receta
+cCliente::cCliente( string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
+{
+    this->nombre = nombre;
+    this->apellido = apellido;
+    this->contacto = contacto;
+    this->metodoPago = metodoPago;
+    this->saldoDisponible = saldoDisponible;
+    this->efectivodisponible = efectivoDisponible;
+    this->necesidad = necesidad;
+    this->facturaFisica = facturaFisica;
+    this->saldoMPago = MP;
+    this->numeroClientes = cantClientes;
+    cantClientes++;
+}
+
 int cCliente::GET_NECESIDAD() {
     return this->necesidad;
 }
@@ -42,13 +75,14 @@ eMetodo cCliente::GET_METODO()
 {
     return this->metodoPago;
 }
-
+//devuelve el carrito como puntero asi podemos modificarlo
 cCarrito* cCliente::GET_CARRITO() {
     
     return &miCarrito;
 }
-
-void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad) {
+void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad)     //agrego a mi carrito los productos de perfumeria
+{
+    //hago un for que se repite igual de cantidad de veces como productos quiero agregar
     for (int i = 0; i < cantidad; i++)
     {
         miCarrito.SET_PRODUCTO(prodPerfumeria);
@@ -58,6 +92,7 @@ void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantid
 
 void cCliente::AgregarGolosinas(cGolosinas golosinas, int cantidad) {    //voy agregando golosinas al carrito
    
+    //hago un for que se repite igual de cantidad de veces como productos quiero agregar
     for (int i = 0; i < cantidad; i++)
     {
         miCarrito.SET_PRODUCTO(golosinas);

@@ -9,7 +9,7 @@
 
 
 #include "cFactura.h"
-cFactura::cFactura()
+cFactura::cFactura()    //constructor por defecto de factura
 {
     this->monto = 0;
     this->nombreCliente = "";
@@ -17,7 +17,7 @@ cFactura::cFactura()
     this->formato = false;
     this->productosComprados;
 }
-
+    //constructor de factura con todos sus datos
 cFactura::cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados)
 {   this->monto = _monto;
     this->nombreCliente = nombreCliente;

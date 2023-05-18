@@ -31,6 +31,8 @@ private:
     cReceta miReceta;
 public:
     cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica,double MP, cReceta receta);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica, double MP);
+    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, const string dni, bool facturaFisica, double MP);
     ~cCliente();
     int GET_NUMEROCLIENTE();
     cCarrito *GET_CARRITO();

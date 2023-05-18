@@ -4,13 +4,13 @@
 
 
 #include "cFarmaceutico.h"
-
+    //constructor por defeccto de farmaceutico
 cFarmaceutico::cFarmaceutico(string dni)
     :cVendedor::cVendedor(dni)
 {
 
 }
-
+    //constructor de farmaceutico con todos sus datos
 cFarmaceutico::cFarmaceutico( vector<cDescuento>descuent, vector<cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, string dni, string contacto)
     :cVendedor( nombre, apellido, numeroEmpleado, dni, contacto)
 {
