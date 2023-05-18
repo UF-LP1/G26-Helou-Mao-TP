@@ -2,7 +2,7 @@
 
 
 #include "cEmpleadoCaja.h"
-#include <exception>
+
 
 cEmpleadoCaja::cEmpleadoCaja(string dni)
     :cEmpleado::cEmpleado(dni)
@@ -71,7 +71,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
     
     if (chequearSaldoAux == false)
     {
-        throw new exception("Saldo insuficiente");
+        throw new exception(" Saldo insuficiente");
         //cTicketdecompra ticketERROR(false, precioTotal, cliente.GET_DNI(), this->nombre, this->apellido, this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO().GET_LISTAPRODUCTOS()); //aca tirariamos un THROW SALDO INSUFICIENTE pero no lo podes usar para este tp
         //return ticketERROR; //el false incial determina que la compra no se pudo realizar
     }
@@ -79,10 +79,32 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente &cliente)
     {
         cTicketdecompra ticketAux(true,precioTotal, cliente.GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, cliente.GET_NOMBRE(), cliente.GET_APELLIDO(), cliente.GET_CARRITO()->GET_LISTAPRODUCTOS()); //construyoelticket de compra
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
+        pagar(cliente, precioTotal);
         emitirFactura(precioTotal, cliente);    //le seteo la factur al cliente
         return ticketAux;   //devuelvo el ticket
     }
          
-    
+}
+void cEmpleadoCaja::pagar(cCliente& cliente, double total)
+{
+    int metodo = cliente.GET_METODO();
+    double saldo = 0.0;
+    switch (metodo)
+    {
+    case 0: //si pago en efectivo
+        saldo = cliente.GET_EFECTIVO_DISPONIBLE() - total;
+        cliente.SET_EFECTIVO(saldo);
+        break;
+    case 1: //si pago con tarjeta
+        saldo = cliente.GET_SALDO_DISPONIBLE() - total;
+        cliente.SET_SALDO(saldo);
+        break;
+    case 2: //si pago con mp
+        saldo = cliente.GET_SALDO_MP() - total;
+        cliente.SET_MP(saldo);
+        break;
+    default:
+        throw new exception("Mal registrado el metodo de pago"); //preguntar
+    }
 }
 

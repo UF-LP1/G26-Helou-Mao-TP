@@ -6,7 +6,7 @@ using namespace std;
 #include "cEmpleadoMostrador.h"
 
 cEmpleadoMostrador::cEmpleadoMostrador( string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual)
-    :cVendedor(nombre, apellido, numeroEmpleado, dni, contacto)
+    :cEmpleado(nombre, apellido, numeroEmpleado, dni, contacto)
 {
     this->numActual = numActual;
 }

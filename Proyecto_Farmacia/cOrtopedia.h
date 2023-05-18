@@ -6,8 +6,9 @@
 #ifndef _CORTOPEDIA_H
 #define _CORTOPEDIA_H
 
-#include "cProducto.h"
+
 #include "eOrtopedia.h"
+#include "cMedicamento.h"
 
 class cOrtopedia : public cProducto {
 private:

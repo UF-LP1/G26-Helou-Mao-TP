@@ -45,6 +45,10 @@ public:
     double GET_SALDO_DISPONIBLE();
     double GET_EFECTIVO_DISPONIBLE();
     double GET_SALDO_MP();
+    int GET_NECESIDAD();
+    void SET_MP(double saldoMP);
+    void SET_SALDO(double saldoDisponible);
+    void SET_EFECTIVO(double efectivoDisponible);
 };
 
 #endif //_CCLIENTE_H

@@ -6,18 +6,18 @@
 #ifndef _CEMPLEADOMOSTRADOR_H
 #define _CEMPLEADOMOSTRADOR_H
 
-#include "cVendedor.h"
+#include "cEmpleado.h"
 
 
-class cEmpleadoMostrador : public cVendedor {
+class cEmpleadoMostrador : public cEmpleado {
 
 private:
     unsigned int numActual;
-    vector<cCliente*> misClientes;
+    vector<cCliente> misClientes;
 
 public:
    
-    cEmpleadoMostrador( string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual);
+    cEmpleadoMostrador(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, unsigned int numActual);
     ~cEmpleadoMostrador();
   
     void SET_NUMACTUAL(unsigned int numero);

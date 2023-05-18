@@ -20,7 +20,10 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
     this->numeroClientes = cantClientes;
-    cantClientes++;
+    cantClientes++; 
+}
+int cCliente::GET_NECESIDAD() {
+    return this->necesidad;
 }
 
 cCliente::~cCliente() 
@@ -91,4 +94,17 @@ cFactura cCliente ::GET_FACTURA()
 int cCliente:: GET_NUMEROCLIENTE()
 {
     return numeroClientes;
+}
+
+void cCliente::SET_MP(double saldoMP)
+{
+    this->saldoMPago = saldoMPago;
+}
+void cCliente::SET_SALDO(double saldoDisponible)
+{
+    this->saldoDisponible = saldoDisponible;
+}
+void cCliente:: SET_EFECTIVO(double efectivoDisponible)
+{
+    this->efectivodisponible = efectivoDisponible;
 }

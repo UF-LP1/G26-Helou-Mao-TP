@@ -1,9 +1,7 @@
 #ifndef _CCARRITO_H
 #define _CCARRITO_H
-#include "cPerfumeria.h"
-#include "cGolosinas.h" //ojo, estamos incluyendo 4 veces producto
-#include "cOrtopedia.h"
-#include "cMedicamento.h"
+#include "cGolosinas.h"
+
 class cCarrito {
 
 private:

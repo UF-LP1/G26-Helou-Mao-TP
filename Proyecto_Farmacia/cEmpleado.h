@@ -19,6 +19,9 @@ protected:
 public:
     cEmpleado(string dni);
     cEmpleado( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    string GET_NOMBRE();
+    string GET_APELLIDO();
+    int GET_NUMEROEMP();
     ~cEmpleado();
 };
 

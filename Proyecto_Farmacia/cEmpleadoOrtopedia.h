@@ -10,7 +10,7 @@
 
 
 class cEmpleadoOrtopedia : public cVendedor {
-
+    vector<cOrtopedia> productosOrtopedia;
 public:
     cEmpleadoOrtopedia(string dni);
     cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto);

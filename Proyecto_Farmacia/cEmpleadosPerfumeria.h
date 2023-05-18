@@ -10,6 +10,7 @@
 
 
 class cEmpleadosPerfumeria : public cVendedor {
+	vector<cPerfumeria> productoPerfumeria;
 public:
 	cEmpleadosPerfumeria(string dni);
 	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);

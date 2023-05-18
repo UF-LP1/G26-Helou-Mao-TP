@@ -68,10 +68,19 @@ int main()
 		cout << "EXCEPCION" << e->what() << endl;
 		
 	}
+	//try {
+	//	cTicketdecompra ticket = miEmpleado.Cobrar(miCliente);
+	//	cTicketdecompra ticket1 = miEmpleado.Cobrar(miCliente1);
+	//}
+	//catch (exception* e1)
+	//{
+	//	cout << "EXCEPCION" << e1->what() << endl;
+
+	//}
 
 	//para chequear que funciona imprimo el ticket
 	cout << "Compra exitosa:" << ticketPrueba.GET_COMPRA();
-	cout << "\n Precio final: " << ticketPrueba.GET_COMPRATOTAL()<<endl;
+	cout << "\n Precio final: " << ticketPrueba.GET_PRECIOFINAL() << endl;
 
 	vector<cProducto>productosTicket;
 	productosTicket = ticketPrueba.GET_LISTAPRO();
@@ -83,4 +92,4 @@ int main()
 	cout << checkeo.GET_MONTO()<<endl;
 	cout << checkeo.GET_NOMBRE() << endl;
 	
-}
+} 

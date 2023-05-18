@@ -8,5 +8,6 @@
 #include <list>
 #include <forward_list>
 #include <queue>
+#include <exception>
 
 using namespace std;

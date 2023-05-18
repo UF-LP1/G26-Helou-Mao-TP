@@ -6,7 +6,7 @@
 #ifndef _CMEDICAMENTO_H
 #define _CMEDICAMENTO_H
 
-#include "cProducto.h"
+#include "cGolosinas.h"
 
 
 
@@ -19,8 +19,7 @@ private:
 
 public:
     cMedicamento(double _precio, string _nombre, string _marca, int _dosis, bool _ventaLibre);
-    ~cMedicamento();
-
+    ~cMedicamento(); 
 
 };
 

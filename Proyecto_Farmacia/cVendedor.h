@@ -1,7 +1,8 @@
 #pragma once
 #include "cEmpleado.h"
+#include "cPerfumeria.h"
 class cVendedor: public cEmpleado{
-    vector<cCliente*> misClientes;
+    vector<cCliente> misClientes;
 
 public:
     cVendedor(string dni);

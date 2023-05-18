@@ -18,4 +18,4 @@ public:
     ~cGolosinas();
 };
 
-#endif //_CGLOSINAS_H
+#endif //_CGLOSINAS_H 

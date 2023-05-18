@@ -14,6 +14,7 @@ private:
     string obraSocial;
 
 public:
+
     cDescuento(double porcentaje, string obraSocial);
     ~cDescuento();
     double GET_PORCENTAJE();

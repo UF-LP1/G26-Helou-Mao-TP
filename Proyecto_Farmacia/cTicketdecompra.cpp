@@ -32,7 +32,7 @@ cTicketdecompra::~cTicketdecompra() {
 
 }
 
-double cTicketdecompra::GET_COMPRATOTAL()
+double cTicketdecompra::GET_PRECIOFINAL()
 {
     return this->precioTotal;
 }

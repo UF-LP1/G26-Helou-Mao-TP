@@ -22,5 +22,6 @@ void cVendedor::AtenderCliente(cCliente &cliente) {
 //    return;
 //}
 void cVendedor::PasarClienteaCaja(cCliente &cliente) {
+    int necesidadAux = GET_NECESIDAD();
     return;
 }

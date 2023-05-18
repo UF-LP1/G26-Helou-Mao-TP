@@ -26,3 +26,17 @@ cEmpleado::cEmpleado( string nombre, string apellido, int numeroEmpleado,  strin
 cEmpleado::~cEmpleado() {
 
 }
+string cEmpleado:: GET_NOMBRE()
+{
+    return this->nombre;
+}
+string cEmpleado:: GET_APELLIDO()
+{
+    return this->apellido;
+}
+int cEmpleado:: GET_NUMEROEMP()
+{
+    return this->numeroEmpleado;
+}
+
+ 
