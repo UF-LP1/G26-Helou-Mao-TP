@@ -26,7 +26,7 @@ public:
     void AgregarTicketCompra(cTicketdecompra _ticketNuevo);
     void agregarCliente(cCliente nuevoCliente);
     cCliente PasarClienteMostrador();
-    void agregarTicket(cTicketdecompra ticketNuevo); 
+   
 
 };
 

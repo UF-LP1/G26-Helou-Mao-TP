@@ -9,8 +9,8 @@ public:
     cVendedor(string dni);
     cVendedor(string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cVendedor();
-    void AtenderCliente(cCliente &cliente) ;
+    void AtenderCliente(cCliente cliente) ;
     virtual void AgregarProductoCarrito(cProducto producto) = 0;
-    void PasarClienteaCaja(cCliente& cliente);
+    cCliente PasarClienteaCaja();
 
 };

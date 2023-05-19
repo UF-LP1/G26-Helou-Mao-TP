@@ -9,9 +9,9 @@ int main()
 	vector<cFactura> facturaPrueba;
 	vector<cProducto>productosCarrito;
 
-	cProducto Nuevo(70.0, "shampoo", "garnier");
-	cProducto Nuevo2(250.0, "ibuprofeno", "actron");
-	cProducto Nuevo3(120.0, "esmalte", "Sally Hansen");
+	cPerfumeria Nuevo(70.0, "shampoo", "garnier", cremaEnjuague);
+	cOrtopedia Nuevo2(250.0, "ibuprofeno", "actron", mediasCompresion);
+	cGolosinas Nuevo3(120.0, "esmalte", "Sally Hansen", chupetin);
 
 	productosCarrito.push_back(Nuevo);
 	productosCarrito.push_back(Nuevo2);

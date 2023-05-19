@@ -17,22 +17,18 @@ cLocal::~cLocal() {
 }
 
 void cLocal::AgregarTicketCompra(cTicketdecompra _ticketNuevo) {
+    this->misTickets.push_back(_ticketNuevo);   //agrego a mi vector de tickets el ticket nuevo
     return;
 }
 void cLocal::agregarCliente(cCliente nuevoCliente)
 {
-    this->clientesEspera.push(nuevoCliente);//lo agrego al final de mi cola
+    this->clientesEspera.push(nuevoCliente);    //lo agrego al final de mi cola
 
 }
 cCliente cLocal::PasarClienteMostrador()
 {
-  
-    cCliente siguiente = this->clientesEspera.front();//copio el primer cliente de la cola
-      clientesEspera.pop();
+    cCliente siguiente = this->clientesEspera.front();  //copio el primer cliente de la cola
+      clientesEspera.pop();  //saco el cliente que tengo adelante asi la fila avanza
       return siguiente;
-}
-void cLocal::agregarTicket(cTicketdecompra ticketNuevo)
-{
-    misTickets.push_back(ticketNuevo);
 }
 

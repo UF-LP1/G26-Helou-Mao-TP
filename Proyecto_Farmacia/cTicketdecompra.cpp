@@ -38,6 +38,7 @@ double cTicketdecompra::GET_PRECIOFINAL()
 }
 
 void cTicketdecompra::SET_TOTAL(double _nuevoTotal) {
+    this->precioTotal = _nuevoTotal;
     return;
 }
 

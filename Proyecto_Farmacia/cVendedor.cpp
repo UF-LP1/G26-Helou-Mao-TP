@@ -13,15 +13,12 @@ cVendedor::cVendedor(string nombre, string apellido, int numeroEmpleado, string 
 cVendedor::~cVendedor() {
 
 }
-void cVendedor::AtenderCliente(cCliente &cliente) { 
-    this->misClientes.push_back(cliente);
+void cVendedor::AtenderCliente(cCliente cliente) { 
+    this->misClientes.push_back(cliente);   //agrego el nuevo cliente al final de mi vector de clientes
     return; 
 }
-//void cVendedor::AgregarProductoCarrito(cProducto producto, cCarrito &carrito) { 
-//    carrito.SET_PRODUCTO(producto);
-//    return;
-//}
-void cVendedor::PasarClienteaCaja(cCliente &cliente) {
-    int necesidadAux = cliente.GET_NECESIDAD();
-    return;
+
+cCliente cVendedor::PasarClienteaCaja() {
+    
+    return misClientes[misClientes.size()];
 }
