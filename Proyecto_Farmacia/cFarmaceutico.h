@@ -6,7 +6,7 @@
 #ifndef _CFARMACEUTICO_H
 #define _CFARMACEUTICO_H
 
-#include "cVendedor.h"
+#include "cEmpleadosPerfumeria.h"
 
 
 class cFarmaceutico : public cVendedor {
@@ -24,10 +24,11 @@ public:
     void ExplicarDosificacion( cProducto _objetoProducto);
     void RecomendarRemedios();
     void ExpenderReceta();
-    double ChequearDescuentos( cDescuento _objeto);
+    double ChequearDescuentos();
     double calcularDescuento(double porcentaje);
-    void  settearDescuento( cDescuento oDescuento);
+    void  settearDescuento( );
     void AgregarProductoReceta();
+    void AtenderCliente(cCliente cliente);
 };
 
 #endif //_CFARMACEUTICO_H

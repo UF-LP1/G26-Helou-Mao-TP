@@ -45,7 +45,7 @@ void cFarmaceutico::ExpenderReceta() {
     return;
 }
 
-double cFarmaceutico::ChequearDescuentos( cDescuento _objetoDescuento) {
+double cFarmaceutico::ChequearDescuentos( ) {
 
     int aux = misClientes.size();
     cReceta _objetoReceta = misClientes[aux].GET_RECETA();
@@ -75,10 +75,10 @@ double cFarmaceutico::calcularDescuento(double porcentaje)
         }
     }
 }
-void cFarmaceutico:: settearDescuento (cDescuento oDescuento)
+void cFarmaceutico:: settearDescuento ()
 {
    
-    double porcentaje = ChequearDescuentos(oDescuento);//llamo a las otras funciones porque esta es la unica que se ejecut en el main
+    double porcentaje = ChequearDescuentos();//llamo a las otras funciones porque esta es la unica que se ejecut en el main
     double aDescontar = calcularDescuento(porcentaje);
     int ultPos = misClientes.size();   //obtengo el tamaño de mi vector para poder trabajar co nel ultimo cliente
     
@@ -96,5 +96,11 @@ void cFarmaceutico::AgregarProductoReceta()
             misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(medicamentos[i]);
         }
     }
+   
 }
- 
+void cFarmaceutico::AtenderCliente(cCliente cliente) {
+    cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
+    AgregarProductoReceta();
+    settearDescuento();
+    return;
+}

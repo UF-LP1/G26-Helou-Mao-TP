@@ -6,7 +6,7 @@
 #ifndef _CEMPLEADOSPERFUMERIA_H
 #define _CEMPLEADOSPERFUMERIA_H
 
-#include "cVendedor.h"
+#include "cEmpleadoOrtopedia.h"
 
 
 class cEmpleadosPerfumeria : public cVendedor {

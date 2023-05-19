@@ -6,7 +6,7 @@
 #ifndef _CEMPLEADOCAJA_H
 #define _CEMPLEADOCAJA_H
 
-#include "cEmpleado.h"
+#include "cFarmaceutico.h"
 #include "eMetodo.h"
 
 

@@ -6,7 +6,7 @@
 #ifndef _CEMPLEADOLIMPIEZA_H
 #define _CEMPLEADOLIMPIEZA_H
 
-#include "cEmpleado.h"
+#include "cEmpleadoCaja.h"
 
 
 class cEmpleadoLimpieza : public cEmpleado {

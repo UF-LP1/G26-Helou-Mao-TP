@@ -6,7 +6,7 @@
 #ifndef _CEMPLEADOMOSTRADOR_H
 #define _CEMPLEADOMOSTRADOR_H
 
-#include "cEmpleado.h"
+#include "cEmpleadoLimpieza.h"
 
 
 class cEmpleadoMostrador : public cEmpleado {
@@ -24,6 +24,7 @@ public:
     void LlamarNumSiguiente(unsigned int numero);
     cCliente EnviarClienteOtroEmp();
     void agregarCliente(cCliente nuevoCliente);
+    int aDondeVaCliente();
 
 };
 

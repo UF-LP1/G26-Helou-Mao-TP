@@ -5,7 +5,7 @@
 
 #ifndef _CTICKETDECOMPRA_H
 #define _CTICKETDECOMPRA_H
-#include "cProducto.h"
+#include "cPerfumeria.h"
 
 
 class cTicketdecompra {

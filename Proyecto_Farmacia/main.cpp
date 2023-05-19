@@ -1,69 +1,82 @@
 #include "Headers.h"
-#include "cEmpleadoCaja.h"
+#include "cEmpleadoMostrador.h"
 #include "cTicketdecompra.h"
+#include "cLocal.h"
 int cCliente::cantClientes = 1;
 
-
+using namespace std;
 int main()
 {
 	vector<cFactura> facturaPrueba;
-	vector<cProducto>productosCarrito;
 
-	cPerfumeria Nuevo(70.0, "shampoo", "garnier", cremaEnjuague);
-	cOrtopedia Nuevo2(250.0, "ibuprofeno", "actron", mediasCompresion);
-	cGolosinas Nuevo3(120.0, "esmalte", "Sally Hansen", chupetin);
+		//creo los productos que se van a llevar los clientes
+	cPerfumeria productoPerf(70.0, "shampoo", "garnier", cremaEnjuague);
+	cOrtopedia productoOrt(250.0, "ibuprofeno", "actron", mediasCompresion);
+	cGolosinas golosinas(120.0, "esmalte", "Sally Hansen", chupetin);
 
-	productosCarrito.push_back(Nuevo);
-	productosCarrito.push_back(Nuevo2);
-	productosCarrito.push_back(Nuevo3);
-	productosCarrito.push_back(Nuevo3);
+		//creo carrito
+	cCarrito carritoCliente;
+	cReceta receta("osde", "ibupirac", 2);
 
+		//creo cliente 0
+	cCliente miCliente0(carritoCliente, "Guadaalupe", "Helou", "11 2283-2778", mercadoPago, 1000.0, 3000.0, farmacia, "45671572", true, 4000.0, receta);
 
-	//creo carrito
-	cCarrito carritoCliente(productosCarrito, 300.0);
-	cReceta receta;
+		//creo cliente 1
+	cCliente miCliente1(carritoCliente, "Valentina", "Mao", "maovalentina@mail", mercadoPago, 100.0, 50.0, perfumeria, "45783437", true, 3.0);
 
-	//creo cliente 0
-	string nombreCliente = "Guadalupe";
-	string apellidoCliente = "Helou";
-	string ndniCliente = "45671572";
-	string contactoCliente = "11 2283-2778";
-	double saldoDisp = 1000.0;
-	double efectDisp = 3000.0;
-	eNecesidad necesidad = farmacia;
-	eMetodo metodo = mercadoPago;
-	double saldoMp = 4000.0;
-	cCliente miCliente(carritoCliente, nombreCliente, apellidoCliente, contactoCliente, metodo, saldoDisp, efectDisp, necesidad, ndniCliente, true, saldoMp, receta);
+		//creo empleado de caja
+	cEmpleadoCaja empleadoCaja("Roberto", "Gomez", 72728, "5678909", "12345678910", 15000.0);
 
-	//creo cliente 1
-	string nombreCliente1 = "Guadalupe";
-	string apellidoCliente1 = "Helou";
-	string ndniCliente1 = "45671572";
-	string contactoCliente1 = "11 2283-2778";
-	double saldoDisp1 = 100.0;
-	double efectDisp1 = 50.0;
-	eNecesidad necesidad1 = farmacia;
-	eMetodo metodo1 = mercadoPago;
-	double saldoMp1 = 3.0;
+		//creo empleado de perfumeria
+	cEmpleadosPerfumeria empleadoPerfumeria("Roberto", "Gomez", 72728, "5678909", "12345678910");
 
-	cCliente miCliente1(carritoCliente, nombreCliente1, apellidoCliente1, contactoCliente1, metodo1, saldoDisp1, efectDisp1, necesidad1, ndniCliente1, true, saldoMp1, receta);
+	//creo empleado de mostrador
+	cEmpleadoMostrador empleadoMostrador("Roberto", "Gomez", 72728, "5678909", "12345678910",0);
 
-	//creo empleado de caja
-	string nombreEmp = "Roberto";
-	string apellidoEmp = "Gomez";
-	string ndniEmp = "356527";
-	string contactoEmp = "11 2556-2998";
-	double plataMiCaja = 15000;
-	cEmpleadoCaja miEmpleado(nombreEmp, apellidoEmp, 72728, ndniEmp, contactoEmp, plataMiCaja);
+		//creo vectores y variables que necesito para farmaceutico
+	vector<cMedicamento>medicamentosFarmaceutico;
+	cMedicamento medicamento1(700.0,"ibupirac","actron",3,false);
+	cMedicamento medicamento2(1000.0, "descongestivo", "refenex", 10, true);
+	medicamentosFarmaceutico.push_back(medicamento1);
+	medicamentosFarmaceutico.push_back(medicamento2);
+	vector<cDescuento>descuentosFarmaceutico;
+	cDescuento descuento1(20.0, "osde");
+	cDescuento descuento2(5.0, "medife");
+	descuentosFarmaceutico.push_back(descuento1);
+	descuentosFarmaceutico.push_back(descuento2);
 
+		//creo empleado de farmacia
+	cFarmaceutico empleadoFarmacia(descuentosFarmaceutico, medicamentosFarmaceutico, "Roberto", "Gomez", 72728, "5678909", "12345678910");
 
-	//implemento funcion cobrar
-	
-	
-	cTicketdecompra ticketPrueba = miEmpleado.Cobrar();
+		//creo el local
+	cLocal miLocal("farmaciaViernes", "corrientesYCallao", "21356776", 200000.0);
+
+		//clientes llegan al local
+	miLocal.agregarCliente(miCliente0);
+	miLocal.agregarCliente(miCliente1);
+
+		//local me pasa a mostrador el primer cliente a ser atendiido
+	cCliente clienteAux = miLocal.PasarClienteMostrador();
+	empleadoMostrador.agregarCliente(clienteAux);
+
+		//empleado mostrador me pasa el proximo empleado y donde mandarlo
+	cCliente clienteAux2 = (cCliente)empleadoMostrador.EnviarClienteOtroEmp();
+	int necesidadCliente = empleadoMostrador.aDondeVaCliente();
+	if (necesidadCliente == 0)
+	{
+		//mi cliente quiere ir a la farmacia
+		empleadoFarmacia.AtenderCliente(clienteAux2);
+		cCliente clienteAux3 = empleadoFarmacia.PasarClienteaCaja();
+	}
+	else if (necesidadCliente == 1)
+	{
+		//mi cliente quiere ir a perfumeria
+	}
+		//implemento funcion cobrar
+	cTicketdecompra ticketPrueba = empleadoCaja.Cobrar();
 	try {
-		cTicketdecompra ticket= miEmpleado.Cobrar();
-		cTicketdecompra ticket1=miEmpleado.Cobrar();
+		cTicketdecompra ticket= empleadoCaja.Cobrar();
+		cTicketdecompra ticket1=empleadoCaja.Cobrar();
 	}
 	catch (exception *e)
 	{
@@ -90,7 +103,7 @@ int main()
 	{
 		cout << i+1 << "-" << productosTicket[i].Get_PRECIO()<<endl;
 	}
-	cFactura checkeo = miCliente.GET_FACTURA();
+	cFactura checkeo = miCliente0.GET_FACTURA();
 	cout << checkeo.GET_MONTO()<<endl;
 	cout << checkeo.GET_NOMBRE() << endl;
 	
