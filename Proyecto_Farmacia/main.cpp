@@ -92,24 +92,13 @@ int main()
 	cTicketdecompra ticket1;
 	try {
 		ticket= empleadoCaja.Cobrar();
-		//ticket1=empleadoCaja.Cobrar();
+
 	}
 	catch (exception *e)
 	{
 		cout << "EXCEPCION" << e->what() << endl;
 		
 	}
-	//try {
-	//	cTicketdecompra ticket = miEmpleado.Cobrar(miCliente);
-	//	cTicketdecompra ticket1 = miEmpleado.Cobrar(miCliente1);
-	//}
-	//catch (exception* e1)
-	//{
-	//	cout << "EXCEPCION" << e1->what() << endl;
-
-	//}
-
-	//para chequear que funciona imprimo el ticket
 	cout << "Compra exitosa:" << ticket.GET_COMPRA();
 	cout << "\n Precio final: " << ticket.GET_PRECIOFINAL() << endl;
 
