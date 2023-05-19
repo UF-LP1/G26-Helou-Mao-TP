@@ -47,22 +47,30 @@ void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agr
     int aux = misClientes.size();
     misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
 }
-void cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
+string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
 {
     int random;
+    string impresion="";
     random = rand() % 3;
     switch (random)
     {
     case 0:
-        cout << "Mira que buenas estas nuevas muletas" << endl;
+        impresion="Mira que buenas estas nuevas muletas";
         break;
     case 1:
-        cout << "Acaban de entrar unas muñeras de ultima tecnologia" << endl;
+        impresion = "Acaban de entrar unas muñeras de ultima tecnologia";
         break;
     case 2:
-        cout << "Con este cabestrillo non vas a sentir molestias" << endl;
+        impresion= "Con este cabestrillo non vas a sentir molestias" ;
+        break;
     default:
-        cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
+        impresion="Lamentamos decir que no tenemos el producto deseado" ;
     }
+    return impresion;
+}
+void cEmpleadoOrtopedia::AtenderCliente(cCliente cliente, cOrtopedia producto) {
+    cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
+    AgregarProductoCarrito(producto);
+    Asesorar();
     return;
 }

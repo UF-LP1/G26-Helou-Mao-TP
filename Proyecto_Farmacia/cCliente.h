@@ -53,6 +53,7 @@ public:
     void SET_SALDO(double saldoDisponible);
     void SET_EFECTIVO(double efectivoDisponible);
     cReceta GET_RECETA();
+    cCliente& operator=(const cCliente&);
 };
 
 #endif //_CCLIENTE_H

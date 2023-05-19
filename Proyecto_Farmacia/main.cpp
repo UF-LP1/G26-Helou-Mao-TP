@@ -27,6 +27,9 @@ int main()
 		//creo empleado de caja
 	cEmpleadoCaja empleadoCaja("Roberto", "Gomez", 72728, "5678909", "12345678910", 15000.0);
 
+	//creo empleado ortopedia
+	cEmpleadoOrtopedia empleadoOrt("Roberto", "Gomez", 72728, "5678909", "12345678910");
+
 		//creo empleado de perfumeria
 	cEmpleadosPerfumeria empleadoPerfumeria("Roberto", "Gomez", 72728, "5678909", "12345678910");
 
@@ -60,23 +63,36 @@ int main()
 	empleadoMostrador.agregarCliente(clienteAux);
 
 		//empleado mostrador me pasa el proximo empleado y donde mandarlo
-	cCliente clienteAux2 = (cCliente)empleadoMostrador.EnviarClienteOtroEmp();
+	clienteAux = empleadoMostrador.EnviarClienteOtroEmp();
 	int necesidadCliente = empleadoMostrador.aDondeVaCliente();
 	if (necesidadCliente == 0)
 	{
 		//mi cliente quiere ir a la farmacia
-		empleadoFarmacia.AtenderCliente(clienteAux2);
-		cCliente clienteAux3 = empleadoFarmacia.PasarClienteaCaja();
+		empleadoFarmacia.AtenderCliente(clienteAux);
+		clienteAux = empleadoFarmacia.PasarClienteaCaja();
 	}
 	else if (necesidadCliente == 1)
 	{
 		//mi cliente quiere ir a perfumeria
+		empleadoPerfumeria.AtenderCliente(clienteAux,productoPerf);
+		clienteAux = empleadoPerfumeria.PasarClienteaCaja();
 	}
+	else if (necesidadCliente == 2)
+	{
+		//mi cliente quiere ir a ortopedia
+		empleadoOrt.AtenderCliente(clienteAux, productoOrt);
+		clienteAux = empleadoOrt.PasarClienteaCaja();
+	}
+		//paso cliente aux al empleado de caja para que pueda cobrar
+	empleadoCaja.AtenderCliente(clienteAux);
+
 		//implemento funcion cobrar
 	cTicketdecompra ticketPrueba = empleadoCaja.Cobrar();
+	cTicketdecompra ticket;
+	cTicketdecompra ticket1;
 	try {
-		cTicketdecompra ticket= empleadoCaja.Cobrar();
-		cTicketdecompra ticket1=empleadoCaja.Cobrar();
+		ticket= empleadoCaja.Cobrar();
+		//ticket1=empleadoCaja.Cobrar();
 	}
 	catch (exception *e)
 	{

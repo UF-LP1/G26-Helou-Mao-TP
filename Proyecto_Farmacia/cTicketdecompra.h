@@ -21,7 +21,7 @@ private:
     vector<cProducto> productosComprados;
 
 public:
-    
+    cTicketdecompra();
     cTicketdecompra(bool compraExitosa,double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados);
     ~cTicketdecompra();
     bool GET_COMPRA();

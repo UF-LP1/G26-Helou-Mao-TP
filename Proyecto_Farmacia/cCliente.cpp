@@ -148,3 +148,23 @@ cReceta cCliente::GET_RECETA()
 {
     return this->miReceta;
 }
+cCliente& cCliente::operator=(const cCliente& cliente)
+{
+    if (&cliente != this)
+    {
+        nombre = cliente.nombre;
+        apellido = cliente.apellido;
+        numeroClientes = cliente.numeroClientes;
+        miFactura = cliente.miFactura;
+        miCarrito = cliente.miCarrito;
+        contacto = cliente.contacto;
+        metodoPago = cliente.metodoPago;
+        saldoDisponible = cliente.saldoDisponible;
+        efectivodisponible = cliente.efectivodisponible;
+        necesidad = cliente.necesidad;
+        //DNI = cliente.DNI;
+        saldoMPago = cliente.saldoMPago;
+        miReceta = cliente.miReceta;
+    }
+    return *this;
+}

@@ -17,6 +17,10 @@ cTicketdecompra::cTicketdecompra(bool _compraExitosa, double _precioTotal, strin
     this->apellidoCliente = apellidoCliente;
     this->productosComprados = productosComprados;
 }
+cTicketdecompra::cTicketdecompra()
+{
+    this->compraExitosa = false;
+}
 bool cTicketdecompra::GET_COMPRA()
 {
     return this->compraExitosa;

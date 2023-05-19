@@ -16,6 +16,7 @@ public:
 	~cEmpleadosPerfumeria();
 	void Asesorar();
 	void AgregarProductoCarrito(cPerfumeria producto);
+	void AtenderCliente(cCliente cliente, cPerfumeria producto);
 };
 
 #endif //_CEMPLEADOSPERFUMERIA_H

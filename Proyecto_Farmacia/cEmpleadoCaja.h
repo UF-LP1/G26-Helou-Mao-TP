@@ -20,7 +20,7 @@ public:
     ~cEmpleadoCaja();
     cTicketdecompra Cobrar();
     void emitirFactura(double precio);
-    
+    void AtenderCliente(cCliente cliente);
     bool chequearSaldoDisponible(double montoAPagar);
 
     double CalculaMontoACobrar();

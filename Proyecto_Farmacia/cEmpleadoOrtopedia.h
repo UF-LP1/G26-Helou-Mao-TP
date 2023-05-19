@@ -15,9 +15,9 @@ class cEmpleadoOrtopedia : public cVendedor {
     cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto);
     ~cEmpleadoOrtopedia();
     void Asesorar();
-    void RecomendarProductos();
+    string RecomendarProductos();
     void AgregarProductoCarrito(cOrtopedia producto);
-    
+    void AtenderCliente(cCliente cliente, cOrtopedia producto);
 
 };
 

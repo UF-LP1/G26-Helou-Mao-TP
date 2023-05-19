@@ -43,4 +43,9 @@ void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)     //ag
     int aux = misClientes.size();
     misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);
 }
-
+void cEmpleadosPerfumeria::AtenderCliente(cCliente cliente, cPerfumeria producto) {
+    cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
+    AgregarProductoCarrito(producto);
+       Asesorar();
+    return;
+}

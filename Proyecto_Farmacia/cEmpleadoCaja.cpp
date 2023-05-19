@@ -85,7 +85,15 @@ cTicketdecompra cEmpleadoCaja::Cobrar()
             //creo un ticket de compra con mis datos
         cTicketdecompra ticketAux(true,precioTotal, clientes[aux].GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, clientes[aux].GET_NOMBRE(), clientes[aux].GET_APELLIDO(), clientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS()); //construyoelticket de compra
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
-        pagar(precioTotal); //le va a restar la plata al cliente
+        try
+        {
+            pagar(precioTotal);
+        }
+        catch (exception* e)
+        {
+            throw e;
+        }
+         //le va a restar la plata al cliente
         emitirFactura(precioTotal);    //le seteo la factur al cliente
         return ticketAux;   //devuelvo el ticket para despues agregarlo al local
     }
@@ -113,7 +121,10 @@ void cEmpleadoCaja::pagar( double total)    //va a restarle la plata al cliente
         clientes[aux].SET_MP(saldo);
         break;
     default:
-        throw new exception("Mal registrado el metodo de pago"); //preguntar
+        throw new exception("Mal registrado el metodo de pago"); 
     }
 }
-
+void cEmpleadoCaja::AtenderCliente(cCliente cliente) {
+    this->clientes.push_back(cliente);   //agrego el nuevo cliente al final de mi vector de clientes
+    return;
+}
