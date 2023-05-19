@@ -40,10 +40,10 @@ void cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
 }
 void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)     //agregamos productos al carrito de a uno
 {
-    int aux = misClientes.size();
-    misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);
+    list <cCliente> ::iterator it = misClientes.end();
+    it->GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);
 }
-void cEmpleadosPerfumeria::AtenderCliente(cCliente cliente, cPerfumeria producto) {
+void cEmpleadosPerfumeria::AtenderCliente(cCliente *cliente, cPerfumeria producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(producto);
        Asesorar();

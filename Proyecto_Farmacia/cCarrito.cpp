@@ -1,10 +1,11 @@
 #include "cCarrito.h"
 
-cCarrito::cCarrito(vector<cProducto> listaProductos, double descuentomed)//constructor carrito con productos y desc ya definidos
+cCarrito::cCarrito(list<cProducto> listaProductos, double descuentomed)//constructor carrito con productos y desc ya definidos
 {
-    for (int i = 0; i < listaProductos.size(); i++)
+    for (list<cProducto>::iterator it=listaProductos.begin(); it!= listaProductos.end(); it++)
     {
-        this->miListaProductos.push_back(listaProductos[i]);
+       
+        this->miListaProductos.push_back(*it);
     }
     this->descuentoMed = descuentomed;
 }
@@ -17,11 +18,11 @@ double cCarrito::GET_DESCUENTOMED()
     return this->descuentoMed;
 }
 
-void cCarrito::SET_LISTAPROD(vector<cProducto> listaProductosNuev)//define la lista de productos o si ya hay, agrega una lista
+void cCarrito::SET_LISTAPROD(list<cProducto> listaProductosNuev)//define la lista de productos o si ya hay, agrega una lista
 {
-    for (int i = 0; i < listaProductosNuev.size(); i++)
+    for (list<cProducto>::iterator it = listaProductosNuev.begin(); it != listaProductosNuev.end(); it++)
     {
-        miListaProductos.push_back(listaProductosNuev[i]);
+        miListaProductos.push_back(*it);
     }
 }
 void cCarrito::SET_DESCUENTO(double nuevoDes)//agrega un producto a la lista
@@ -33,18 +34,18 @@ cCarrito::~cCarrito() {
 
 }
 
-vector<cProducto> cCarrito::GET_LISTAPRODUCTOS() 
+list<cProducto> cCarrito::GET_LISTAPRODUCTOS() 
 {
     return this->miListaProductos;
 }
 
 void cCarrito::EliminarProductos(cProducto _product)//elimino el producto todas las veces que aparece
 {
-    for (int i = 0; i < miListaProductos.size(); i++)
+    for (list<cProducto>::iterator it = miListaProductos.begin(); it != miListaProductos.end(); it++)
     {
-        if (miListaProductos[i].Get_NOMBRE() == _product.Get_NOMBRE()&& miListaProductos[i].GET_MARCA() == _product.GET_MARCA())
+        if (it->Get_NOMBRE() == _product.Get_NOMBRE()&& it->GET_MARCA() == _product.GET_MARCA())
         {
-            miListaProductos.erase(miListaProductos.begin() + i);//elimuno el producto que coincide con el que estoy buscando
+            miListaProductos.erase(it);//elimuno el producto que coincide con el que estoy buscando
         }
     }
     //voy a terminar de recorrer el vector de mi carrito hasta eliminar todos los productos que coinciden
@@ -52,17 +53,17 @@ void cCarrito::EliminarProductos(cProducto _product)//elimino el producto todas 
 }
 void cCarrito::EliminarProducto(cProducto _product)//elimino el producto una sola vez
 {
-    for (int i = 0; i < miListaProductos.size(); i++)
+    for (list<cProducto>::iterator it = miListaProductos.begin(); it != miListaProductos.end(); it++)
     {
-        if (miListaProductos[i].Get_NOMBRE() == _product.Get_NOMBRE() && miListaProductos[i].GET_MARCA() == _product.GET_MARCA())
+        if (it->Get_NOMBRE() == _product.Get_NOMBRE() && it->GET_MARCA() == _product.GET_MARCA())
         {
-            miListaProductos.erase(miListaProductos.begin() + i);//elimuno el producto que coincide con el que estoy buscando
+            miListaProductos.erase(it);//elimuno el producto que coincide con el que estoy buscando
             return;//al primer producto que coincide, salgo de la funcion
         }
     }
 }
-void cCarrito::SET_PRODUCTO(cProducto nuevoProducto)    //agrego un producto al carrito 
+void cCarrito::SET_PRODUCTO(cProducto *nuevoProducto)    //agrego un producto al carrito 
 {
-    this->miListaProductos.push_back(nuevoProducto);
+    this->miListaProductos.push_back(*nuevoProducto);
     return;
 }

@@ -18,15 +18,15 @@ private:
     int numeroEmpleado;
     string nombreCliente;
     string apellidoCliente;
-    vector<cProducto> productosComprados;
+    list<cProducto> productosComprados;
 
 public:
     cTicketdecompra();
-    cTicketdecompra(bool compraExitosa,double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados);
+    cTicketdecompra(bool compraExitosa,double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, list<cProducto> productosComprados);
     ~cTicketdecompra();
     bool GET_COMPRA();
     double GET_PRECIOFINAL();
-    vector<cProducto> GET_LISTAPRO();
+    list<cProducto> GET_LISTAPRO();
     void SET_TOTAL(double _nuevoTotal);
 };
 

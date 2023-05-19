@@ -12,15 +12,15 @@
 class cFarmaceutico : public cVendedor {
  
 private:
-    vector<cMedicamento> medicamentos;
-    vector<cDescuento> descuento;
+    list<cMedicamento> medicamentos;
+    list<cDescuento> descuento;
    
 public:
 
     cFarmaceutico(string dni);
-    cFarmaceutico(vector<cDescuento> descuento,vector <cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+    cFarmaceutico(list<cDescuento> descuento,list <cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
     ~cFarmaceutico();
-    cDescuento GET_DESCUENTO(string obraSocial);
+    //cDescuento GET_DESCUENTO(string obraSocial);
     void ExplicarDosificacion( cProducto _objetoProducto);
     void RecomendarRemedios();
     void ExpenderReceta();
@@ -28,7 +28,7 @@ public:
     double calcularDescuento(double porcentaje);
     void  settearDescuento( );
     void AgregarProductoReceta();
-    void AtenderCliente(cCliente cliente);
+    void AtenderCliente(cCliente *cliente);
 };
 
 #endif //_CFARMACEUTICO_H

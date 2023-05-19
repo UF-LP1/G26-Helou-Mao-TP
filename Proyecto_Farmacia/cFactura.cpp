@@ -18,7 +18,7 @@ cFactura::cFactura()    //constructor por defecto de factura
     this->productosComprados;
 }
     //constructor de factura con todos sus datos
-cFactura::cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados)
+cFactura::cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, list<cProducto> _productosComprados)
 {   this->monto = _monto;
     this->nombreCliente = nombreCliente;
     this->apellidoCliente = apellidoCliente;

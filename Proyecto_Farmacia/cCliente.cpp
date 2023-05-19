@@ -80,7 +80,7 @@ cCarrito* cCliente::GET_CARRITO() {
     
     return &miCarrito;
 }
-void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad)     //agrego a mi carrito los productos de perfumeria
+void cCliente::AgregarProductosPerfumeria(cPerfumeria *prodPerfumeria, int cantidad)     //agrego a mi carrito los productos de perfumeria
 {
     //hago un for que se repite igual de cantidad de veces como productos quiero agregar
     for (int i = 0; i < cantidad; i++)
@@ -90,7 +90,7 @@ void cCliente::AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantid
     return;
 }
 
-void cCliente::AgregarGolosinas(cGolosinas golosinas, int cantidad) {    //voy agregando golosinas al carrito
+void cCliente::AgregarGolosinas(cGolosinas *golosinas, int cantidad) {    //voy agregando golosinas al carrito
    
     //hago un for que se repite igual de cantidad de veces como productos quiero agregar
     for (int i = 0; i < cantidad; i++)

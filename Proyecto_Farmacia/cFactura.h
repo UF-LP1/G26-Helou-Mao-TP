@@ -14,11 +14,11 @@ private:
     string nombreCliente;
     string apellidoCliente;
     bool formato;
-    vector<cProducto> productosComprados;
+    list<cProducto> productosComprados;
 
 public:
     cFactura();
-    cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, vector<cProducto> _productosComprados);
+    cFactura(double _monto, string nombreCliente, string apellidoCliente, bool _formato, list<cProducto> _productosComprados);
     ~cFactura();
     double GET_MONTO();
     string GET_NOMBRE();

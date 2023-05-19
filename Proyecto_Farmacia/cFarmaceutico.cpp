@@ -11,27 +11,28 @@ cFarmaceutico::cFarmaceutico(string dni)
 
 }
     //constructor de farmaceutico con todos sus datos
-cFarmaceutico::cFarmaceutico( vector<cDescuento>descuent, vector<cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, string dni, string contacto)
+cFarmaceutico::cFarmaceutico( list<cDescuento>descuent, list<cMedicamento> medicamento, string nombre, string apellido, int numeroEmpleado, string dni, string contacto)
     :cVendedor( nombre, apellido, numeroEmpleado, dni, contacto)
 {
     this->descuento = descuent;
+    this->medicamentos = medicamento;
 }
 
 cFarmaceutico::~cFarmaceutico() {
 
 }
 
-cDescuento cFarmaceutico::GET_DESCUENTO(string obraSocial) {
-    
-    for (int i = 0; i < this->descuento.size(); i++)
-    {
-        if (descuento[i].GET_OBRASOCIAL() == obraSocial)
-        {
-            return descuento[i];
-        }
-    }
-   
-}
+//cDescuento cFarmaceutico::GET_DESCUENTO(string obraSocial) {
+//    
+//    for (list<cDescuento>::iterator it=descuento.begin(); it!=descuento.end(); it++)
+//    {
+//        if (it->GET_OBRASOCIAL() == obraSocial)
+//        {
+//            return *it;
+//        }
+//    }
+//   
+//}
 
 void cFarmaceutico::ExplicarDosificacion( cProducto _objProducto) {
     return;
@@ -47,58 +48,54 @@ void cFarmaceutico::ExpenderReceta() {
 
 double cFarmaceutico::ChequearDescuentos( ) {
 
-    int aux = misClientes.size();
-    cReceta _objetoReceta = misClientes[aux].GET_RECETA();
+    /*list<cCliente> ::iterator it = misClientes.end();*/
+    cReceta _objetoReceta = misClientes.back().GET_RECETA();
     double porcentajeAux = 0.0;
-    for (int i = 0; i < this->descuento.size(); i++)
+    for (cDescuento&desc:descuento)
     {
-        if (descuento[i].GET_OBRASOCIAL() == _objetoReceta.GET_OBRASOCIAL())
+        if (desc.GET_OBRASOCIAL() == _objetoReceta.GET_OBRASOCIAL())
         {
-            porcentajeAux = descuento[i].GET_PORCENTAJE();
+            porcentajeAux = desc.GET_PORCENTAJE();
             return porcentajeAux;
         }
     }
 
 }
 
+
+void cFarmaceutico:: settearDescuento ()
+{
+    double porcentaje = ChequearDescuentos();//llamo a las otras funciones porque esta es la unica que se ejecut en el main
+    double aDescontar = calcularDescuento(porcentaje);
+   misClientes.back().GET_CARRITO()->SET_DESCUENTO(aDescontar);  //aplico descuento al carrito de mi cliente
+}
 double cFarmaceutico::calcularDescuento(double porcentaje)
 {
-    int aux = misClientes.size();
-    cReceta _objetoReceta = misClientes[aux].GET_RECETA();
+    cReceta _objetoReceta = misClientes.back().GET_RECETA();
     double aDescontar = 0.0;
-    for (int i = 0; i < this->medicamentos.size(); i++)
+    for (cMedicamento& med: medicamentos)
     {
-        if (medicamentos[i].Get_NOMBRE() == _objetoReceta.GET_MEDICAMENTO())
+        if (med.Get_NOMBRE() == _objetoReceta.GET_MEDICAMENTO())
         {
-            aDescontar = (medicamentos[i].Get_PRECIO()*porcentaje)/100;  //descuento el porcentaje
+            aDescontar = (med.Get_PRECIO() * porcentaje) / 100;  //descuento el porcentaje
             return aDescontar;
         }
     }
 }
-void cFarmaceutico:: settearDescuento ()
-{
-   
-    double porcentaje = ChequearDescuentos();//llamo a las otras funciones porque esta es la unica que se ejecut en el main
-    double aDescontar = calcularDescuento(porcentaje);
-    int ultPos = misClientes.size();   //obtengo el tamaño de mi vector para poder trabajar co nel ultimo cliente
-    
-    cCarrito* carritoAux = misClientes[ultPos].GET_CARRITO();
-    carritoAux->SET_DESCUENTO(aDescontar);  //aplico descuento al carrito de mi cliente
-}
 void cFarmaceutico::AgregarProductoReceta()
 {
-    int aux = misClientes.size();
-    cReceta auxReceta = misClientes[aux].GET_RECETA();
-    for (int i = 0; i < this->medicamentos.size(); i++)
+    cReceta auxReceta = misClientes.back().GET_RECETA();
+
+    for (cMedicamento& med: medicamentos)
     {
-        if (medicamentos[i].Get_NOMBRE() == auxReceta.GET_MEDICAMENTO())
+        if (med.Get_NOMBRE() == auxReceta.GET_MEDICAMENTO())
         {
-            misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(medicamentos[i]);
+           misClientes.back().GET_CARRITO()->SET_PRODUCTO(&med);
         }
     }
    
 }
-void cFarmaceutico::AtenderCliente(cCliente cliente) {
+void cFarmaceutico::AtenderCliente(cCliente *cliente) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoReceta();
     settearDescuento();

@@ -17,7 +17,7 @@ private:
     string contacto;
     double fondos;
     queue<cCliente> clientesEspera; 
-    vector<cTicketdecompra> misTickets;
+    list<cTicketdecompra> misTickets;
 
 
 public:

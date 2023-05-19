@@ -141,12 +141,12 @@
     <ClCompile Include="cGlosinas.cpp" />
     <ClCompile Include="cLocal.cpp" />
     <ClCompile Include="cMedicamento.cpp" />
-    <ClCompile Include="cNumeroCliente.cpp" />
     <ClCompile Include="cOrtopedia.cpp" />
     <ClCompile Include="cPerfumeria.cpp" />
     <ClCompile Include="cProducto.cpp" />
     <ClCompile Include="cReceta.cpp" />
     <ClCompile Include="cTicketdecompra.cpp" />
+    <ClCompile Include="cVendedor.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,12 +164,12 @@
     <ClInclude Include="cGolosinas.h" />
     <ClInclude Include="cLocal.h" />
     <ClInclude Include="cMedicamento.h" />
-    <ClInclude Include="cNumeroCliente.h" />
     <ClInclude Include="cOrtopedia.h" />
     <ClInclude Include="cPerfumeria.h" />
     <ClInclude Include="cProducto.h" />
     <ClInclude Include="cReceta.h" />
     <ClInclude Include="cTicketdecompra.h" />
+    <ClInclude Include="cVendedor.h" />
     <ClInclude Include="eGolosinas.h" />
     <ClInclude Include="eMetodo.h" />
     <ClInclude Include="eNecesidad.h" />

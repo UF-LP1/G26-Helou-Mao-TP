@@ -5,7 +5,7 @@
 
 #include "cTicketdecompra.h"
 
-cTicketdecompra::cTicketdecompra(bool _compraExitosa, double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, vector<cProducto> productosComprados)
+cTicketdecompra::cTicketdecompra(bool _compraExitosa, double _precioTotal, string _dni, string nombreEmpleado, string apellidoEmpleado, int numeroEmpleado, string nombreCliente, string apellidoCliente, list<cProducto> productosComprados)
 {
     this->compraExitosa = _compraExitosa;
     this->precioTotal=_precioTotal;
@@ -20,6 +20,14 @@ cTicketdecompra::cTicketdecompra(bool _compraExitosa, double _precioTotal, strin
 cTicketdecompra::cTicketdecompra()
 {
     this->compraExitosa = false;
+    this->precioTotal = 0.0;
+    this->DNI = "";
+    this->nombreEmpleado = "";
+    this->apellidoEmpleado = "";
+    this->numeroEmpleado = 0;
+    this->nombreCliente = "";
+    this->apellidoCliente = "";
+
 }
 bool cTicketdecompra::GET_COMPRA()
 {
@@ -27,7 +35,7 @@ bool cTicketdecompra::GET_COMPRA()
 
 }
 
-vector<cProducto> cTicketdecompra::GET_LISTAPRO()
+list<cProducto> cTicketdecompra::GET_LISTAPRO()
 {
     return this->productosComprados;
 }

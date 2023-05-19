@@ -13,12 +13,12 @@ cVendedor::cVendedor(string nombre, string apellido, int numeroEmpleado, string 
 cVendedor::~cVendedor() {
 
 }
-void cVendedor::AtenderCliente(cCliente cliente) { 
-    this->misClientes.push_back(cliente);   //agrego el nuevo cliente al final de mi vector de clientes
+void cVendedor::AtenderCliente(cCliente *cliente) { 
+    this->misClientes.push_back(*cliente);   //agrego el nuevo cliente al final de mi vector de clientes
     return; 
 }
 
 cCliente cVendedor::PasarClienteaCaja() {
     
-    return misClientes[misClientes.size()];
+    return misClientes.back();
 }

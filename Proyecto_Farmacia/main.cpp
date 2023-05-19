@@ -37,12 +37,12 @@ int main()
 	cEmpleadoMostrador empleadoMostrador("Roberto", "Gomez", 72728, "5678909", "12345678910",0);
 
 		//creo vectores y variables que necesito para farmaceutico
-	vector<cMedicamento>medicamentosFarmaceutico;
+	list<cMedicamento>medicamentosFarmaceutico;
 	cMedicamento medicamento1(700.0,"ibupirac","actron",3,false);
 	cMedicamento medicamento2(1000.0, "descongestivo", "refenex", 10, true);
 	medicamentosFarmaceutico.push_back(medicamento1);
 	medicamentosFarmaceutico.push_back(medicamento2);
-	vector<cDescuento>descuentosFarmaceutico;
+	list<cDescuento>descuentosFarmaceutico;
 	cDescuento descuento1(20.0, "osde");
 	cDescuento descuento2(5.0, "medife");
 	descuentosFarmaceutico.push_back(descuento1);
@@ -60,34 +60,34 @@ int main()
 
 		//local me pasa a mostrador el primer cliente a ser atendiido
 	cCliente clienteAux = miLocal.PasarClienteMostrador();
-	empleadoMostrador.agregarCliente(clienteAux);
+	empleadoMostrador.agregarCliente(&clienteAux);
 
 		//empleado mostrador me pasa el proximo empleado y donde mandarlo
-	clienteAux = empleadoMostrador.EnviarClienteOtroEmp();
 	int necesidadCliente = empleadoMostrador.aDondeVaCliente();
+	clienteAux = empleadoMostrador.EnviarClienteOtroEmp();
 	if (necesidadCliente == 0)
 	{
 		//mi cliente quiere ir a la farmacia
-		empleadoFarmacia.AtenderCliente(clienteAux);
+		empleadoFarmacia.AtenderCliente(&clienteAux);
 		clienteAux = empleadoFarmacia.PasarClienteaCaja();
 	}
 	else if (necesidadCliente == 1)
 	{
 		//mi cliente quiere ir a perfumeria
-		empleadoPerfumeria.AtenderCliente(clienteAux,productoPerf);
+		empleadoPerfumeria.AtenderCliente(&clienteAux,productoPerf);
 		clienteAux = empleadoPerfumeria.PasarClienteaCaja();
 	}
 	else if (necesidadCliente == 2)
 	{
 		//mi cliente quiere ir a ortopedia
-		empleadoOrt.AtenderCliente(clienteAux, productoOrt);
+		empleadoOrt.AtenderCliente(&clienteAux, productoOrt);
 		clienteAux = empleadoOrt.PasarClienteaCaja();
 	}
 		//paso cliente aux al empleado de caja para que pueda cobrar
-	empleadoCaja.AtenderCliente(clienteAux);
+	empleadoCaja.AtenderCliente(&clienteAux);
 
 		//implemento funcion cobrar
-	cTicketdecompra ticketPrueba = empleadoCaja.Cobrar();
+	//cTicketdecompra ticketPrueba = empleadoCaja.Cobrar();
 	cTicketdecompra ticket;
 	cTicketdecompra ticket1;
 	try {
@@ -110,17 +110,20 @@ int main()
 	//}
 
 	//para chequear que funciona imprimo el ticket
-	cout << "Compra exitosa:" << ticketPrueba.GET_COMPRA();
-	cout << "\n Precio final: " << ticketPrueba.GET_PRECIOFINAL() << endl;
+	cout << "Compra exitosa:" << ticket.GET_COMPRA();
+	cout << "\n Precio final: " << ticket.GET_PRECIOFINAL() << endl;
 
-	vector<cProducto>productosTicket;
-	productosTicket = ticketPrueba.GET_LISTAPRO();
-	for (int i = 0; i < productosTicket.size(); i++)
+	list<cProducto>productosTicket;
+	productosTicket = ticket.GET_LISTAPRO();
+	for (cProducto& prods:productosTicket)
 	{
-		cout << i+1 << "-" << productosTicket[i].Get_PRECIO()<<endl;
+		int i = 1;
+		cout <<i << "-" << prods.Get_PRECIO()<<endl;
+		i++;
 	}
 	cFactura checkeo = miCliente0.GET_FACTURA();
 	cout << checkeo.GET_MONTO()<<endl;
 	cout << checkeo.GET_NOMBRE() << endl;
+	cout << empleadoCaja.GET_PLATA() << endl;
 	
 } 

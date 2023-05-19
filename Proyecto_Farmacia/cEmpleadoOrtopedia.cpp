@@ -44,8 +44,8 @@ void cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos 
 
 void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en nuestro carrito
 {
-    int aux = misClientes.size();
-    misClientes[aux].GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
+    list<cCliente>::iterator it = misClientes.end();
+    it->GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
 }
 string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
 {
@@ -68,7 +68,7 @@ string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecer
     }
     return impresion;
 }
-void cEmpleadoOrtopedia::AtenderCliente(cCliente cliente, cOrtopedia producto) {
+void cEmpleadoOrtopedia::AtenderCliente(cCliente *cliente, cOrtopedia producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(producto);
     Asesorar();

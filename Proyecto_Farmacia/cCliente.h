@@ -39,8 +39,8 @@ public:
     bool GET_FORMATO();
     eMetodo GET_METODO();
     void SET_FACTURA(cFactura nuevaFactura);
-    void AgregarProductosPerfumeria(cPerfumeria prodPerfumeria, int cantidad);
-    void AgregarGolosinas(cGolosinas golosinas, int cantidad);
+    void AgregarProductosPerfumeria(cPerfumeria *prodPerfumeria, int cantidad);
+    void AgregarGolosinas(cGolosinas* golosinas, int cantidad);
     string GET_DNI();
     cFactura GET_FACTURA();
     string GET_APELLIDO();
