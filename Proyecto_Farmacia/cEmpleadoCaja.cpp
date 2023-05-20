@@ -99,7 +99,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar()
 }
 void cEmpleadoCaja::pagar( double total)    //va a restarle la plata al cliente
 {
-    list <cCliente>::iterator it = clientes.end();
+    //list <cCliente>::iterator it = clientes.end();
     int metodo = clientes.back().GET_METODO();
     double saldo = 0.0;//inicializo en 0
 

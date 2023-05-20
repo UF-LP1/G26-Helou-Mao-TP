@@ -29,6 +29,7 @@ public:
     void  settearDescuento( );
     void AgregarProductoReceta();
     void AtenderCliente(cCliente *cliente);
+    list<cMedicamento> GET_LISTA_MEDICAMENTOS();
 };
 
 #endif //_CFARMACEUTICO_H

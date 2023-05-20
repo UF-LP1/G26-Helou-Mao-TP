@@ -5,7 +5,7 @@
 
 #include "cEmpleadoOrtopedia.h"
 
-cEmpleadoOrtopedia::cEmpleadoOrtopedia(string dni)
+cEmpleadoOrtopedia::cEmpleadoOrtopedia(string dni)  //constructor por defecto
     :cVendedor::cVendedor(dni)
 {
 
@@ -42,10 +42,9 @@ void cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos 
 
 }
 
-void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en nuestro carrito
+void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en el carrito del cliente
 {
-    list<cCliente>::iterator it = misClientes.end();
-    it->GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
+    misClientes.back().GET_CARRITO()->GET_LISTAPRODUCTOS().push_back (producto);
 }
 string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
 {
@@ -58,10 +57,10 @@ string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecer
         impresion="Mira que buenas estas nuevas muletas";
         break;
     case 1:
-        impresion = "Acaban de entrar unas muñeras de ultima tecnologia";
+        impresion = "Acaban de entrar unas muñequeras de ultima tecnologia";
         break;
     case 2:
-        impresion= "Con este cabestrillo non vas a sentir molestias" ;
+        impresion= "Con este cabestrillo no vas a sentir molestias" ;
         break;
     default:
         impresion="Lamentamos decir que no tenemos el producto deseado" ;
