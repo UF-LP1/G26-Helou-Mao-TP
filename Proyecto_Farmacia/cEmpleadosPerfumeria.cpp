@@ -38,12 +38,11 @@ void cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
         cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
     }
 }
-void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria producto)     //agregamos productos al carrito de a uno
+void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria *producto)     //agregamos productos al carrito de a uno
 {
-    list <cCliente> ::iterator it = misClientes.end();
-    it->GET_CARRITO()->GET_LISTAPRODUCTOS().push_back(producto);
+    misClientes.back().GET_CARRITO()->SET_PRODUCTO(producto);
 }
-void cEmpleadosPerfumeria::AtenderCliente(cCliente *cliente, cPerfumeria producto) {
+void cEmpleadosPerfumeria::AtenderCliente(cCliente *cliente, cPerfumeria *producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(producto);
        Asesorar();

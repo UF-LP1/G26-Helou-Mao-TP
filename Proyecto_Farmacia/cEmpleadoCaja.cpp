@@ -59,13 +59,19 @@ bool cEmpleadoCaja::chequearSaldoDisponible( double montoAPagar)  //para poder c
 void cEmpleadoCaja::emitirFactura(double precio) { //le agrego la factura al cliente
     
     //copio los datos de mi cliente para pasarlos a la factura
+
     string apeAux = clientes.back().GET_APELLIDO();
     string nomAux = clientes.back().GET_NOMBRE();
     bool formatoAux = clientes.back().GET_FORMATO();
     list <cProducto> listaProds = clientes.back().GET_CARRITO()->GET_LISTAPRODUCTOS();
         //creo la factura con los datos que guarde arriba
-    cFactura facturaAux(precio, nomAux, apeAux, formatoAux, listaProds);
-    clientes.back().SET_FACTURA(facturaAux); //le guardo al cliente la factura que acabo de crear
+    cFactura *facturaAux= clientes.back().GET_FACTURA();
+    facturaAux->SET_FORMATO(formatoAux);
+    facturaAux->SET_MONTO(precio);
+    facturaAux->SET_NOMBRECLIENTE(nomAux);
+    facturaAux->SET_APELLIDOCLIENTE(apeAux);
+
+    //le guardo al cliente la factura que acabo de crear
     return;
 }
 cTicketdecompra cEmpleadoCaja::Cobrar()
@@ -101,8 +107,7 @@ void cEmpleadoCaja::pagar( double total)    //va a restarle la plata al cliente
 {
     //list <cCliente>::iterator it = clientes.end();
     int metodo = clientes.back().GET_METODO();
-    double saldo = 0.0;//inicializo en 0
-
+    double saldo=0;//inicializo en 0
         //al cliente que esta en mi vector le resto lo que le cobre
     switch (metodo)
     {

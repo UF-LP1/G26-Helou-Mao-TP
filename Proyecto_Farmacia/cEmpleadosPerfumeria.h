@@ -15,8 +15,8 @@ public:
 	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
 	~cEmpleadosPerfumeria();
 	void Asesorar();
-	void AgregarProductoCarrito(cPerfumeria producto);
-	void AtenderCliente(cCliente *cliente, cPerfumeria producto);
+	void AgregarProductoCarrito(cPerfumeria *producto);
+	void AtenderCliente(cCliente *cliente, cPerfumeria *producto);
 };
 
 #endif //_CEMPLEADOSPERFUMERIA_H

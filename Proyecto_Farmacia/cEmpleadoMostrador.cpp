@@ -15,14 +15,10 @@ cEmpleadoMostrador::~cEmpleadoMostrador() {
 
 }
 
-void cEmpleadoMostrador::LlamarNumSiguiente(unsigned int numero) {
-    //una vez que llamo al cliente, incrementa el numero de los que llama para poder llamar al otro
-    this->numActual = numActual+1;
-    return;
-}
+
 
 cCliente cEmpleadoMostrador::EnviarClienteOtroEmp() {
-    
+    this->numActual = numActual + 1;
     cCliente siguiente = misClientes.front();//copio el primer cliente de la cola
     misClientes.pop();
     return siguiente;

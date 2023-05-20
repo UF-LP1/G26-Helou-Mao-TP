@@ -123,9 +123,9 @@ double cCliente::GET_SALDO_MP()
 {
     return this->saldoMPago;
 }
-cFactura cCliente ::GET_FACTURA()
+cFactura* cCliente ::GET_FACTURA()
 {
-    return this->miFactura;
+    return &miFactura;
 }
 int cCliente:: GET_NUMEROCLIENTE()
 {
@@ -134,7 +134,7 @@ int cCliente:: GET_NUMEROCLIENTE()
 
 void cCliente::SET_MP(double saldoMP)
 {
-    this->saldoMPago = saldoMPago;
+    this->saldoMPago = saldoMP;
 }
 void cCliente::SET_SALDO(double saldoDisponible)
 {

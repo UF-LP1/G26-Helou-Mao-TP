@@ -47,4 +47,16 @@ double cFactura::GET_MONTO()
 {
     return this->monto;
 }
+void cFactura::SET_NOMBRECLIENTE(string _nuevoNombreCliente)
+{
+    this->nombreCliente = _nuevoNombreCliente;
+}
+void cFactura::SET_APELLIDOCLIENTE(string _nuevoApellidoCliente)
+{
+    this->apellidoCliente= _nuevoApellidoCliente;
+}
+void cFactura::SET_MONTO(double _nuevomonto)
+{
+    this->monto= _nuevomonto;
+}
 

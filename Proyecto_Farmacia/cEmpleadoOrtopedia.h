@@ -16,8 +16,8 @@ class cEmpleadoOrtopedia : public cVendedor {
     ~cEmpleadoOrtopedia();
     void Asesorar();
     string RecomendarProductos();
-    void AgregarProductoCarrito(cOrtopedia producto);
-    void AtenderCliente(cCliente *cliente, cOrtopedia producto);
+    void AgregarProductoCarrito(cOrtopedia *producto);
+    void AtenderCliente(cCliente *cliente, cOrtopedia *producto);
 
 };
 
