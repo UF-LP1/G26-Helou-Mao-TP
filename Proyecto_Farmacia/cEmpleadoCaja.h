@@ -24,8 +24,7 @@ public:
     bool chequearSaldoDisponible(double montoAPagar);
     double GET_PLATA();
     double CalculaMontoACobrar();
-    void pagar( double total);
-    cCliente* GET_ULTIMO_CLIENTE();
+
 };
 
 #endif //_CEMPLEADOCAJA_H

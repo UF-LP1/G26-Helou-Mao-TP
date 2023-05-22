@@ -49,11 +49,12 @@ public:
     double GET_EFECTIVO_DISPONIBLE();
     double GET_SALDO_MP();
     int GET_NECESIDAD();
-    void SET_MP(double saldoMP);
-    void SET_SALDO(double saldoDisponible);
-    void SET_EFECTIVO(double efectivoDisponible);
+    void SET_MP(double *saldoMP);
+    void SET_SALDO(double *saldoDisponible);
+    void SET_EFECTIVO(double *efectivoDisponible);
     cReceta GET_RECETA();
     cCliente& operator=(const cCliente&);
+    void pagar(double montoTotal);
 };
 
 #endif //_CCLIENTE_H

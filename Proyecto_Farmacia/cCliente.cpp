@@ -132,17 +132,17 @@ int cCliente:: GET_NUMEROCLIENTE()
     return numeroClientes;
 }
 
-void cCliente::SET_MP(double saldoMP)
+void cCliente::SET_MP(double* saldoMP)
 {
-    this->saldoMPago = saldoMP;
+    this->saldoMPago = *saldoMP;
 }
-void cCliente::SET_SALDO(double saldoDisponible)
+void cCliente::SET_SALDO(double *saldoDisponible)
 {
-    this->saldoDisponible = saldoDisponible;
+    this->saldoDisponible = *saldoDisponible;
 }
-void cCliente:: SET_EFECTIVO(double efectivoDisponible)
+void cCliente:: SET_EFECTIVO(double *efectivoDisponible)
 {
-    this->efectivodisponible = efectivoDisponible;
+    this->efectivodisponible = *efectivoDisponible;
 }
 cReceta cCliente::GET_RECETA()
 {
@@ -167,4 +167,24 @@ cCliente& cCliente::operator=(const cCliente& cliente)
         miReceta = cliente.miReceta;
     }
     return *this;
+}
+
+void cCliente::pagar(double montoTotal)
+{
+    double saldo = 0;//inicializo en 0
+    //al cliente que esta en mi vector le resto lo que le cobre
+    switch (this->metodoPago)
+    {
+    case 0: //si pago en efectivo
+        this->efectivodisponible= (this->efectivodisponible- montoTotal);
+        break;
+    case 1: //si pago con tarjeta
+        this->saldoDisponible = (this->saldoDisponible - montoTotal);
+        break;
+    case 2: //si pago con mp
+        this->saldoMPago = (this->saldoMPago - montoTotal);
+        break;
+    default:
+        throw new exception("Mal registrado el metodo de pago");
+    }
 }

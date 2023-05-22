@@ -71,7 +71,7 @@ void cEmpleadoCaja::emitirFactura(double precio) { //le agrego la factura al cli
     //facturaAux->SET_NOMBRECLIENTE(nomAux);
     //facturaAux->SET_APELLIDOCLIENTE(apeAux);
     cFactura facturaAux(precio, nomAux, apeAux, formatoAux, listaProds);
-    GET_ULTIMO_CLIENTE()->SET_FACTURA(facturaAux);
+    clientes.back().SET_FACTURA(facturaAux);
     //le guardo al cliente la factura que acabo de crear
     return;
 }
@@ -92,7 +92,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar()
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
         try
         {
-            pagar(precioTotal);
+            clientes.back().pagar(precioTotal);
         }
         catch (exception* e)
         {
@@ -104,30 +104,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar()
     }
          
 }
-void cEmpleadoCaja::pagar( double total)    //va a restarle la plata al cliente
-{
-    //list <cCliente>::iterator it = clientes.end();
-    int metodo = GET_ULTIMO_CLIENTE()->GET_METODO();
-    double saldo=0;//inicializo en 0
-        //al cliente que esta en mi vector le resto lo que le cobre
-    switch (metodo)
-    {
-    case 0: //si pago en efectivo
-        saldo = GET_ULTIMO_CLIENTE()->GET_EFECTIVO_DISPONIBLE() - total;
-        GET_ULTIMO_CLIENTE()->SET_EFECTIVO(saldo);
-        break;
-    case 1: //si pago con tarjeta
-        saldo = GET_ULTIMO_CLIENTE()->GET_SALDO_DISPONIBLE() - total;
-        GET_ULTIMO_CLIENTE()->SET_SALDO(saldo);
-        break;
-    case 2: //si pago con mp
-        saldo = GET_ULTIMO_CLIENTE()->GET_SALDO_MP() - total;
-        GET_ULTIMO_CLIENTE()->SET_MP(saldo);
-        break;
-    default:
-        throw new exception("Mal registrado el metodo de pago"); 
-    }
-}
+
 void cEmpleadoCaja::AtenderCliente(cCliente *cliente) {
     this->clientes.push_back(*cliente);   //agrego el nuevo cliente al final de mi vector de clientes
     return;
@@ -135,8 +112,4 @@ void cEmpleadoCaja::AtenderCliente(cCliente *cliente) {
 double cEmpleadoCaja::GET_PLATA()
 {
     return this->plataCaja;
-}
-cCliente* cEmpleadoCaja:: GET_ULTIMO_CLIENTE()
-{
-    return &clientes.back();
 }

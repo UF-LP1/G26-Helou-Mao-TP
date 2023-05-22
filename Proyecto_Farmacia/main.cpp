@@ -19,7 +19,7 @@ int main()
 	cReceta receta("osde", "ibupirac", 2);
 
 	//creo clientes
-	cCliente miCliente0(carritoCliente, "Guadaalupe", "Helou", "11 2283-2778", mercadoPago, 1000.0, 3000.0, perfumeria, "45671572", true, 4000.0, receta);
+	cCliente miCliente0(carritoCliente, "Guadaalupe", "Helou", "11 2283-2778", efectivo, 1000.0, 3000.0, farmacia, "45671572", true, 4000.0, receta);
 
 	//clientes llegan al local
 	miLocal.agregarCliente(miCliente0);

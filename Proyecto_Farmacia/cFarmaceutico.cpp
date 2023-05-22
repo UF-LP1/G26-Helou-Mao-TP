@@ -47,6 +47,7 @@ double cFarmaceutico::ChequearDescuentos( ) {
             return porcentajeAux;
         }
     }
+    return 0;
 
 }
 
@@ -74,20 +75,27 @@ void cFarmaceutico::AgregarProductoReceta()
 {   //metodo que recorre el listado de medicamentos y compara por nombre con el que trae el cliente en su receta para añadirlo a su carrito
     cReceta auxReceta = misClientes.back().GET_RECETA();
 
-    for (cMedicamento& med: medicamentos)
+    for (cMedicamento& med : medicamentos)
     {
         if (med.Get_NOMBRE() == auxReceta.GET_MEDICAMENTO())
         {
-           misClientes.back().GET_CARRITO()->SET_PRODUCTO(&med);
-           return;
+            misClientes.back().GET_CARRITO()->SET_PRODUCTO(&med);
+            return;
         }
     }
-
-   
+    throw new exception("No se encontro el medicamento");
+    return;
 }
 void cFarmaceutico::AtenderCliente(cCliente *cliente) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi listado de clientes
-    AgregarProductoReceta();
+    
+    try{
+        AgregarProductoReceta();
+    }
+    catch (exception *e)
+    {
+        throw e;
+    }
     settearDescuento();
     return;
 }

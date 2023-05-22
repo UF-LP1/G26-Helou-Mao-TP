@@ -91,11 +91,11 @@ void impresionChequeoQueAnda(cEmpleadoCaja empleadoCaja, cTicketdecompra ticket,
 		i++;
 	}
 	if (miCliente0.GET_METODO() == 0)
-		cout << miCliente0.GET_EFECTIVO_DISPONIBLE() << endl;
+		cout << "Saldo final efectivo: $" << miCliente0.GET_EFECTIVO_DISPONIBLE() << endl;
 	else if (miCliente0.GET_METODO() == 1)
-		cout << "Saldo metodo de pago: $" << miCliente0.GET_SALDO_DISPONIBLE() << endl;
+		cout << "Saldo final tarjeta: $" << miCliente0.GET_SALDO_DISPONIBLE() << endl;
 	else
-		cout << miCliente0.GET_SALDO_MP() << endl;
+		cout << "Saldo final mercado pago: $" << miCliente0.GET_SALDO_MP() << endl;
 	cFactura checkeo = *miCliente0.GET_FACTURA();
 	cout << checkeo.GET_MONTO() << endl;
 	cout << checkeo.GET_NOMBRE() << endl;
