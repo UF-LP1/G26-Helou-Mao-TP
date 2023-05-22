@@ -79,8 +79,10 @@ void cFarmaceutico::AgregarProductoReceta()
         if (med.Get_NOMBRE() == auxReceta.GET_MEDICAMENTO())
         {
            misClientes.back().GET_CARRITO()->SET_PRODUCTO(&med);
+           return;
         }
     }
+
    
 }
 void cFarmaceutico::AtenderCliente(cCliente *cliente) {

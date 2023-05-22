@@ -39,11 +39,11 @@ list<cProducto> cCarrito::GET_LISTAPRODUCTOS()
     return this->miListaProductos;
 }
 
-void cCarrito::EliminarProductos(cProducto _product)//elimino el producto todas las veces que aparece
+void cCarrito::EliminarProductos(cProducto *_product)//elimino el producto todas las veces que aparece
 {
     for (list<cProducto>::iterator it = miListaProductos.begin(); it != miListaProductos.end(); it++)
     {
-        if (it->Get_NOMBRE() == _product.Get_NOMBRE()&& it->GET_MARCA() == _product.GET_MARCA())
+        if (it->Get_NOMBRE() == _product->Get_NOMBRE()&& it->GET_MARCA() == _product->GET_MARCA())
         {
             miListaProductos.erase(it);//elimuno el producto que coincide con el que estoy buscando
         }

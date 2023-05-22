@@ -65,12 +65,13 @@ void cEmpleadoCaja::emitirFactura(double precio) { //le agrego la factura al cli
     bool formatoAux = clientes.back().GET_FORMATO();
     list <cProducto> listaProds = clientes.back().GET_CARRITO()->GET_LISTAPRODUCTOS();
         //creo la factura con los datos que guarde arriba
-    cFactura *facturaAux= clientes.back().GET_FACTURA();
-    facturaAux->SET_FORMATO(formatoAux);
-    facturaAux->SET_MONTO(precio);
-    facturaAux->SET_NOMBRECLIENTE(nomAux);
-    facturaAux->SET_APELLIDOCLIENTE(apeAux);
-
+    //cFactura *facturaAux= clientes.back().GET_FACTURA();
+    //facturaAux->SET_FORMATO(formatoAux);
+    //facturaAux->SET_MONTO(precio);
+    //facturaAux->SET_NOMBRECLIENTE(nomAux);
+    //facturaAux->SET_APELLIDOCLIENTE(apeAux);
+    cFactura facturaAux(precio, nomAux, apeAux, formatoAux, listaProds);
+    GET_ULTIMO_CLIENTE()->SET_FACTURA(facturaAux);
     //le guardo al cliente la factura que acabo de crear
     return;
 }
@@ -106,22 +107,22 @@ cTicketdecompra cEmpleadoCaja::Cobrar()
 void cEmpleadoCaja::pagar( double total)    //va a restarle la plata al cliente
 {
     //list <cCliente>::iterator it = clientes.end();
-    int metodo = clientes.back().GET_METODO();
+    int metodo = GET_ULTIMO_CLIENTE()->GET_METODO();
     double saldo=0;//inicializo en 0
         //al cliente que esta en mi vector le resto lo que le cobre
     switch (metodo)
     {
     case 0: //si pago en efectivo
-        saldo = clientes.back().GET_EFECTIVO_DISPONIBLE() - total;
-        clientes.back().SET_EFECTIVO(saldo);
+        saldo = GET_ULTIMO_CLIENTE()->GET_EFECTIVO_DISPONIBLE() - total;
+        GET_ULTIMO_CLIENTE()->SET_EFECTIVO(saldo);
         break;
     case 1: //si pago con tarjeta
-        saldo = clientes.back().GET_SALDO_DISPONIBLE() - total;
-        clientes.back().SET_SALDO(saldo);
+        saldo = GET_ULTIMO_CLIENTE()->GET_SALDO_DISPONIBLE() - total;
+        GET_ULTIMO_CLIENTE()->SET_SALDO(saldo);
         break;
     case 2: //si pago con mp
-        saldo = clientes.back().GET_SALDO_MP() - total;
-        clientes.back().SET_MP(saldo);
+        saldo = GET_ULTIMO_CLIENTE()->GET_SALDO_MP() - total;
+        GET_ULTIMO_CLIENTE()->SET_MP(saldo);
         break;
     default:
         throw new exception("Mal registrado el metodo de pago"); 
@@ -134,4 +135,8 @@ void cEmpleadoCaja::AtenderCliente(cCliente *cliente) {
 double cEmpleadoCaja::GET_PLATA()
 {
     return this->plataCaja;
+}
+cCliente* cEmpleadoCaja:: GET_ULTIMO_CLIENTE()
+{
+    return &clientes.back();
 }

@@ -24,6 +24,10 @@ public:
     string GET_NOMBRE();
     bool GET_FORMATO();
     void SET_FORMATO(bool _nuevoFormato);
+    void SET_NOMBRECLIENTE(string _nuevoNombreCliente);
+    void SET_APELLIDOCLIENTE(string _nuevoApellidoCliente);
+    void SET_MONTO(double _nuevomonto);
+
 
 };
 

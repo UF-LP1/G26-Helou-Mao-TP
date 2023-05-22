@@ -18,7 +18,7 @@ public:
     void SET_DESCUENTO(double descuento);
     list<cProducto> GET_LISTAPRODUCTOS();
     double GET_DESCUENTOMED();
-    void EliminarProductos(cProducto _product);
+    void EliminarProductos(cProducto* _product);
     void SET_PRODUCTO(cProducto *nuevoProducto);
     void EliminarProducto(cProducto _product);
 };
