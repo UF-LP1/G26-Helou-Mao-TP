@@ -10,15 +10,18 @@
 
 
 class cEmpleadoOrtopedia : public cVendedor {
+private:
+    list <cOrtopedia>listaOrtopedia;
    public:
     cEmpleadoOrtopedia(string dni);
-    cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto);
+    cEmpleadoOrtopedia(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, list <cOrtopedia>listaOrtopedia);
     ~cEmpleadoOrtopedia();
     void Asesorar();
     string RecomendarProductos();
-    void AgregarProductoCarrito(cOrtopedia *producto);
-    void AtenderCliente(cCliente *cliente, cOrtopedia *producto);
-
+    void AgregarProductoCarrito(cOrtopedia producto);
+    void AtenderCliente(cCliente *cliente, cOrtopedia producto);
+    cOrtopedia buscarProductoOrtopedia(unsigned int prodAllevar);
+    list <cOrtopedia> GET_LISTADO_ORT();
 };
 
 #endif //_CEMPLEADOORTOPEDIA_H

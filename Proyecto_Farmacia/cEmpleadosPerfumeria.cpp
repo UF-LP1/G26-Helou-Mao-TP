@@ -11,10 +11,10 @@ cEmpleadosPerfumeria::cEmpleadosPerfumeria(string dni)
 
 }
 
-cEmpleadosPerfumeria::cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto)
+cEmpleadosPerfumeria::cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, list <cPerfumeria> listaPerfumeria)
     :cVendedor( nombre, apellido, numeroEmpleado, dni, contacto)
 {
-
+    this->listaPerfumeria = listaPerfumeria;
 }
 
 cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
@@ -38,13 +38,30 @@ void cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
         cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
     }
 }
-void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria *producto)     //agregamos productos al carrito de a uno
+void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria &producto)     //agregamos productos al carrito de a uno
 {
-    misClientes.back().GET_CARRITO()->SET_PRODUCTO(producto);
+    misClientes.back().GET_CARRITO()->SET_PRODUCTO(&producto);
 }
-void cEmpleadosPerfumeria::AtenderCliente(cCliente *cliente, cPerfumeria *producto) {
+void cEmpleadosPerfumeria::AtenderCliente(cCliente* cliente, cPerfumeria* producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
-    AgregarProductoCarrito(producto);
-       Asesorar();
+    AgregarProductoCarrito(*producto);
+    Asesorar();
     return;
+}
+
+list<cPerfumeria> cEmpleadosPerfumeria::GET_LISTADO()
+{
+    return this->listaPerfumeria;
+}
+
+cPerfumeria cEmpleadosPerfumeria::buscarProducto (unsigned int prodAllevar)
+{
+    prodAllevar = prodAllevar - 1;
+    for (cPerfumeria& perf : this->listaPerfumeria)
+    {
+        if (prodAllevar == perf.GET_TIPO())
+        {
+            return perf;
+        }
+    }
 }

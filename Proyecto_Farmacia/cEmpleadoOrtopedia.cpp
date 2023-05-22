@@ -12,10 +12,10 @@ cEmpleadoOrtopedia::cEmpleadoOrtopedia(string dni)  //constructor por defecto
 }
     
 
-cEmpleadoOrtopedia::cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto)
+cEmpleadoOrtopedia::cEmpleadoOrtopedia( string nombre, string apellido, int numerEmpleado, const string dni, string contacto, list <cOrtopedia>listaOrtopedia)
     :cVendedor(nombre, apellido, numerEmpleado, dni, contacto)
 {
-
+    this->listaOrtopedia = listaOrtopedia;
 }
 
 cEmpleadoOrtopedia::~cEmpleadoOrtopedia() {
@@ -42,9 +42,9 @@ void cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos 
 
 }
 
-void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia *producto)    //se agrega el producto de ortopedia deseado en el carrito del cliente
+void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en el carrito del cliente
 {
-    misClientes.back().GET_CARRITO()->SET_PRODUCTO(producto);
+    misClientes.back().GET_CARRITO()->SET_PRODUCTO(&producto);
 }
 string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
 {
@@ -67,9 +67,25 @@ string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecer
     }
     return impresion;
 }
-void cEmpleadoOrtopedia::AtenderCliente(cCliente *cliente, cOrtopedia *producto) {
+void cEmpleadoOrtopedia::AtenderCliente(cCliente *cliente, cOrtopedia producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(producto);
     Asesorar();
     return;
+}
+
+cOrtopedia cEmpleadoOrtopedia::buscarProductoOrtopedia(unsigned int prodAllevar)
+{
+    prodAllevar = prodAllevar - 1;
+    for (cOrtopedia& ort : this->listaOrtopedia)
+    {
+        if (prodAllevar == ort.GET_TIPO())
+        {
+            return ort;
+        }
+    }
+}
+list <cOrtopedia> cEmpleadoOrtopedia::GET_LISTADO_ORT()
+{
+    return this->listaOrtopedia;
 }

@@ -148,6 +148,7 @@
     <ClCompile Include="cTicketdecompra.cpp" />
     <ClCompile Include="cVendedor.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="funcionesMain.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="cCarrito.h" />
@@ -175,6 +176,7 @@
     <ClInclude Include="eNecesidad.h" />
     <ClInclude Include="eOrtopedia.h" />
     <ClInclude Include="ePerfumeria.h" />
+    <ClInclude Include="funcionesMain.h" />
     <ClInclude Include="Headers.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

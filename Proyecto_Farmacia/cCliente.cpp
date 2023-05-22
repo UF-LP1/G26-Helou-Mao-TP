@@ -168,24 +168,3 @@ cCliente& cCliente::operator=(const cCliente& cliente)
     }
     return *this;
 }
-void cCliente::pagar(double total)    //va a restarle la plata al cliente
-{
-    //list <cCliente>::iterator it = clientes.end();
-    int metodo = GET_METODO();
-
-    //al cliente que esta en mi vector le resto lo que le cobre
-    switch (metodo)
-    {
-    case 0: //si pago en efectivo
-       this-> efectivodisponible = GET_EFECTIVO_DISPONIBLE() - total;
-        break;
-    case 1: //si pago con tarjeta
-        this->saldoDisponible=GET_SALDO_DISPONIBLE() - total;
-        break;
-    case 2: //si pago con mp
-        this->saldoMPago=GET_SALDO_MP() - total;
-        break;
-    default:
-        throw new exception("Mal registrado el metodo de pago");
-    }
-}

@@ -46,7 +46,6 @@ public:
     string GET_APELLIDO();
     string GET_NOMBRE();
     double GET_SALDO_DISPONIBLE();
-    void pagar(double total);
     double GET_EFECTIVO_DISPONIBLE();
     double GET_SALDO_MP();
     int GET_NECESIDAD();

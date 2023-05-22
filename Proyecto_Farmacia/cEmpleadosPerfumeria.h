@@ -10,13 +10,17 @@
 
 
 class cEmpleadosPerfumeria : public cVendedor {
+private:
+	list <cPerfumeria> listaPerfumeria;
 public:
 	cEmpleadosPerfumeria(string dni);
-	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto);
+	cEmpleadosPerfumeria( string nombre, string apellido, int numeroEmpleado, const string dni, string contacto, list <cPerfumeria> listaPerfumeria);
 	~cEmpleadosPerfumeria();
 	void Asesorar();
-	void AgregarProductoCarrito(cPerfumeria *producto);
+	void AgregarProductoCarrito(cPerfumeria &producto);
 	void AtenderCliente(cCliente *cliente, cPerfumeria *producto);
+	list<cPerfumeria> GET_LISTADO();
+	cPerfumeria buscarProducto(unsigned int prodAllevar);
 };
 
 #endif //_CEMPLEADOSPERFUMERIA_H
