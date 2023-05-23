@@ -22,6 +22,7 @@ public:
     ~cFactura();
     double GET_MONTO();
     string GET_NOMBRE();
+    string GET_APELLIDO();
     bool GET_FORMATO();
     void SET_FORMATO(bool _nuevoFormato);
     void SET_NOMBRECLIENTE(string _nuevoNombreCliente);

@@ -171,7 +171,6 @@ cCliente& cCliente::operator=(const cCliente& cliente)
 
 void cCliente::pagar(double montoTotal)
 {
-    double saldo = 0;//inicializo en 0
     //al cliente que esta en mi vector le resto lo que le cobre
     switch (this->metodoPago)
     {

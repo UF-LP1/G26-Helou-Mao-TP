@@ -26,7 +26,10 @@ cFactura::cFactura(double _monto, string nombreCliente, string apellidoCliente, 
     this->productosComprados = _productosComprados;
 
 }
-
+string cFactura::GET_APELLIDO()
+{
+    return this->apellidoCliente;
+}
 cFactura::~cFactura() {
 }
 

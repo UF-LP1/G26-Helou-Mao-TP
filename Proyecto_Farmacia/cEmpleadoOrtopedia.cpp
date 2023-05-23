@@ -44,7 +44,7 @@ void cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos 
 
 void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en el carrito del cliente
 {
-    misClientes.back().GET_CARRITO()->SET_PRODUCTO(&producto);
+    this->misClientes.back().GET_CARRITO()->SET_PRODUCTO(&producto);
 }
 string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecerle alguna recomendacion al cliente
 {

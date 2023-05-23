@@ -99,7 +99,7 @@ void impresionChequeoQueAnda(cEmpleadoCaja empleadoCaja, cTicketdecompra ticket,
 	cFactura checkeo = *miCliente0.GET_FACTURA();
 	cout << checkeo.GET_MONTO() << endl;
 	cout << checkeo.GET_NOMBRE() << endl;
-	cout << checkeo.GET_NOMBRE() << endl;
+	cout << checkeo.GET_APELLIDO() << endl;
 	cout << "\nPlata actual en caja: $" << empleadoCaja.GET_PLATA() << endl;
 	return;
 }
