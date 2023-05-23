@@ -170,7 +170,7 @@ void opcionesMetodo()
 	cout << "2: Tarjeta" << endl;
 	cout << "3: Mercado pago" << endl;
 }
-eMetodo catsteoMetodo(int metodoAux)
+eMetodo casteoMetodo(int metodoAux)
 {
 	eMetodo metodo;
 	switch (metodoAux)
