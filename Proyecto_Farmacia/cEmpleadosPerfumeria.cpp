@@ -20,23 +20,27 @@ cEmpleadosPerfumeria::cEmpleadosPerfumeria( string nombre, string apellido, int 
 cEmpleadosPerfumeria::~cEmpleadosPerfumeria() {
 
 }
-void cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
+string cEmpleadosPerfumeria::Asesorar()       //asesoramos sobre productos random
 {
     int random;
+    string impresion;
     random = rand() % 3;
     switch (random)
     {
     case 0:
-        cout << "Este shampoo es bueno para cuero cabelludo graso" << endl;
+        impresion = "Este shampoo es bueno para cuero cabelludo graso";
         break;
     case 1:
-        cout << "El secadoor de pelo conviene utilizarlo diez minutos luego del lavado" << endl;
+        impresion = "El secadoor de pelo conviene utilizarlo diez minutos luego del lavado";
         break;
     case 2:
-        cout << "Dentro de los desodorantes el mas recomendado es de la marca Rexona" << endl;
+        impresion = "Dentro de los desodorantes el mas recomendado es de la marca Rexona";
+        break;
     default:
-        cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
+        impresion = "Lamentamos decir que no tenemos el producto deseado";
+        break;
     }
+    return impresion;
 }
 void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria &producto)     //agregamos productos al carrito de a uno
 {
@@ -45,7 +49,6 @@ void cEmpleadosPerfumeria::AgregarProductoCarrito(cPerfumeria &producto)     //a
 void cEmpleadosPerfumeria::AtenderCliente(cCliente* cliente, cPerfumeria* producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(*producto);
-    Asesorar();
     return;
 }
 
@@ -56,7 +59,8 @@ list<cPerfumeria> cEmpleadosPerfumeria::GET_LISTADO()
 
 cPerfumeria cEmpleadosPerfumeria::buscarProducto (unsigned int prodAllevar)
 {
-    prodAllevar = prodAllevar - 1;
+    //busco el producto que quiere el cliente entre los productos del empleado
+    prodAllevar = prodAllevar - 1; //resto uno porque el cliente elije a partir del uno y yo tengo productos a partir del 0
     for (cPerfumeria& perf : this->listaPerfumeria)
     {
         if (prodAllevar == perf.GET_TIPO())

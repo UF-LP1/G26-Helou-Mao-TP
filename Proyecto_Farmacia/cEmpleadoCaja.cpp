@@ -26,13 +26,13 @@ double cEmpleadoCaja::CalculaMontoACobrar() {   //calculo el monto a cobrar para
     list<cProducto> auxProds; //la memoria se libera automaticamente
     auxProds = this->clientes.back().GET_CARRITO()->GET_LISTAPRODUCTOS();//copio en un aux mi lista de productos
 
-    double total = 0.0;  //valor  devolver para cobrar
+    double total = 0.0;  //valor devolver para cobrar
     for (list < cProducto>::iterator it = auxProds.begin(); it != auxProds.end(); it++)   //recorro el auxiliar de productos
     {
         total = total + it->Get_PRECIO();   //voy sumando precio de cada unidad que tengo 
     }
     total = total - this->clientes.back().GET_CARRITO()->GET_DESCUENTOMED();    //le resto el descuento
-    return total;   //devuelvo el total
+    return total;   //devuelvo el total con el descuento ya restado
 }
 
 bool cEmpleadoCaja::chequearSaldoDisponible( double montoAPagar)  //para poder cobrarle al cliente voy  atener que chequear si tiene suficiente saldo 
@@ -77,7 +77,7 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente *cliente)
     
     if (chequearSaldoAux == false)// significa que al cliente no le alcanza la plata
     {
-        throw new exception(" Saldo insuficiente");
+        throw new exception(" Saldo insuficiente"); //la compra no va a poder ser realizada
     }
     else //al cliente le alcanza la plata
     {
@@ -86,15 +86,15 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente *cliente)
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
         try
         {
-            this->clientes.back().pagar(precioTotal);
+            this->clientes.back().pagar(precioTotal);   //llamo la funcion pagar de cliente para poder restarle la plata que va a gastar
         }
         catch (exception* e)
         {
             throw e;
         }
          //le va a restar la plata al cliente
-        emitirFactura(precioTotal);    //le seteo la factur al cliente
-        *cliente = this->clientes.back();
+        emitirFactura(precioTotal);    //le seteo la factura al cliente
+        *cliente = this->clientes.back();//asi tambien se modifica el cliente que recibo del main (es el mismo solo que despues voy a chequear con el del main)
         return ticketAux;   //devuelvo el ticket para despues agregarlo al local
     }
 

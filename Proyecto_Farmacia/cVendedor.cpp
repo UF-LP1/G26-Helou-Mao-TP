@@ -18,7 +18,7 @@ void cVendedor::AtenderCliente(cCliente *cliente) {
     return; 
 }
 
-cCliente cVendedor::PasarClienteaCaja() {
-    
+cCliente cVendedor::PasarClienteaCaja() //agarro el ultimo cliente que atendi para devolverlo y en el main pasarselo a la caja
+{    
     return misClientes.back();
 }

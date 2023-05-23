@@ -53,7 +53,12 @@ void cTicketdecompra::SET_TOTAL(double _nuevoTotal) {
     this->precioTotal = _nuevoTotal;
     return;
 }
-
-
+string cTicketdecompra::GET_NOMBREEMP()
+{
+    return this->nombreEmpleado;
+}
+string cTicketdecompra::GET_NOMBRCLIEN()
+{    return this->nombreCliente;
+}
 
 

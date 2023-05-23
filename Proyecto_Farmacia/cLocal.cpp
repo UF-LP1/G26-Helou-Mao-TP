@@ -31,4 +31,8 @@ cCliente cLocal::PasarClienteMostrador()
       clientesEspera.pop();  //saco el cliente que tengo adelante asi la fila avanza
       return siguiente;
 }
+cTicketdecompra cLocal::GET_ULIMOTICKET()
+{
+    return this->misTickets.back();
+}
 

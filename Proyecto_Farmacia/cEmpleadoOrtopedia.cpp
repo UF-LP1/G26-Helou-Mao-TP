@@ -22,24 +22,25 @@ cEmpleadoOrtopedia::~cEmpleadoOrtopedia() {
 
 }
 
-void cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos random
+string cEmpleadoOrtopedia::Asesorar()     //con random asesoramos sobre productos random
 {
     int random;
+    string consejos = "";
     random = rand() % 3;
     switch (random)
     {
     case 0:
-        cout << "Esta rodillera conviene usarla todo el dia para mas eficiencia" << endl;
+        consejos = "Esta rodillera conviene usarla todo el dia para mas eficiencia";
         break;
     case 1:
-        cout << "Las vendas van a ser mas utiles si se aplican sobre la piel mojada" << endl;
+        consejos = "Las vendas van a ser mas utiles si se aplican sobre la piel mojada";
         break;
     case 2:
-        cout << "El andador se puede doblar para que sea mas practico de transportar" << endl;
+        consejos = "El andador se puede doblar para que sea mas practico de transportar" ;
     default:
-        cout << "Lamentamos decir que no tenemos el producto deseado" << endl;
+        consejos = "Lamentamos decir que no tenemos el producto deseado" ;
     }
-
+    return consejos;
 }
 
 void cEmpleadoOrtopedia::AgregarProductoCarrito(cOrtopedia producto)    //se agrega el producto de ortopedia deseado en el carrito del cliente
@@ -64,24 +65,25 @@ string cEmpleadoOrtopedia::RecomendarProductos()      //usamos random para hecer
         break;
     default:
         impresion="Lamentamos decir que no tenemos el producto deseado" ;
+        break;
     }
     return impresion;
 }
 void cEmpleadoOrtopedia::AtenderCliente(cCliente *cliente, cOrtopedia producto) {
     cVendedor::AtenderCliente(cliente);     //agrego el nuevo cliente al final de mi vector de clientes
     AgregarProductoCarrito(producto);
-    Asesorar();
     return;
 }
 
-cOrtopedia cEmpleadoOrtopedia::buscarProductoOrtopedia(unsigned int prodAllevar)
+cOrtopedia cEmpleadoOrtopedia::buscarProductoOrtopedia(unsigned int prodAllevar)  
 {
-    prodAllevar = prodAllevar - 1;
+    //busco entre los productos que tiene el ortopedista, el que quiere mi cliente
+    prodAllevar = prodAllevar - 1;//resto uno porque al cliente le enumero los productos desde el 1 y yo los tengo enumerados desde 0
     for (cOrtopedia& ort : this->listaOrtopedia)
     {
         if (prodAllevar == ort.GET_TIPO())
         {
-            return ort;
+            return ort;//encuentro el producto y lo devuelvo
         }
     }
 }

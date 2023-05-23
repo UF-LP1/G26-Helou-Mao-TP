@@ -47,7 +47,7 @@ double cFarmaceutico::ChequearDescuentos( ) {
             return porcentajeAux;
         }
     }
-    return 0;
+    return 0;//si no hay descuento por la obra social, devuelvo 0
 
 }
 
@@ -96,7 +96,7 @@ void cFarmaceutico::AtenderCliente(cCliente *cliente) {
     {
         throw e;
     }
-    settearDescuento();
+    settearDescuento();//calculo el descuento y lo agrego al carrito del cliente
     return;
 }
 

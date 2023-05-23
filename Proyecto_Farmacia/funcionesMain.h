@@ -15,3 +15,4 @@ cCliente atencionPerfumeria(cCliente clienteAux, cEmpleadosPerfumeria empleadoPe
 cCliente atencionFarmaceutico(cCliente& clienteAux, cFarmaceutico farmaceutico);
 void imprimirProductosPerfumeria(cEmpleadosPerfumeria empleadoPerfumeria);
 void imprimirProductosOrtopedia(cEmpleadoOrtopedia empleadoOrt);
+void imprimirNecesidad();

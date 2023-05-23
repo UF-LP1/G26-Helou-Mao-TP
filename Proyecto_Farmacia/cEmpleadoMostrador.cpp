@@ -31,13 +31,7 @@ void cEmpleadoMostrador::SET_NUMACTUAL(unsigned int numero)
     return;
 }
 
-void cEmpleadoMostrador::agregarCliente(cCliente *nuevoCliente)//nuevo cliente va a ser el cliente que pase el local (primero en la queue, se conecta por main)
+void cEmpleadoMostrador::agregarCliente(cCliente *nuevoCliente)
 {
-    this->misClientes.push(*nuevoCliente);
-}
-int cEmpleadoMostrador::aDondeVaCliente()   //busca en el siguiente cliente donde lo tengo que mandar
-{
-    cCliente siguienteCliente = misClientes.front();
-    int nuevaNecesidad=siguienteCliente.GET_NECESIDAD();
-    return nuevaNecesidad;
+    this->misClientes.push(*nuevoCliente);//nuevo cliente va a ser el cliente que pase el local (primero en la queue, se conecta por main)
 }

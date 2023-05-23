@@ -7,7 +7,7 @@
 
 
 
-cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP,cReceta receta) :DNI(dni)
+cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, string dni, bool facturaFisica, double MP,cReceta receta) :DNI(dni)
 {
     this->miCarrito = _miCarrito;
     this->nombre = nombre;
@@ -16,7 +16,6 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->metodoPago = metodoPago;
     this->saldoDisponible = saldoDisponible;
     this->efectivodisponible = efectivoDisponible;
-    this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
     this->numeroClientes = cantClientes;
@@ -25,7 +24,7 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
 }
 
 //constructor cuando mi cliente no tiene receta
-cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
+cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible,string dni, bool facturaFisica, double MP) :DNI(dni)
 {
     this->miCarrito = _miCarrito;
     this->nombre = nombre;
@@ -34,14 +33,13 @@ cCliente::cCliente(cCarrito _miCarrito, string nombre, string apellido, string c
     this->metodoPago = metodoPago;
     this->saldoDisponible = saldoDisponible;
     this->efectivodisponible = efectivoDisponible;
-    this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
     this->numeroClientes = cantClientes;
     cantClientes++;
 }
 //constructor cuando mi cliente no tiene carrito ni receta
-cCliente::cCliente( string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible, eNecesidad necesidad, string dni, bool facturaFisica, double MP) :DNI(dni)
+cCliente::cCliente( string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible,  string dni, bool facturaFisica, double MP) :DNI(dni)
 {
     this->nombre = nombre;
     this->apellido = apellido;
@@ -49,16 +47,13 @@ cCliente::cCliente( string nombre, string apellido, string contacto, eMetodo met
     this->metodoPago = metodoPago;
     this->saldoDisponible = saldoDisponible;
     this->efectivodisponible = efectivoDisponible;
-    this->necesidad = necesidad;
     this->facturaFisica = facturaFisica;
     this->saldoMPago = MP;
     this->numeroClientes = cantClientes;
     cantClientes++;
 }
 
-int cCliente::GET_NECESIDAD() {
-    return this->necesidad;
-}
+
 
 cCliente::~cCliente() 
 {
@@ -148,7 +143,7 @@ cReceta cCliente::GET_RECETA()
 {
     return this->miReceta;
 }
-cCliente& cCliente::operator=(const cCliente& cliente)
+cCliente& cCliente::operator=(const cCliente& cliente)  //lo hacemos para poder usarlo en el main para probar las funciones
 {
     if (&cliente != this)
     {
@@ -161,7 +156,6 @@ cCliente& cCliente::operator=(const cCliente& cliente)
         metodoPago = cliente.metodoPago;
         saldoDisponible = cliente.saldoDisponible;
         efectivodisponible = cliente.efectivodisponible;
-        necesidad = cliente.necesidad;
         //DNI = cliente.DNI;
         saldoMPago = cliente.saldoMPago;
         miReceta = cliente.miReceta;
@@ -169,7 +163,7 @@ cCliente& cCliente::operator=(const cCliente& cliente)
     return *this;
 }
 
-void cCliente::pagar(double montoTotal)
+void cCliente::pagar(double montoTotal) //va a descontar de la billetera del cliente la plata que gasto
 {
     //al cliente que esta en mi vector le resto lo que le cobre
     switch (this->metodoPago)
@@ -184,6 +178,6 @@ void cCliente::pagar(double montoTotal)
         this->saldoMPago = (this->saldoMPago - montoTotal);
         break;
     default:
-        throw new exception("Mal registrado el metodo de pago");
+        throw new exception("Mal registrado el metodo de pago");    //imposible que entre aca, pero por las dudas chequeo este error
     }
 }

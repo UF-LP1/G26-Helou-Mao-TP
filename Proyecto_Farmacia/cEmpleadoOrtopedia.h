@@ -16,7 +16,7 @@ private:
     cEmpleadoOrtopedia(string dni);
     cEmpleadoOrtopedia(string nombre, string apellido, int numerEmpleado, const string dni, string contacto, list <cOrtopedia>listaOrtopedia);
     ~cEmpleadoOrtopedia();
-    void Asesorar();
+    string Asesorar();
     string RecomendarProductos();
     void AgregarProductoCarrito(cOrtopedia producto);
     void AtenderCliente(cCliente *cliente, cOrtopedia producto);

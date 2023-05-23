@@ -2,9 +2,8 @@
 
 cCarrito::cCarrito(list<cProducto> listaProductos, double descuentomed)//constructor carrito con productos y desc ya definidos
 {
-    for (list<cProducto>::iterator it=listaProductos.begin(); it!= listaProductos.end(); it++)
+    for (list<cProducto>::iterator it=listaProductos.begin(); it!= listaProductos.end(); it++)  //recorro la lisa de prods y voy copiando uno a uno
     {
-       
         this->miListaProductos.push_back(*it);
     }
     this->descuentoMed = descuentomed;
@@ -45,7 +44,7 @@ void cCarrito::EliminarProductos(cProducto *_product)//elimino el producto todas
     {
         if (it->Get_NOMBRE() == _product->Get_NOMBRE()&& it->GET_MARCA() == _product->GET_MARCA())
         {
-            miListaProductos.erase(it);//elimuno el producto que coincide con el que estoy buscando
+            miListaProductos.erase(it);//elimino el producto que coincide con el que estoy buscando
         }
     }
     //voy a terminar de recorrer el vector de mi carrito hasta eliminar todos los productos que coinciden

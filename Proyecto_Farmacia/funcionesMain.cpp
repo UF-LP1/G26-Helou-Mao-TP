@@ -17,6 +17,7 @@ cFarmaceutico creacionFarmaceutico()
 	cFarmaceutico farmaceutico(descuentosFarmaceutico, medicamentosFarmaceutico, "Roberto", "Gomez", 72728, "5678909", "12345678910");
 	return farmaceutico;
 }
+
 //creo empleado de caja
 cEmpleadoCaja creacionEmpleadoCaja() {
 	cEmpleadoCaja empleadoCaja("Roberto", "Gomez", 72728, "5678909", "12345678910", 15000.0);
@@ -28,6 +29,7 @@ cEmpleadoMostrador creacionEmpMostrador() {
 	cEmpleadoMostrador empleadoMostrador("Roberto", "Gomez", 72728, "5678909", "12345678910", 0);
 	return empleadoMostrador;
 }
+
 //creo empleado ortopedia
 cEmpleadoOrtopedia creacionEmpOrto() {
 	list <cOrtopedia>listaOrtopedia;
@@ -43,6 +45,7 @@ cEmpleadoOrtopedia creacionEmpOrto() {
 	cEmpleadoOrtopedia empleadoOrt("Roberto", "Gomez", 72728, "5678909", "12345678910", listaOrtopedia);
 	return empleadoOrt;
 }
+
 //creo empleado de perfumeria
 cEmpleadosPerfumeria creacionEmpPerfumeria() {
 	list <cPerfumeria> listaPerfumeria;
@@ -73,34 +76,37 @@ cEmpleadosPerfumeria creacionEmpPerfumeria() {
 
 void impresionChequeoQueAnda(cEmpleadoCaja empleadoCaja, cTicketdecompra ticket, cCliente miCliente0)
 {
-	cout << "\nCliente numero # " << miCliente0.GET_NUMEROCLIENTE() << endl;
+	cout << "\nCliente numero # " << miCliente0.GET_NUMEROCLIENTE() << endl;//imprimo el numero de cliente
 	string estadoCompra = "";
-	if (ticket.GET_COMPRA() == true)
+	if (ticket.GET_COMPRA() == true)//si la compra anduvo pongo que fue exitosa
 		estadoCompra = "Compra exitosa";
 	else
-		estadoCompra = "Errores en la compra";
+		estadoCompra = "Errores en la compra";//si algo salio mal durante la compra imprimo que fue fallida
 	cout << estadoCompra << endl;
-	cout << "Precio final: " << ticket.GET_PRECIOFINAL() << endl;
+	cout << "Precio final: " << ticket.GET_PRECIOFINAL() << endl;//imprimo el precio final de la compra
 
 	list<cProducto>productosTicket;
+	int i = 1;
 	productosTicket = ticket.GET_LISTAPRO();
-	for (list<cProducto>::iterator it = productosTicket.begin(); it != productosTicket.end(); it++)
+	for (list<cProducto>::iterator it = productosTicket.begin(); it != productosTicket.end(); it++)//recorro la lista de productos que se llevo el cliente
 	{
-		int i = 1;
-		cout << i << "-" << it->Get_NOMBRE() << ": $" << it->Get_PRECIO() << endl;
+		cout << i << "-" << it->Get_NOMBRE() << ": $" << it->Get_PRECIO() << endl;//imprimo nombre y precio de cada producto
 		i++;
 	}
+	//chequeo como pago mi cliente e imprimo el saldo actual en ese metodo
 	if (miCliente0.GET_METODO() == 0)
 		cout << "Saldo final efectivo: $" << miCliente0.GET_EFECTIVO_DISPONIBLE() << endl;
 	else if (miCliente0.GET_METODO() == 1)
 		cout << "Saldo final tarjeta: $" << miCliente0.GET_SALDO_DISPONIBLE() << endl;
 	else
 		cout << "Saldo final mercado pago: $" << miCliente0.GET_SALDO_MP() << endl;
-	cFactura checkeo = *miCliente0.GET_FACTURA();
-	cout << checkeo.GET_MONTO() << endl;
-	cout << checkeo.GET_NOMBRE() << endl;
-	cout << checkeo.GET_APELLIDO() << endl;
-	cout << "\nPlata actual en caja: $" << empleadoCaja.GET_PLATA() << endl;
+	//copio la factura del cliente para imprimie algunos datos tambien
+	cFactura facturaCheckeo = *miCliente0.GET_FACTURA();
+	cout << "\nFACTURA:" << endl;
+	cout << "Monto: "<<facturaCheckeo.GET_MONTO() << endl;
+	cout <<"Nombre cliente: " << facturaCheckeo.GET_NOMBRE() << endl;
+	cout <<"Apellido cliente: " << facturaCheckeo.GET_APELLIDO() << endl;
+	cout << "\nPlata actual en caja (local): $" << empleadoCaja.GET_PLATA() << endl;
 	return;
 }
 
@@ -153,4 +159,11 @@ void imprimirProductosOrtopedia(cEmpleadoOrtopedia empleadoOrt)
 		
 	}
 	return;
+}
+void imprimirNecesidad()
+{
+	cout << "Elija su necesidad:" << endl;
+	cout << "1: Farmacia" << endl;
+	cout << "2: Perfumeria" << endl;
+	cout << "3: Ortopedia" << endl;
 }

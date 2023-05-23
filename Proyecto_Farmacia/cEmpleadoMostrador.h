@@ -23,7 +23,7 @@ public:
     void SET_NUMACTUAL(unsigned int numero);
     cCliente EnviarClienteOtroEmp();
     void agregarCliente(cCliente *nuevoCliente);
-    int aDondeVaCliente();
+
 
 };
 

@@ -26,6 +26,8 @@ public:
     ~cTicketdecompra();
     bool GET_COMPRA();
     double GET_PRECIOFINAL();
+    string GET_NOMBREEMP();
+    string GET_NOMBRCLIEN();
     list<cProducto> GET_LISTAPRO();
     void SET_TOTAL(double _nuevoTotal);
 };
