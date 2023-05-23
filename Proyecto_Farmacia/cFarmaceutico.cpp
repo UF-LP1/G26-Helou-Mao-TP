@@ -70,6 +70,9 @@ double cFarmaceutico::calcularDescuento(double porcentaje)
             return aDescontar;
         }
     }
+    throw new exception("No se encontro el medicamento");
+    return 0;
+
 }
 void cFarmaceutico::AgregarProductoReceta()
 {   //metodo que recorre el listado de medicamentos y compara por nombre con el que trae el cliente en su receta para añadirlo a su carrito
@@ -96,7 +99,13 @@ void cFarmaceutico::AtenderCliente(cCliente *cliente) {
     {
         throw e;
     }
-    settearDescuento();//calculo el descuento y lo agrego al carrito del cliente
+    try {
+        settearDescuento();//calculo el descuento y lo agrego al carrito del cliente
+    }
+    catch (exception* e)
+    {
+        throw e;
+    }
     return;
 }
 

@@ -93,13 +93,9 @@ void impresionChequeoQueAnda(cEmpleadoCaja empleadoCaja, cTicketdecompra ticket,
 		cout << i << "-" << it->Get_NOMBRE() << ": $" << it->Get_PRECIO() << endl;//imprimo nombre y precio de cada producto
 		i++;
 	}
-	//chequeo como pago mi cliente e imprimo el saldo actual en ese metodo
-	if (miCliente0.GET_METODO() == 0)
-		cout << "Saldo final efectivo: $" << miCliente0.GET_EFECTIVO_DISPONIBLE() << endl;
-	else if (miCliente0.GET_METODO() == 1)
-		cout << "Saldo final tarjeta: $" << miCliente0.GET_SALDO_DISPONIBLE() << endl;
-	else
-		cout << "Saldo final mercado pago: $" << miCliente0.GET_SALDO_MP() << endl;
+	//chequeo como pago mi cliente e imprimo el saldo actual 
+
+	cout << "Saldo final : $" << miCliente0.GET_SALDO_DISPONIBLE() << endl;
 	//copio la factura del cliente para imprimie algunos datos tambien
 	cFactura facturaCheckeo = *miCliente0.GET_FACTURA();
 	cout << "\nFACTURA:" << endl;
@@ -166,4 +162,63 @@ void imprimirNecesidad()
 	cout << "1: Farmacia" << endl;
 	cout << "2: Perfumeria" << endl;
 	cout << "3: Ortopedia" << endl;
+}
+void opcionesMetodo()
+{
+	cout << "Ingrese el metodo pago del cliente: " << endl;
+	cout << "1: Efectivo" << endl;
+	cout << "2: Tarjeta" << endl;
+	cout << "3: Mercado pago" << endl;
+}
+eMetodo catsteoMetodo(int metodoAux)
+{
+	eMetodo metodo;
+	switch (metodoAux)
+	{
+	case 0:
+		metodo = efectivo;
+		break;
+	case 1:
+		metodo = tarjeta;
+		break;
+	case 2:
+		metodo = mercadoPago;
+		break;
+	}
+	return metodo;
+}
+list<cGolosinas> creacionGolosinas()//caramelos, chicles, chupetin, chocolate
+{
+	list <cGolosinas>listaGolosinas;
+	cGolosinas prod1(70.0, "caramelos", "billiken", caramelos);
+	cGolosinas prod2(1000.0, "chicles", "beldent", chicles);
+	cGolosinas prod3(600.0, "chupetin", "pico dulce", chupetin);
+	cGolosinas prod4(250.0, "chocolate", "tobleron", chocolate);
+	listaGolosinas.push_back(prod1);
+	listaGolosinas.push_back(prod2);
+	listaGolosinas.push_back(prod3);
+	listaGolosinas.push_back(prod4);
+	return listaGolosinas;
+}
+void imprimirGolosinas(list<cGolosinas>listaGolosinas)
+{
+	int i = 0;
+	for (cGolosinas& gols : listaGolosinas)
+	{
+		i++;
+		cout << i << ": " << gols.Get_NOMBRE() << endl;
+	}
+	return;
+
+}
+void imprimirCarrito(cCliente miCliente0)
+{
+	list<cProducto> listaProds= miCliente0.GET_CARRITO()->GET_LISTAPRODUCTOS();
+	int i = 0;
+	for (cProducto& prods : listaProds)
+	{
+		i++;
+		cout << i << ": " << prods.Get_NOMBRE() << endl;
+	}
+	return;
 }

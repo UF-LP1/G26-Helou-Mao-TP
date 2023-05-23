@@ -23,15 +23,13 @@ private:
     string contacto;
     eMetodo metodoPago;
     double saldoDisponible;
-    double efectivodisponible;
     const string DNI;
     bool facturaFisica;
-    double saldoMPago;
     cReceta miReceta;
 public:
-    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible, double efectivoDisponible,  const string dni, bool facturaFisica,double MP, cReceta receta);
-    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible,  const string dni, bool facturaFisica, double MP);
-    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, double efectivoDisponible,  const string dni, bool facturaFisica, double MP);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago,double saldoDisponible,  const string dni, bool facturaFisica,cReceta receta);
+    cCliente(cCarrito _miCarrito, string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible,   const string dni, bool facturaFisica);
+    cCliente(string nombre, string apellido, string contacto, eMetodo metodoPago, double saldoDisponible, const string dni, bool facturaFisica);
     ~cCliente();
     int GET_NUMEROCLIENTE();
     cCarrito *GET_CARRITO();
@@ -39,20 +37,17 @@ public:
     eMetodo GET_METODO();
     void SET_FACTURA(cFactura nuevaFactura);
     void AgregarProductosPerfumeria(cPerfumeria *prodPerfumeria, int cantidad);
-    void AgregarGolosinas(cGolosinas* golosinas, int cantidad);
+    void AgregarGolosinas(int prodAllevar, list<cGolosinas>listaGolosinas);
     string GET_DNI();
     cFactura *GET_FACTURA();
     string GET_APELLIDO();
     string GET_NOMBRE();
     double GET_SALDO_DISPONIBLE();
-    double GET_EFECTIVO_DISPONIBLE();
-    double GET_SALDO_MP();
-    void SET_MP(double *saldoMP);
     void SET_SALDO(double *saldoDisponible);
-    void SET_EFECTIVO(double *efectivoDisponible);
     cReceta GET_RECETA();
     cCliente& operator=(const cCliente&);
     void pagar(double montoTotal);
+    void SET_RECETA(cReceta nuevaReceta);
 };
 
 #endif //_CCLIENTE_H

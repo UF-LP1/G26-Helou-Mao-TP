@@ -14,3 +14,7 @@ cGolosinas::cGolosinas(double _precio, string _nombre, string _marca, eGolosinas
 cGolosinas::~cGolosinas() {
 
 }
+eGolosinas cGolosinas::GET_TIPO()
+{
+	return this->tipoGolosina;
+}

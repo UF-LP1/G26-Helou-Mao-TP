@@ -16,3 +16,8 @@ cCliente atencionFarmaceutico(cCliente& clienteAux, cFarmaceutico farmaceutico);
 void imprimirProductosPerfumeria(cEmpleadosPerfumeria empleadoPerfumeria);
 void imprimirProductosOrtopedia(cEmpleadoOrtopedia empleadoOrt);
 void imprimirNecesidad();
+void opcionesMetodo();
+eMetodo catsteoMetodo(int metodoAux);
+void imprimirGolosinas(list<cGolosinas> listaGolosinas);
+list<cGolosinas> creacionGolosinas();
+void imprimirCarrito(cCliente miCliente0);

@@ -37,16 +37,8 @@ double cEmpleadoCaja::CalculaMontoACobrar() {   //calculo el monto a cobrar para
 
 bool cEmpleadoCaja::chequearSaldoDisponible( double montoAPagar)  //para poder cobrarle al cliente voy  atener que chequear si tiene suficiente saldo 
 {
-   
-    int metodoAux = this->clientes.back().GET_METODO();   //obtengo el metodo de pago del cliente
     double saldoDisponible = 0.0;
-   
-    if (metodoAux == 0) //paga en efectivo
-        saldoDisponible = this->clientes.back().GET_EFECTIVO_DISPONIBLE(); //obtengo el efectivo disponible
-    else if (metodoAux==1)  //paga con tarjeta
-        saldoDisponible = this->clientes.back().GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
-    else //paga con mercado pago
-         saldoDisponible = this->clientes.back().GET_SALDO_MP(); //obtengo el saldo disponible en mercado pago
+    saldoDisponible = this->clientes.back().GET_SALDO_DISPONIBLE();  //obtengo el saldo disponible en tarjeta
     
     //chequeo si alcanza para pagar
     if (montoAPagar <= saldoDisponible)
@@ -84,14 +76,8 @@ cTicketdecompra cEmpleadoCaja::Cobrar(cCliente *cliente)
             //creo un ticket de compra con mis datos
         cTicketdecompra ticketAux(true,precioTotal, this->clientes.back().GET_DNI(), this->nombre, this->apellido,this->numeroEmpleado, clientes.back().GET_NOMBRE(), clientes.back().GET_APELLIDO(), clientes.back().GET_CARRITO()->GET_LISTAPRODUCTOS()); //construyoelticket de compra
         this->plataCaja = this->plataCaja + precioTotal;    //sumo al dinero en caja lo que acabo de cobrar
-        try
-        {
-            this->clientes.back().pagar(precioTotal);   //llamo la funcion pagar de cliente para poder restarle la plata que va a gastar
-        }
-        catch (exception* e)
-        {
-            throw e;
-        }
+       
+        this->clientes.back().pagar(precioTotal);   //llamo la funcion pagar de cliente para poder restarle la plata que va a gastar
          //le va a restar la plata al cliente
         emitirFactura(precioTotal);    //le seteo la factura al cliente
         *cliente = this->clientes.back();//asi tambien se modifica el cliente que recibo del main (es el mismo solo que despues voy a chequear con el del main)

@@ -16,6 +16,7 @@ private:
 public:
     cGolosinas(double _precio, string _nombre, string _marca, eGolosinas _tipoGolosinas);
     ~cGolosinas();
+    eGolosinas GET_TIPO();
 };
 
 #endif //_CGLOSINAS_H 

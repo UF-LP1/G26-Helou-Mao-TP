@@ -14,36 +14,68 @@ int main()
 	cEmpleadosPerfumeria empleadoPerfumeria = creacionEmpPerfumeria();
 	cEmpleadoOrtopedia empleadoOrt = creacionEmpOrto();
 
+	//creo las golosinas
+	list<cGolosinas> listaGolosinas = creacionGolosinas();
 	//creo carrito
 	cCarrito carritoCliente;
 	cReceta receta("osde", "ibupirac", 2);
 
-	//creo clientes
-	cCliente miCliente0(carritoCliente, "Guadalupe", "Helou", "11 2283-2778", efectivo, 1000.0, 3000.0, "45671572", true, 4000.0, receta);
+	//permito que el usuario cree el cliente
+	string nombre = "";
+	string apellido = "";
+	string contacto = "maovalentina@mail";
+	string DNI = "5463289";
+	int metodoAux = 0;
+	double saldo = 0.0;
+	cout << "Ingrese el nombre del cliente: " << endl;
+	cin >> nombre;
+	cout << "Ingrese el apellido del cliente: " << endl;
+	cin >> apellido;
+	do {
+		opcionesMetodo();
+		cin >> metodoAux;
+		metodoAux = metodoAux - 1;
+	} while (metodoAux<0||metodoAux>2);
+
+	eMetodo metodo = catsteoMetodo(metodoAux);
+
+	do {
+		cout << "Ingrese el saldo disponible del metodo de pago del cliente: " << endl;
+		cin >> saldo;
+
+	} while (saldo < 0);
+	
+
+
+	int necesidadCliente = 0;
+	//le doy al cliente las opciones de sectores donde comprar
+
+	do {
+		imprimirNecesidad();
+		cin >> necesidadCliente;
+		necesidadCliente = necesidadCliente - 1;
+	} while (necesidadCliente > 2 || necesidadCliente < 0);//para asegurarme que ingresa un numero valido
+
+	cCliente miCliente0(carritoCliente, nombre, apellido, contacto, metodo, saldo, DNI,false);
+	//creo cliente
+	if (necesidadCliente == 0)
+		miCliente0.SET_RECETA(receta);
 
 	//clientes llegan al local
 	miLocal.agregarCliente(miCliente0);
-
 	
 	//local me pasa a mostrador el primer cliente a ser atendiido
 	cCliente clienteAux = miLocal.PasarClienteMostrador();
 	empleadoMostrador.agregarCliente(&clienteAux);	//agrego al cliente al registro del empleado de mostrador
 
 	//empleado mostrador me pasa el proximo empleado 
-	int necesidadCliente = 0;
+
 	string imprimir = "";
 	clienteAux = empleadoMostrador.EnviarClienteOtroEmp();
 	unsigned int prodAllevar = 0;
 	bool deseaContinuar=true;
 	string input;
-	//le doy al cliente las opciones de sectores donde comprar
-	do {
-		imprimirNecesidad();
-		cin >> necesidadCliente;
-		necesidadCliente = necesidadCliente - 1;
-	} while (necesidadCliente > 2|| necesidadCliente<0);//para asegurarme que ingresa un numero valido
-
-
+	
 	if (necesidadCliente == 0) //mi cliente quiere ir a la farmacia
 	{
 		clienteAux = atencionFarmaceutico( clienteAux,  farmaceutico);
@@ -67,7 +99,6 @@ int main()
 					prodAllevar = stoi(input);	//transformo el string a int
 			} while ((prodAllevar == 0 || prodAllevar > 10) && input != "Listo");	//metio un dato invalido (basura)
 			if (input != "Listo")	//si pidio un producto lo agrego al carrito
-
 				//si desea eliminar algun producto ingrese el numero del producto, si quiere continuar ingrese 0
 				clienteAux = atencionPerfumeria(clienteAux, empleadoPerfumeria, prodAllevar);
 		} while (input != "Listo");	//terminamos el loop, no quiere mas productos
@@ -97,8 +128,66 @@ int main()
 		} while (input != "Listo");
 	}
 
+	int golosinas = 0;
+	do {
+		cout << "Si desea ingresar alguna golosina ingrese 1, si no lo desea ingrese 2 " << endl;
+		cin >> golosinas;
+	} while (golosinas != 1 && golosinas != 2);
+	int golosinaDeseada = 0;
+	if (golosinas == 1)
+	{
+		cout << "\nIngrese Listo cuando desee finalizar la compra" << endl;
+		imprimirGolosinas(listaGolosinas);
+		do
+		{
+
+			do
+			{
+				cout << "Elija el producto que desea llevar (numero del 1 al 4):" << endl;
+				cin >> input;
+				golosinaDeseada = 0;	//lo reseto para que no lo guarde en caso de que no ponga numeros ni listo
+				if (input[0] >= '0' && input[0] <= '9')	//si metio un numero valido entonces lo transformo para mandarlo a atencion ortopedia
+					prodAllevar = stoi(input);	//transformo el string a int
+			} while ((prodAllevar == 0 || prodAllevar > 4) && input != "Listo");	//metio un dato invalido (basura)
+			if (input != "Listo")	//si pidio un producto lo agrego al carrito
+			{//si desea eliminar algun producto ingrese el numero del producto, si quiere continuar ingrese 0
+				clienteAux.AgregarGolosinas(prodAllevar, listaGolosinas);
+			}
+		} while (input != "Listo");	//terminamos el loop, no quiere mas productos
+		
+	}
+	int eliminar = 0;
+	int prodEliminar = 0;
+	do {
+		cout << "Si desea eliminar algun producto ingrese 1, si no lo desea ingrese 2 " << endl;
+		cin >> eliminar;
+	} while (eliminar != 1 && eliminar != 2);
+
+	if (eliminar == 1)
+	{
+		
+		do
+		{
+		do
+		{
+			cout << "\nIngrese Listo cuando desee proseguir con la compra" << endl;
+			imprimirCarrito(clienteAux);
+			cout << "Elija el producto que desea eliminar:" << endl;
+			cin >> input;
+			prodEliminar = 0;	//lo reseto para que no lo guarde en caso de que no ponga numeros ni listo
+			if (input[0] >= '0' && input[0] <= '9')	//si metio un numero valido entonces lo transformo para mandarlo a atencion ortopedia
+				prodEliminar = stoi(input);	//transformo el string a int
+		} while ((prodEliminar == 0 || prodEliminar> 4) && input != "Listo");	//metio un dato invalido (basura)
+		if (input != "Listo")	//si pidio un producto lo agrego al carrito
+		{//si desea eliminar algun producto ingrese el numero del producto, si quiere continuar ingrese 0
+			clienteAux.GET_CARRITO()->EliminarProductos(prodEliminar);
+		}
+		} while (input != "Listo");	//terminamos el loop, no quiere mas productos
+	}
+
 	//paso cliente aux al empleado de caja para que pueda cobrar
 	empleadoCaja.AtenderCliente(&clienteAux);
+
 	//implemento funcion cobrar
 
 	cTicketdecompra ticket1;
